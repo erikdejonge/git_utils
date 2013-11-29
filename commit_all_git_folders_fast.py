@@ -39,6 +39,7 @@ def main():
         procs.append(p)
     for p in procs:
         p.wait()
+        print p.stdout.read()
 
 
 if __name__ == "__main__":
