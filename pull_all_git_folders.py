@@ -8,7 +8,10 @@
 """ git checking script """
 
 import os
+import sys
+import subprocess
 import cPickle as pickle
+
 
 def find_git_repos(arg, directory, files):
     """ find the git repositories """
@@ -17,9 +20,6 @@ def find_git_repos(arg, directory, files):
     git_dir = os.path.join(directory, ".git")
     if os.path.exists(git_dir):
         arg.append(directory)
-
-
-import subprocess
 
 
 def main():
@@ -42,7 +42,13 @@ def main():
 
     for p in procs:
         p.wait()
-    print "done"
+        output = p.stdout.read()
+        if "nothing to commit" in output:
+            sys.stdout.write(".")
+            sys.stdout.flush()
+        else:
+            print output
+    print
 
 
 if __name__ == "__main__":
