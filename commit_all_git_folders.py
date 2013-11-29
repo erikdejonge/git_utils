@@ -27,7 +27,7 @@ def main():
 
     dfp = "/Users/rabshakeh/workspace/gitdirlist.pickle"
     if os.path.exists(dfp):
-        os.remove(dfp) 
+        os.remove(dfp)
     dir_list = []
     os.path.walk(".", find_git_repos, dir_list)
     currdir = os.popen("pwd").read().strip()
@@ -36,7 +36,7 @@ def main():
 
     procs = []
     for folder in dir_list:
-        procs.append(subprocess.Popen(["/usr/local/bin/git", "commit", "-am", msg], cwd=folder))
+        procs.append(subprocess.Popen(["/usr/local/bin/git", "commit", "-am", msg], stdout=subprocess.PIPE, cwd=folder))
 
     for p in procs:
         p.wait()

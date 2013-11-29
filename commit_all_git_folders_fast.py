@@ -35,7 +35,7 @@ def main():
     msg = os.popen("date").read().strip()
     procs = []
     for folder in dir_list:
-        p = subprocess.Popen(["/usr/local/bin/git", "commit", "-am", msg], cwd=folder)
+        p = subprocess.Popen(["/usr/local/bin/git", "commit", "-am",  msg], stdout=subprocess.PIPE, cwd=folder)
         procs.append(p)
     for p in procs:
         p.wait()
