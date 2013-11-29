@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6f2dfb3-74c7-41e2-af02-10f9cb3a9ca7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commit_all_git_folders.py" afterPath="$PROJECT_DIR$/commit_all_git_folders.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commit_all_git_folders_fast.py" afterPath="$PROJECT_DIR$/commit_all_git_folders_fast.py" />
     </list>
     <ignored path="git_utils.iws" />
@@ -29,7 +28,7 @@
       <file leaf-file-name="commit_all_git_folders_fast.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/commit_all_git_folders_fast.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="16" selection-start="1336" selection-end="1336" vertical-scroll-proportion="0.8244959" vertical-offset="0" max-vertical-offset="1339">
+            <state line="35" column="19" selection-start="902" selection-end="902" vertical-scroll-proportion="0.6011949" vertical-offset="0" max-vertical-offset="1339">
               <folding />
             </state>
           </provider>
@@ -45,6 +44,11 @@
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -350,7 +354,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/commit_all_git_folders_fast.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="16" selection-start="1336" selection-end="1336" vertical-scroll-proportion="0.8244959" vertical-offset="0" max-vertical-offset="1339">
+        <state line="35" column="19" selection-start="902" selection-end="902" vertical-scroll-proportion="0.6011949" vertical-offset="0" max-vertical-offset="1339">
           <folding />
         </state>
       </provider>

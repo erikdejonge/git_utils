@@ -46,7 +46,7 @@ def main():
             sys.stdout.flush()
         else:
             print output
-    print "done"
+
 
 if __name__ == "__main__":
     main()
