@@ -45,6 +45,7 @@ def main():
             sys.stdout.write(".")
             sys.stdout.flush()
         else:
+            sys.stdout.write("\n")
             print output
     print
 
