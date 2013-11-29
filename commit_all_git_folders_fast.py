@@ -8,6 +8,7 @@
 """ git checking script """
 
 import os
+import sys
 import cPickle as pickle
 import subprocess
 
@@ -41,10 +42,11 @@ def main():
         p.wait()
         output = p.stdout.read()
         if "nothing to commit" in output:
-            pass
+            sys.stdout.write(".")
+            sys.stdout.flush()
         else:
             print output
-
+    print "done"
 
 if __name__ == "__main__":
     main()

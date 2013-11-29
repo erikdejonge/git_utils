@@ -6,7 +6,7 @@
 # -*- coding: utf-8 -*-
 
 """ git checking script """
-
+import sys
 import os
 import subprocess
 import cPickle as pickle
@@ -42,10 +42,11 @@ def main():
         p.wait()
         output = p.stdout.read()
         if "nothing to commit" in output:
-            pass
+            sys.stdout.write(".")
+            sys.stdout.flush()
         else:
             print output
-
+    print
     procs = []
     for folder in dir_list:
         procs.append(subprocess.Popen(["/usr/local/bin/git", "gc"], cwd=folder))
