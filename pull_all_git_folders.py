@@ -43,7 +43,7 @@ def main():
     for p in procs:
         p.wait()
         output = p.stdout.read()
-        if "nothing to commit" in output:
+        if "Everything up-to-date" in output:
             sys.stdout.write(".")
             sys.stdout.flush()
         else:

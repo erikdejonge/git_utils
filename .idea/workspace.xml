@@ -46,7 +46,7 @@
       <file leaf-file-name="pull_all_git_folders.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pull_all_git_folders.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="17" selection-start="209" selection-end="209" vertical-scroll-proportion="0.20612398" vertical-offset="0" max-vertical-offset="1403">
+            <state line="45" column="33" selection-start="1140" selection-end="1140" vertical-scroll-proportion="0.7729649" vertical-offset="0" max-vertical-offset="1403">
               <folding />
             </state>
           </provider>
@@ -370,7 +370,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pull_all_git_folders.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="17" selection-start="209" selection-end="209" vertical-scroll-proportion="0.20612398" vertical-offset="0" max-vertical-offset="1403">
+        <state line="45" column="33" selection-start="1140" selection-end="1140" vertical-scroll-proportion="0.7729649" vertical-offset="0" max-vertical-offset="1403">
           <folding />
         </state>
       </provider>
