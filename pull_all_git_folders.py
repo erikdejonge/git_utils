@@ -43,7 +43,7 @@ def main():
     for p in procs:
         p.wait()
         output = p.stdout.read()
-        if "Everything up-to-date" in output:
+        if "Already up-to-date" in output:
             sys.stdout.write(".")
             sys.stdout.flush()
         else:

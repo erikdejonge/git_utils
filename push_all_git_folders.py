@@ -8,7 +8,8 @@
 """ git checking script """
 
 import os
-import cPickle as pickle
+import sys
+import cPickle
 import subprocess
 
 def find_git_repos(arg, directory, files):
@@ -26,20 +27,27 @@ def main():
 
     dfp = "/Users/rabshakeh/workspace/gitdirlist.pickle"
     if os.path.exists(dfp):
-        dir_list = pickle.load(open(dfp))
+        dir_list = cPickle.load(open(dfp))
     else:
         dir_list = []
         os.path.walk(".", find_git_repos, dir_list)
         currdir = os.popen("pwd").read().strip()
         dir_list = [os.path.join(currdir, x.lstrip("./")) for x in dir_list]
-        pickle.dump(dir_list, open(dfp, "w"))
+        cPickle.dump(dir_list, open(dfp, "w"))
 
     procs = []
     for folder in dir_list:
-        procs.append(subprocess.Popen(["/usr/local/bin/git", "push"], cwd=folder))
+        procs.append(subprocess.Popen(["/usr/local/bin/git", "push"], stdout=subprocess.PIPE, cwd=folder))
 
     for p in procs:
         p.wait()
+        output = p.stdout.read()
+        if "Everything up-to-date" in output:
+            sys.stdout.write(".")
+            sys.stdout.flush()
+        else:
+            print output
+
 
     print "done"
 
