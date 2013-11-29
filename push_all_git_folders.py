@@ -41,10 +41,7 @@ def main():
 
     for p in procs:
         p.wait()
-        output = p.stdout.read()
-        print output
-        print
-        print
+        output = p.stderr.read()
         if "Everything up-to-date" in output:
             sys.stdout.write(".")
             sys.stdout.flush()
