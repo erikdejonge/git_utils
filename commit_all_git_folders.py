@@ -40,6 +40,11 @@ def main():
 
     for p in procs:
         p.wait()
+        output = p.stdout.read()
+        if "nothing to commit" in output:
+            pass
+        else:
+            print output
 
     procs = []
     for folder in dir_list:
@@ -47,6 +52,8 @@ def main():
 
     for p in procs:
         p.wait()
+
+
 
 if __name__ == "__main__":
     main()

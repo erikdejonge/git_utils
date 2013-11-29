@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6f2dfb3-74c7-41e2-af02-10f9cb3a9ca7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commit_all_git_folders_fast.py" afterPath="$PROJECT_DIR$/commit_all_git_folders_fast.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commit_all_git_folders.py" afterPath="$PROJECT_DIR$/commit_all_git_folders.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pull_all_git_folders.py" afterPath="$PROJECT_DIR$/pull_all_git_folders.py" />
     </list>
     <ignored path="git_utils.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,19 +26,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="commit_all_git_folders.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="commit_all_git_folders.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/commit_all_git_folders.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="102" selection-start="1003" selection-end="1003" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1334">
+            <state line="52" column="19" selection-start="1336" selection-end="1336" vertical-scroll-proportion="0.862584" vertical-offset="41" max-vertical-offset="1495">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="commit_all_git_folders_fast.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="commit_all_git_folders_fast.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/commit_all_git_folders_fast.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="17" selection-start="1147" selection-end="1147" vertical-scroll-proportion="0.7042569" vertical-offset="0" max-vertical-offset="1339">
+            <state line="46" column="0" selection-start="1130" selection-end="1261" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1288">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pull_all_git_folders.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pull_all_git_folders.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="40" column="94" selection-start="1013" selection-end="1013" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1265">
               <folding />
             </state>
           </provider>
@@ -56,8 +66,9 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/commit_all_git_folders.py" />
         <option value="$PROJECT_DIR$/commit_all_git_folders_fast.py" />
+        <option value="$PROJECT_DIR$/pull_all_git_folders.py" />
+        <option value="$PROJECT_DIR$/commit_all_git_folders.py" />
       </list>
     </option>
   </component>
@@ -332,16 +343,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/commit_all_git_folders.py">
+    <entry file="file://$PROJECT_DIR$/pull_all_git_folders.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="102" selection-start="1003" selection-end="1003" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1334">
+        <state line="40" column="94" selection-start="1013" selection-end="1013" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1265">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/commit_all_git_folders_fast.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="17" selection-start="1147" selection-end="1147" vertical-scroll-proportion="0.7042569" vertical-offset="0" max-vertical-offset="1339">
+        <state line="46" column="0" selection-start="1130" selection-end="1261" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1288">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commit_all_git_folders.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="19" selection-start="1336" selection-end="1336" vertical-scroll-proportion="0.862584" vertical-offset="41" max-vertical-offset="1495">
           <folding />
         </state>
       </provider>
