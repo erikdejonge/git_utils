@@ -39,7 +39,11 @@ def main():
         procs.append(p)
     for p in procs:
         p.wait()
-        print p.stdout.read()
+        output = p.stdout.read()
+        if "nothing to commit" in output:
+            pass
+        else:
+            print output
 
 
 if __name__ == "__main__":
