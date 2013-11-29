@@ -48,9 +48,7 @@ def main():
         else:
             sys.stdout.write("\n")
             print output
-
-
-    print "done"
+    print
 
 if __name__ == "__main__":
     main()
