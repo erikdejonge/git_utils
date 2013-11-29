@@ -37,7 +37,7 @@ def main():
 
     procs = []
     for folder in dir_list:
-        procs.append(subprocess.Popen(["/usr/local/bin/git", "push"], stdout=subprocess.PIPE, cwd=folder))
+        procs.append(subprocess.Popen(["/usr/local/bin/git", "push"], stderr=subprocess.PIPE, cwd=folder))
 
     for p in procs:
         p.wait()
