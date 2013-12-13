@@ -24,11 +24,7 @@ def find_git_repos(arg, directory, files):
 
 def main():
     """ check all folders and pull all from the server """
-    excludes = []
     dfp = "/Users/rabshakeh/workspace/gitdirlist.pickle"
-    if os.path.exists("/Users/rabshakeh/workspace/excludes_push"):
-        excludes = open("/Users/rabshakeh/workspace/excludes_push").read().split("\n")
-
     if os.path.exists(dfp):
         dir_list = pickle.load(open(dfp))
     else:
@@ -41,8 +37,7 @@ def main():
     procs = []
 
     for folder in dir_list:
-        if os.path.basename(folder) not in excludes:
-            procs.append(subprocess.Popen(["/usr/local/bin/git", "pull"], stdout=subprocess.PIPE, cwd=folder))
+        procs.append(subprocess.Popen(["/usr/local/bin/git", "pull"], stdout=subprocess.PIPE, cwd=folder))
 
     for p in procs:
         p.wait()

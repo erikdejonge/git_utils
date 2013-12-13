@@ -8,9 +8,11 @@
 """ git checking script """
 
 import os
+import time
 import sys
 import cPickle
 import subprocess
+
 
 def find_git_repos(arg, directory, files):
     """ find the git repositories """
@@ -24,6 +26,10 @@ def find_git_repos(arg, directory, files):
 
 def main():
     """ check all folders and pull all from the server """
+    excludes = []
+
+    if os.path.exists("/Users/rabshakeh/workspace/excludes_push"):
+        excludes = open("/Users/rabshakeh/workspace/excludes_push").read().split("\n")
 
     dfp = "/Users/rabshakeh/workspace/gitdirlist.pickle"
     if os.path.exists(dfp):
@@ -36,8 +42,17 @@ def main():
         cPickle.dump(dir_list, open(dfp, "w"))
 
     procs = []
+
     for folder in dir_list:
-        procs.append(subprocess.Popen(["/usr/local/bin/git", "push"], stderr=subprocess.PIPE, cwd=folder))
+        if os.path.basename(folder) not in excludes:
+            started = False
+            while not started:
+                try:
+                    procs.append(subprocess.Popen(["/usr/local/bin/git", "push"], stderr=subprocess.PIPE, cwd=folder))
+                    started = True
+                except Exception, e:
+                    print str(e)
+                    time.sleep(1)
 
     for p in procs:
         p.wait()
@@ -49,6 +64,7 @@ def main():
             sys.stdout.write("\n")
             print output
     print
+
 
 if __name__ == "__main__":
     main()
