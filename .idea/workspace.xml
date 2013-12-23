@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d6f2dfb3-74c7-41e2-af02-10f9cb3a9ca7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commit_all_git_folders_fast.py" afterPath="$PROJECT_DIR$/commit_all_git_folders_fast.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/push_all_git_folders.py" afterPath="$PROJECT_DIR$/push_all_git_folders.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/status_all_git_folders.py" afterPath="$PROJECT_DIR$/status_all_git_folders.py" />
-    </list>
+    <list default="true" id="d6f2dfb3-74c7-41e2-af02-10f9cb3a9ca7" name="Default" comment="" />
     <ignored path="git_utils.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,15 +23,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="commit_all_git_folders_fast.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/commit_all_git_folders_fast.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="84" selection-start="656" selection-end="668" vertical-scroll-proportion="0.36445108" vertical-offset="156" max-vertical-offset="1495">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="commit.sh" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/commit.sh">
           <provider selected="true" editor-type-id="text-editor">
@@ -54,19 +41,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="push_all_git_folders.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/push_all_git_folders.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="8" selection-start="634" selection-end="634" vertical-scroll-proportion="0.0" vertical-offset="233" max-vertical-offset="1748">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="status_all_git_folders.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="status_all_git_folders.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/status_all_git_folders.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="8" selection-start="565" selection-end="663" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1380">
+            <state line="28" column="8" selection-start="565" selection-end="663" vertical-scroll-proportion="0.48095593" vertical-offset="0" max-vertical-offset="1380">
               <folding />
             </state>
           </provider>
@@ -442,23 +420,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/status_all_git_folders.py">
+    <entry file="file://$PROJECT_DIR$/commit_all_git_folders_fast.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="8" selection-start="565" selection-end="663" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1380">
+        <state line="28" column="84" selection-start="656" selection-end="668" vertical-scroll-proportion="0.36445108" vertical-offset="156" max-vertical-offset="1495">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/push_all_git_folders.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="8" selection-start="634" selection-end="634" vertical-scroll-proportion="0.0" vertical-offset="233" max-vertical-offset="1748">
+        <state line="31" column="8" selection-start="634" selection-end="634" vertical-scroll-proportion="0.3584765" vertical-offset="233" max-vertical-offset="1748">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/commit_all_git_folders_fast.py">
+    <entry file="file://$PROJECT_DIR$/status_all_git_folders.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="84" selection-start="656" selection-end="668" vertical-scroll-proportion="0.36445108" vertical-offset="156" max-vertical-offset="1495">
+        <state line="28" column="8" selection-start="565" selection-end="663" vertical-scroll-proportion="0.48095593" vertical-offset="0" max-vertical-offset="1380">
           <folding />
         </state>
       </provider>
