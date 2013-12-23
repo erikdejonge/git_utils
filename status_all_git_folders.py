@@ -22,6 +22,12 @@ def find_git_repos(arg, directory, files):
 def main():
     """ check all folders and pull all from the server """
 
+
+    excludes = []
+
+    if os.path.exists("/Users/rabshakeh/workspace/excludes_push"):
+        excludes = open("/Users/rabshakeh/workspace/excludes_push").read().split("\n")
+
     dfp = "/Users/rabshakeh/workspace/gitdirlist.pickle"
     if os.path.exists(dfp):
         dir_list = pickle.load(open(dfp))
@@ -34,13 +40,14 @@ def main():
         pickle.dump(dir_list, open(dfp, "w"))
 
     for folder in dir_list:
-        os.chdir(folder)
-        #os.system("git rm --cached -r .idea/")
-        status = os.popen("git status").read()
-        if "modified" in status or "Untracked" in status:
-            print "In -->", folder
-            print status
-        os.chdir(currdir)
+        if os.path.basename(folder) not in excludes:
+            os.chdir(folder)
+            #os.system("git rm --cached -r .idea/")
+            status = os.popen("git status").read()
+            if "modified" in status or "Untracked" in status:
+                print "In -->", folder
+                print status
+            os.chdir(currdir)
 
 if __name__ == "__main__":
     main()
