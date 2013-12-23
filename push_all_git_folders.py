@@ -28,8 +28,8 @@ def main():
     """ check all folders and pull all from the server """
     excludes = []
 
-    if os.path.exists("/Users/rabshakeh/workspace/excludes_push"):
-        excludes = open("/Users/rabshakeh/workspace/excludes_push").read().split("\n")
+    if os.path.exists("/Users/rabshakeh/workspace/exclude_dirs"):
+        excludes = [x.strip() for x in open("/Users/rabshakeh/workspace/exclude_dirs").read().split("\n")]
 
     dfp = "/Users/rabshakeh/workspace/gitdirlist.pickle"
     if os.path.exists(dfp):
