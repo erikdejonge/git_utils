@@ -27,7 +27,7 @@ def main():
 
     if os.path.exists("/Users/rabshakeh/workspace/exclude_dirs"):
         excludes = [x.strip() for x in open("/Users/rabshakeh/workspace/exclude_dirs").read().split("\n") if x.strip()]
-        
+
     dfp = "/Users/rabshakeh/workspace/gitdirlist.pickle"
     if os.path.exists(dfp):
         dir_list = pickle.load(open(dfp))
