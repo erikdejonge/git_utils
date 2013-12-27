@@ -29,7 +29,7 @@ def main():
     excludes = []
 
     if os.path.exists("/Users/rabshakeh/workspace/exclude_dirs"):
-        excludes = [x.strip() for x in open("/Users/rabshakeh/workspace/exclude_dirs").read().split("\n")]
+        excludes = [x.strip() for x in open("/Users/rabshakeh/workspace/exclude_dirs").read().split("\n") if x.strip()]
 
     dfp = "/Users/rabshakeh/workspace/gitdirlist.pickle"
     if os.path.exists(dfp):
@@ -44,7 +44,7 @@ def main():
     procs = []
 
     for folder in dir_list:
-        if os.path.basename(folder) not in excludes:
+        if len([x for x in [x in folder for x in excludes] if x]) == 0:
             started = False
             while not started:
                 try:
