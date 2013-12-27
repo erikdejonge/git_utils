@@ -26,8 +26,8 @@ def main():
     excludes = []
 
     if os.path.exists("/Users/rabshakeh/workspace/exclude_dirs"):
-        excludes = [x.strip() for x in open("/Users/rabshakeh/workspace/exclude_dirs").read().split("\n")]
-
+        excludes = [x.strip() for x in open("/Users/rabshakeh/workspace/exclude_dirs").read().split("\n") if x.strip()]
+        
     dfp = "/Users/rabshakeh/workspace/gitdirlist.pickle"
     if os.path.exists(dfp):
         dir_list = pickle.load(open(dfp))
@@ -41,7 +41,7 @@ def main():
     msg = os.popen("date").read().strip()
     procs = []
     for folder in dir_list:
-        if os.path.basename(folder) not in excludes:
+        if len([x for x in [x in folder for x in excludes] if x]) == 0:
             p = subprocess.Popen(["/usr/local/bin/git", "commit", "-am",  msg], stdout=subprocess.PIPE, cwd=folder)
             procs.append(p)
     for p in procs:
