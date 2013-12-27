@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d6f2dfb3-74c7-41e2-af02-10f9cb3a9ca7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commit_all_git_folders.py" afterPath="$PROJECT_DIR$/commit_all_git_folders.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pull_all_git_folders.py" afterPath="$PROJECT_DIR$/pull_all_git_folders.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/push_all_git_folders.py" afterPath="$PROJECT_DIR$/push_all_git_folders.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/status_all_git_folders.py" afterPath="$PROJECT_DIR$/status_all_git_folders.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="d6f2dfb3-74c7-41e2-af02-10f9cb3a9ca7" name="Default" comment="" />
     <ignored path="git_utils.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -47,15 +41,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="commit_all_git_folders.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/commit_all_git_folders.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="0" selection-start="498" selection-end="498" vertical-scroll-proportion="0.13033953" vertical-offset="433" max-vertical-offset="1610">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="commit_all_git_folders_fast.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/commit_all_git_folders_fast.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -83,10 +68,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="push_all_git_folders.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="push_all_git_folders.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/push_all_git_folders.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="0" selection-start="626" selection-end="626" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="1748">
+            <state line="31" column="0" selection-start="626" selection-end="626" vertical-scroll-proportion="0.53739315" vertical-offset="210" max-vertical-offset="1748">
               <folding />
             </state>
           </provider>
@@ -478,16 +463,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/push_all_git_folders.py">
+    <entry file="file://$PROJECT_DIR$/commit_all_git_folders.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="626" selection-end="626" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="1748">
+        <state line="24" column="0" selection-start="498" selection-end="498" vertical-scroll-proportion="0.13033953" vertical-offset="433" max-vertical-offset="1610">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/commit_all_git_folders.py">
+    <entry file="file://$PROJECT_DIR$/push_all_git_folders.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="0" selection-start="498" selection-end="498" vertical-scroll-proportion="0.13033953" vertical-offset="433" max-vertical-offset="1610">
+        <state line="31" column="0" selection-start="626" selection-end="626" vertical-scroll-proportion="0.53739315" vertical-offset="210" max-vertical-offset="1748">
           <folding />
         </state>
       </provider>
