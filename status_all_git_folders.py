@@ -42,10 +42,17 @@ def main():
         if len([x for x in [x in folder for x in excludes] if x]) == 0:
             os.chdir(folder)
             #os.system("git rm --cached -r .idea/")
+            for branch in os.popen("git branch").read().split("\n"):
+                if "*" in branch:
+                    fl = os.path.basename(folder)
+                    if len(fl) < 25:
+                        fl += (" "*(25-len(fl)))
+                    print fl+"\t"+branch.replace("*", "").strip()
+
             status = os.popen("git status").read()
             if "modified" in status or "Untracked" in status:
-                print "In -->", folder
                 print status
+
             os.chdir(currdir)
 
 if __name__ == "__main__":
