@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d6f2dfb3-74c7-41e2-af02-10f9cb3a9ca7" name="Default" comment="" />
+    <list default="true" id="d6f2dfb3-74c7-41e2-af02-10f9cb3a9ca7" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commit.sh" afterPath="$PROJECT_DIR$/commit.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/push.sh" afterPath="$PROJECT_DIR$/push.sh" />
+    </list>
     <ignored path="git_utils.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,46 +35,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="commit_all_git_folders.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/commit_all_git_folders.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="26" selection-start="754" selection-end="754" vertical-scroll-proportion="0.0" vertical-offset="549" max-vertical-offset="1633">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="commit_slow.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/commit_slow.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="24" selection-start="1270" selection-end="1270" vertical-scroll-proportion="0.0" vertical-offset="456" max-vertical-offset="1472">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="commit.sh" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="commit.sh" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/commit.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="0" selection-start="142" selection-end="142" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gc.sh" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gc.sh">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="161">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="push.sh" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/push.sh">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="949">
+            <state line="0" column="0" selection-start="0" selection-end="12" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="949">
               <folding />
             </state>
           </provider>
@@ -100,9 +67,9 @@
         <option value="$PROJECT_DIR$/commit_all_git_folders_fast.py" />
         <option value="$PROJECT_DIR$/status_all_git_folders.py" />
         <option value="$PROJECT_DIR$/commit_all_git_folders.py" />
-        <option value="$PROJECT_DIR$/commit.sh" />
-        <option value="$PROJECT_DIR$/push.sh" />
         <option value="$PROJECT_DIR$/commit_slow.py" />
+        <option value="$PROJECT_DIR$/push.sh" />
+        <option value="$PROJECT_DIR$/commit.sh" />
       </list>
     </option>
   </component>
@@ -426,9 +393,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/commit.sh">
+    <entry file="file://$PROJECT_DIR$/commit_all_git_folders_fast.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="142" selection-end="142" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
+        <state line="29" column="0" selection-start="0" selection-end="1690" vertical-scroll-proportion="0.16452992" vertical-offset="513" max-vertical-offset="1495">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/push.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="12" selection-start="12" selection-end="12" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="949">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commit_slow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="24" selection-start="1270" selection-end="1270" vertical-scroll-proportion="0.5940171" vertical-offset="456" max-vertical-offset="1472">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commit_all_git_folders.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="26" selection-start="754" selection-end="754" vertical-scroll-proportion="0.12606838" vertical-offset="549" max-vertical-offset="1633">
           <folding />
         </state>
       </provider>
@@ -440,30 +428,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/commit_all_git_folders.py">
+    <entry file="file://$PROJECT_DIR$/commit.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="26" selection-start="754" selection-end="754" vertical-scroll-proportion="0.0" vertical-offset="549" max-vertical-offset="1633">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/commit_all_git_folders_fast.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="0" selection-start="0" selection-end="1690" vertical-scroll-proportion="0.16452992" vertical-offset="513" max-vertical-offset="1495">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/commit_slow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="24" selection-start="1270" selection-end="1270" vertical-scroll-proportion="0.0" vertical-offset="456" max-vertical-offset="1472">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/push.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="949">
+        <state line="0" column="0" selection-start="0" selection-end="12" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="949">
           <folding />
         </state>
       </provider>
