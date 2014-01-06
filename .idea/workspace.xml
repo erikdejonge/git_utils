@@ -55,7 +55,7 @@
       <file leaf-file-name="commit_all_git_folders.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/commit_all_git_folders.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="57" selection-start="1531" selection-end="1531" vertical-scroll-proportion="0.76495725" vertical-offset="480" max-vertical-offset="1564">
+            <state line="50" column="0" selection-start="1439" selection-end="1439" vertical-scroll-proportion="0.63141024" vertical-offset="559" max-vertical-offset="1656">
               <folding />
             </state>
           </provider>
@@ -447,7 +447,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/commit_all_git_folders.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="57" selection-start="1531" selection-end="1531" vertical-scroll-proportion="0.76495725" vertical-offset="480" max-vertical-offset="1564">
+        <state line="50" column="0" selection-start="1439" selection-end="1439" vertical-scroll-proportion="0.63141024" vertical-offset="559" max-vertical-offset="1656">
           <folding />
         </state>
       </provider>
