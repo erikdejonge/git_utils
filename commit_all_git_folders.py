@@ -50,7 +50,7 @@ def main():
     for folder in dir_list:
         print
         print folder
-        subprocess.Popen(["/usr/local/bin/git", "fsck --full"], cwd=folder).wait()
+        subprocess.Popen(["/usr/local/bin/git", "fsck", "full"], cwd=folder).wait()
         subprocess.Popen(["/usr/local/bin/git", "gc"], cwd=folder).wait()
 
     for p in procs:
