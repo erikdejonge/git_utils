@@ -45,18 +45,12 @@ def main():
             print folder
             p = subprocess.Popen(["/usr/local/bin/git", "commit", "-am", msg], stdout=subprocess.PIPE, cwd=folder)
             p.wait()
-            output = p.stdout.read()
-            if "nothing to commit" in output:
-                sys.stdout.write(".")
-                sys.stdout.flush()
-            else:
-                print output
     print
     procs = []
     for folder in dir_list:
         print
         print folder
-        subprocess.Popen(["/usr/local/bin/git", "fsck - -full"], cwd=folder).wait()
+        subprocess.Popen(["/usr/local/bin/git", "fsck --full"], cwd=folder).wait()
         subprocess.Popen(["/usr/local/bin/git", "gc"], cwd=folder).wait()
 
     for p in procs:
