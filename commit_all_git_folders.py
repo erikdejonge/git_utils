@@ -41,7 +41,7 @@ def main():
     procs = []
     for folder in dir_list:
         if len([x for x in [x in folder for x in excludes] if x]) == 0:
-            print 
+            print
             print folder
             p = subprocess.Popen(["/usr/local/bin/git", "commit", "-am", msg], stdout=subprocess.PIPE, cwd=folder)
             p.wait()
@@ -54,7 +54,10 @@ def main():
     print
     procs = []
     for folder in dir_list:
-        procs.append(subprocess.Popen(["/usr/local/bin/git", "gc"], cwd=folder))
+        print
+        print folder
+
+        subprocess.Popen(["/usr/local/bin/git", "gc"], cwd=folder).wait()
 
     for p in procs:
         p.wait()
