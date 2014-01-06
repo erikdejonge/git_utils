@@ -26,7 +26,8 @@ def main():
     if os.path.exists("/Users/rabshakeh/workspace/exclude_dirs"):
         excludes = [x.strip() for x in open("/Users/rabshakeh/workspace/exclude_dirs").read().split("\n") if x.strip()]
 
-    msg = raw_input("message: ")
+    msg = os.popen("date").read().strip()
+    msg += " commit and gc"
 
     dfp = "/Users/rabshakeh/workspace/gitdirlist.pickle"
     if os.path.exists(dfp):
