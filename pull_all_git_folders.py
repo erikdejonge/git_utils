@@ -4,9 +4,7 @@
 #
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-
 """ git checking script """
-
 import os
 import sys
 import subprocess
@@ -14,19 +12,26 @@ import cPickle as pickle
 
 
 def find_git_repos(arg, directory, files):
-    """ find the git repositories """
-
+    """
+    @type arg: str
+    @type directory: str
+    @type files: list
+    """
     files = files
     git_dir = os.path.join(directory, ".git")
+
     if os.path.exists(git_dir):
         arg.append(directory)
 
 
 def main():
+    """
+    main
+    """
     excludes = []
-
     """ check all folders and pull all from the server """
     dfp = "/Users/rabshakeh/workspace/gitdirlist.pickle"
+
     if os.path.exists(dfp):
         dir_list = pickle.load(open(dfp))
     else:
@@ -41,23 +46,21 @@ def main():
     for folder in dir_list:
         if len([x for x in [x in folder for x in excludes] if x]) == 0:
             p = subprocess.Popen(["/usr/local/bin/git", "pull"], stdout=subprocess.PIPE, cwd=folder)
-            #print folder, p.wait()
-            procs.append({"folder":folder, "proc":p})
-
+            procs.append({"folder": folder, "proc": p})
 
     for d in procs:
         p = d["proc"]
         p.wait()
         output = p.stdout.read()
+
         if "Already up-to-date" in output:
             sys.stdout.write(".")
             sys.stdout.flush()
         else:
-            print
-            print d["folder"]
-            print output
-    print
-
+            print "pull_all_git_folders.py:60"
+            print "pull_all_git_folders.py:61", d["folder"]
+            print "pull_all_git_folders.py:62", output
+    print "pull_all_git_folders.py:63"
 
 if __name__ == "__main__":
     main()
