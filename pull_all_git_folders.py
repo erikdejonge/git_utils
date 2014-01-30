@@ -56,7 +56,6 @@ def main():
             sys.stdout.write("\n")
             print "---------------"
             print d["folder"]
-            print
             print output
     print
 

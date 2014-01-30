@@ -54,7 +54,6 @@ def main():
         else:
             print "-----------------"
             print d["folder"]
-            sys.stdout.write("\n")
             print output
     print
 
