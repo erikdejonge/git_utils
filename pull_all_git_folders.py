@@ -53,8 +53,7 @@ def main():
             sys.stdout.write(".")
             sys.stdout.flush()
         else:
-            sys.stdout.write("\n")
-            print "---------------"
+            print
             print d["folder"]
             print output
     print

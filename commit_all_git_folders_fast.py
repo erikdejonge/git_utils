@@ -52,7 +52,7 @@ def main():
             sys.stdout.write(".")
             sys.stdout.flush()
         else:
-            print "-----------------"
+            print 
             print d["folder"]
             print output
     print
