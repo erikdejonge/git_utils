@@ -43,14 +43,17 @@ def main():
     for folder in dir_list:
         if len([x for x in [x in folder for x in excludes] if x]) == 0:
             p = subprocess.Popen(["/usr/local/bin/git", "commit", "-am",  msg], stdout=subprocess.PIPE, cwd=folder)
-            procs.append(p)
-    for p in procs:
+            procs.append({"folder":folder, "proc":p})
+    for d in procs:
+        p = d["proc"]
         p.wait()
         output = p.stdout.read()
         if "nothing to commit" in output:
             sys.stdout.write(".")
             sys.stdout.flush()
         else:
+            print "-----------------"
+            print d["folder"]
             sys.stdout.write("\n")
             print output
     print

@@ -48,19 +48,23 @@ def main():
             started = False
             while not started:
                 try:
-                    procs.append(subprocess.Popen(["/usr/local/bin/git", "push"], stderr=subprocess.PIPE, cwd=folder))
+                    procs.append({"folder":folder, "proc":subprocess.Popen(["/usr/local/bin/git", "push"], stderr=subprocess.PIPE, cwd=folder)})
                     started = True
                 except Exception, e:
                     print str(e)
                     time.sleep(1)
 
-    for p in procs:
+    for d in procs:
+        p = d["proc"]
         p.wait()
         output = p.stderr.read()
         if "Everything up-to-date" in output:
             sys.stdout.write(".")
             sys.stdout.flush()
         else:
+            print "-------------------"
+            print d["folder"]
+            print 
             sys.stdout.write("\n")
             print output
     print
