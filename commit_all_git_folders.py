@@ -47,8 +47,8 @@ def main():
             p.wait()
     print
     procs = []
-    for folder in dir_list:
-        procs.append(subprocess.Popen(["/usr/local/bin/git", "fsck"], cwd=folder))
+    #for folder in dir_list:
+    #    procs.append(subprocess.Popen(["/usr/local/bin/git", "fsck"], cwd=folder))
 
     for p in procs:
         p.wait()
