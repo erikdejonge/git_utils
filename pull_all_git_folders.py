@@ -30,16 +30,10 @@ def main():
     """
     excludes = []
     """ check all folders and pull all from the server """
-    dfp = "/Users/rabshakeh/workspace/git_utils/gitdirlist.pickle"
-
-    if os.path.exists(dfp):
-        dir_list = pickle.load(open(dfp))
-    else:
-        dir_list = []
-        os.path.walk(".", find_git_repos, dir_list)
-        currdir = os.popen("pwd").read().strip()
-        dir_list = [os.path.join(currdir, x.lstrip("./")) for x in dir_list]
-        pickle.dump(dir_list, open(dfp, "w"))
+    dir_list = []
+    os.path.walk(".", find_git_repos, dir_list)
+    currdir = os.popen("pwd").read().strip()
+    dir_list = [os.path.join(currdir, x.lstrip("./")) for x in dir_list]
 
     procs = []
 
