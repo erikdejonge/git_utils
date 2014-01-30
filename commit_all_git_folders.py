@@ -25,13 +25,13 @@ def main():
     fcheck = raw_input("fcheck? (y/n): ")
     fcheck = fcheck.strip() == "y"
 
-    if os.path.exists("/Users/rabshakeh/workspace/exclude_dirs"):
-        excludes = [x.strip() for x in open("/Users/rabshakeh/workspace/exclude_dirs").read().split("\n") if x.strip()]
+    if os.path.exists("/Users/rabshakeh/workspace/git_utils/exclude_dirs"):
+        excludes = [x.strip() for x in open("/Users/rabshakeh/workspace/git_utils/exclude_dirs").read().split("\n") if x.strip()]
 
     msg = os.popen("date").read().strip()
     msg += " commit and gc"
 
-    dfp = "/Users/rabshakeh/workspace/gitdirlist.pickle"
+    dfp = "/Users/rabshakeh/workspace/git_utils/gitdirlist.pickle"
     if os.path.exists(dfp):
         os.remove(dfp)
     dir_list = []
