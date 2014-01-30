@@ -35,9 +35,11 @@ def main():
     if os.path.exists(dfp):
         os.remove(dfp)
     dir_list = []
-    os.path.walk(".", find_git_repos, dir_list)
-    currdir = os.popen("pwd").read().strip()
-    dir_list = [os.path.join(currdir, x.lstrip("./")) for x in dir_list]
+    os.path.walk("/Users/rabshakeh/workspace", find_git_repos, dir_list)
+
+    #dir_list = [os.path.join("/Users/rabshakeh/workspace", x.lstrip("./")) for x in dir_list]
+    
+
     pickle.dump(dir_list, open(dfp, "w"))
 
     procs = []
