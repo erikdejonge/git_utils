@@ -44,6 +44,7 @@ def main():
     procs = []
 
     for folder in dir_list:
+        last_sleep = 0
         if len([x for x in [x in folder for x in excludes] if x]) == 0:
             started = False
             while not started:
@@ -53,9 +54,10 @@ def main():
                 except Exception, e:
                     print str(e)
                     time.sleep(1)
-        if len(procs) % 5 == 0:
+        if len(procs) % 5 == 0 and last_sleep!=len(procs):
             print "sleep"
             time.sleep(1)
+            last_sleep = len(procs)
     for d in procs:
         p = d["proc"]
         p.wait()
