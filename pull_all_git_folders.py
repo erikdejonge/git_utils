@@ -1,14 +1,10 @@
-# pylint: disable-msg=C0103
-# pylint: enable-msg=C0103
-# tempfile regex format
-#
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 """ git checking script """
 import os
 import sys
 import subprocess
-import cPickle as pickle
+import time
 
 
 def find_git_repos(arg, directory, files):
@@ -33,14 +29,19 @@ def main():
     dir_list = []
     os.path.walk(".", find_git_repos, dir_list)
     currdir = os.popen("pwd").read().strip()
-    dir_list = [os.path.join(currdir, x.lstrip("./")) for x in dir_list]
 
+    dir_list = [os.path.join(currdir, x.lstrip("./")) for x in dir_list]
     procs = []
+    last_sleep = 0
 
     for folder in dir_list:
         if len([x for x in [x in folder for x in excludes] if x]) == 0:
             p = subprocess.Popen(["/usr/local/bin/git", "pull"], stdout=subprocess.PIPE, cwd=folder)
             procs.append({"folder": folder, "proc": p})
+            if len(procs) % 15 == 0 and last_sleep != len(procs):
+                #print "sleep", len(procs), last_sleep
+                time.sleep(3)
+                last_sleep = len(procs)
 
     for d in procs:
         p = d["proc"]
@@ -51,10 +52,10 @@ def main():
             sys.stdout.write(".")
             sys.stdout.flush()
         else:
-            print "pull_all_git_folders.py:60"
-            print "pull_all_git_folders.py:61", d["folder"]
-            print "pull_all_git_folders.py:62", output
-    print "pull_all_git_folders.py:63"
+            print "pull_all_git_folders.py:55"
+            print "pull_all_git_folders.py:56", d["folder"]
+            print "pull_all_git_folders.py:57", output
+    print "pull_all_git_folders.py:58"
 
 if __name__ == "__main__":
     main()
