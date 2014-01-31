@@ -54,9 +54,9 @@ def main():
                 except Exception, e:
                     print str(e)
                     time.sleep(1)
-        if len(procs) % 10 == 0 and last_sleep!=len(procs):
+        if len(procs) % 15 == 0 and last_sleep!=len(procs):
             print "sleep", len(procs), last_sleep
-            time.sleep(1)
+            time.sleep(3)
             last_sleep = len(procs)
     for d in procs:
         p = d["proc"]
