@@ -48,12 +48,13 @@ def main():
             started = False
             while not started:
                 try:
-                    procs.append({"folder":folder, "proc":subprocess.Popen(["/usr/local/bin/git", "push"], stderr=subprocess.PIPE, cwd=folder)})
+                    procs.append({"folder": folder, "proc": subprocess.Popen(["/usr/local/bin/git", "push"], stderr=subprocess.PIPE, cwd=folder)})
                     started = True
                 except Exception, e:
                     print str(e)
                     time.sleep(1)
-
+        if len(procs) % 5 == 0:
+            time.sleep(1)
     for d in procs:
         p = d["proc"]
         p.wait()
