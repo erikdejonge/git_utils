@@ -54,7 +54,7 @@ def main():
                 except Exception, e:
                     print str(e)
                     time.sleep(1)
-        if len(procs) % 5 == 0 and last_sleep!=len(procs):
+        if len(procs) % 10 == 0 and last_sleep!=len(procs):
             print "sleep", len(procs), last_sleep
             time.sleep(1)
             last_sleep = len(procs)
