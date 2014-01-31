@@ -42,9 +42,9 @@ def main():
         cPickle.dump(dir_list, open(dfp, "w"))
 
     procs = []
-
+    last_sleep = 0
     for folder in dir_list:
-        last_sleep = 0
+
         if len([x for x in [x in folder for x in excludes] if x]) == 0:
             started = False
             while not started:
