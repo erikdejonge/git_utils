@@ -35,13 +35,16 @@ def main():
     last_sleep = 0
 
     for folder in dir_list:
+
         if len([x for x in [x in folder for x in excludes] if x]) == 0:
+            #print folder
             p = subprocess.Popen(["/usr/local/bin/git", "pull"], stdout=subprocess.PIPE, cwd=folder)
             procs.append({"folder": folder, "proc": p})
             if len(procs) % 15 == 0 and last_sleep != len(procs):
                 #print "sleep", len(procs), last_sleep
                 time.sleep(3)
                 last_sleep = len(procs)
+            #p.wait()
 
     for d in procs:
         p = d["proc"]
