@@ -58,7 +58,7 @@ def main():
             print "pull_all_git_folders.py:55"
             print "pull_all_git_folders.py:56", d["folder"]
             print "pull_all_git_folders.py:57", output
-    print "pull_all_git_folders.py:58"
+
 
 if __name__ == "__main__":
     main()
