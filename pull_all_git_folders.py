@@ -27,8 +27,8 @@ def main():
     excludes = []
     """ check all folders and pull all from the server """
     dir_list = []
-    os.path.walk(".", find_git_repos, dir_list)
-    currdir = os.popen("pwd").read().strip()
+    os.path.walk("/Users/rabshakeh/workspace", find_git_repos, dir_list)
+    currdir ="/"
 
     dir_list = [os.path.join(currdir, x.lstrip("./")) for x in dir_list]
     procs = []
@@ -44,7 +44,6 @@ def main():
                 #print "sleep", len(procs), last_sleep
                 time.sleep(3)
                 last_sleep = len(procs)
-            #p.wait()
 
     for d in procs:
         p = d["proc"]
