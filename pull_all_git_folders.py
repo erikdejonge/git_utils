@@ -14,6 +14,10 @@ def find_git_repos(arg, directory, files):
     @type files: list
     """
     files = files
+    disp = directory[:200]
+    if len(disp) < 200:
+        disp += " " * (200 - len(disp))
+    print disp, "\r",
     git_dir = os.path.join(directory, ".git")
 
     if os.path.exists(git_dir):
@@ -27,31 +31,32 @@ def main():
     excludes = []
     """ check all folders and pull all from the server """
     dir_list = []
+    print "scanning"
     os.path.walk("/Users/rabshakeh/workspace", find_git_repos, dir_list)
-    currdir ="/"
-
+    currdir = "/"
+    print ""
+    print "pulling"
     dir_list = [os.path.join(currdir, x.lstrip("./")) for x in dir_list]
     procs = []
     last_sleep = 0
 
     for folder in dir_list:
-
         if len([x for x in [x in folder for x in excludes] if x]) == 0:
-            #print folder
             p = subprocess.Popen(["/usr/local/bin/git", "pull"], stdout=subprocess.PIPE, cwd=folder)
             procs.append({"folder": folder, "proc": p})
             if len(procs) % 15 == 0 and last_sleep != len(procs):
                 #print "sleep", len(procs), last_sleep
-                time.sleep(3)
+                time.sleep(1)
                 last_sleep = len(procs)
 
     for d in procs:
         p = d["proc"]
         p.wait()
+
         output = p.stdout.read()
 
         if "Already up-to-date" in output:
-            sys.stdout.write(".")
+            print d["folder"], "up-to-date"
             sys.stdout.flush()
         else:
             print "pull_all_git_folders.py:55"
