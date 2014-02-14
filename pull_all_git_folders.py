@@ -14,9 +14,9 @@ def find_git_repos(arg, directory, files):
     @type files: list
     """
     files = files
-    disp = directory[:200]
-    if len(disp) < 200:
-        disp += " " * (200 - len(disp))
+    disp = directory[:100]
+    if len(disp) < 100:
+        disp += " " * (100 - len(disp))
     print disp, "\r",
     git_dir = os.path.join(directory, ".git")
 
