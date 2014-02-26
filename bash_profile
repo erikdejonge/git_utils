@@ -4,16 +4,24 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 
 export PATH=/usr/local/bin:/usr/local/share/npm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/rabshakeh/workspace/depot_tools
 export LC_ALL=en_US.UTF-8
+function _google() { 
+  open 'https://www.google.nl/search?site=&source=hp&q='$1
+}
+alias google='_google'
+alias updatedb='sudo /usr/libexec/locate.updatedb'
+alias j2c="js2coffee -X -i4 test.js > test.coffee"
 alias flush="echo 'flush_all' | nc localhost 11211"
-alias kp='sudo killall python;sudo killall Python'
+alias kp='sudo killall python;sudo killall Python; sudo killall java;'
 alias restart_couch='/usr/bin/sudo launchctl stop org.apache.couchdb'
 alias start_couch='/usr/bin/sudo launchctl load -w /Library/LaunchDaemons/org.apache.couchdb.plist'
 alias stop_couch='/usr/bin/sudo launchctl unload /Library/LaunchDaemons/org.apache.couchdb.plist'
+alias createcb='cd /Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl;/Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/scripts/create/create_cryptobox.sh;'
 alias cb='cd /Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/'
 alias ws='cd /Users/rabshakeh/workspace'
 alias ca='cd /Users/rabshakeh/workspace/cryptobox/couchdb_api/'
 alias cr='cd /Users/rabshakeh/workspace/cryptobox/crypto_api'
 alias ct='cd /Users/rabshakeh/workspace/cryptobox/crypto_tree'
+alias mov='cd /Users/rabshakeh/Movies/Wondershare; python convertm4b.py'
 alias com='/Users/rabshakeh/workspace/git_utils/commitfast.sh;'
 alias cpa='/Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/scripts/run_cp_all.sh;'
 alias n1='ssh node1-eu.a8.nl'
@@ -22,8 +30,9 @@ alias gcom='git commit -am "-" > /dev/null; git status'
 alias gstats='git status'
 alias gpush='git commit -am "-"; git push'
 alias gpull='git pull'
-alias upgrade="sudo ls; brew update; brew upgrade; brew doctor; brew cleanup -s --force; sudo gem update bropages; sudo /Users/rabshakeh/upgradepython.sh"
-alias compush='/Users/rabshakeh/workspace/git_utils/commitfast.sh;  /Users/rabshakeh/workspace/git_utils/push.sh;'
+alias todo='vi /etc/motd'
+alias upgrade="sudo ls > /dev/null; brew update; brew upgrade; brew doctor; brew cleanup -s --force; sudo gem update bropages; sudo /Users/rabshakeh/upgradepython.sh"
+alias compush='/Users/rabshakeh/workspace/git_utils/commitfast.sh;  /Users/rabshakeh/workspace/git_utils/push.sh; /Users/rabshakeh/workspace/git_utils/status.sh;'
 alias pullcompush='/Users/rabshakeh/workspace/git_utils/pull.sh; /Users/rabshakeh/workspace/git_utils/commitfast.sh; /Users/rabshakeh/workspace/git_utils/push.sh;'
 alias pull='/Users/rabshakeh/workspace/git_utils/pull.sh;'
 alias push='/Users/rabshakeh/workspace/git_utils/push.sh;'
