@@ -38,6 +38,7 @@ alias pullcompush='/Users/rabshakeh/workspace/git_utils/pull.sh; /Users/rabshake
 alias pull='/Users/rabshakeh/workspace/git_utils/pull.sh;'
 alias push='/Users/rabshakeh/workspace/git_utils/push.sh;'
 alias stats='/Users/rabshakeh/workspace/git_utils/status.sh;'
+alias comm='/Users/rabshakeh/workspace/git_utils/commit.sh;'
 export PYRO_HMAC_KEY="sdhjfghvgchjgfuyeaguy"
 export PYTHONPATH=${PYTHONPATH}:$HOME/gsutil/third_party/boto:$HOME/gsutil;
 alias app='cd /Users/rabshakeh/workspace/cryptobox/cryptobox_app/source/commands/'
