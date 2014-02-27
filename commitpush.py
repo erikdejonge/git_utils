@@ -83,9 +83,8 @@ def main():
             print d["folder"], "up-to-date"
             sys.stdout.flush()
         else:
-            print "pull_all_git_folders.py:55"
-            print "pull_all_git_folders.py:56", d["folder"]
-            print "pull_all_git_folders.py:57", output
+            print d["folder"]
+            print output
 
 
 if __name__ == "__main__":
