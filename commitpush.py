@@ -54,10 +54,9 @@ def main():
         if "nothing to commit" in output:
             pass
         else:
-
             print "commited:", d["folder"]
             to_push.append(d["folder"])
-
+    sys.stdout.flush()
     procs = []
     for folder in to_push:
         if len([x for x in [x in folder for x in excludes] if x]) == 0:

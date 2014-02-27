@@ -51,7 +51,7 @@ def main():
                 try:
                     procs.append({"folder": folder, "proc": subprocess.Popen(["/usr/local/bin/git", "push"], stderr=subprocess.PIPE, cwd=folder)})
                     started = True
-                except Exception, e: 
+                except Exception, e:
                     print str(e)
                     time.sleep(1)
         if len(procs) % 5 == 0 and last_sleep!=len(procs):
