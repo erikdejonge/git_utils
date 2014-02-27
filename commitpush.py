@@ -52,8 +52,7 @@ def main():
         p.wait()
         output = p.stdout.read()
         if "nothing to commit" in output:
-            sys.stdout.write(".")
-            sys.stdout.flush()
+            pass
         else:
 
             print "commited:", d["folder"]
@@ -80,8 +79,7 @@ def main():
         output = p.stderr.read()
 
         if "Already up-to-date" in output:
-            print d["folder"], "up-to-date"
-            sys.stdout.flush()
+            pass
         else:
             print "pushed:", d["folder"]
             #print output
