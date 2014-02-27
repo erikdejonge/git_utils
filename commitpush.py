@@ -83,8 +83,8 @@ def main():
             print d["folder"], "up-to-date"
             sys.stdout.flush()
         else:
-            print d["folder"]
-            print output
+            print "pushed", d["folder"]
+            #print output
 
 
 if __name__ == "__main__":
