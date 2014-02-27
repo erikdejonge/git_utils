@@ -58,7 +58,6 @@ def main():
             print "commited:", d["folder"]
             to_push.append(d["folder"])
 
-    print
     procs = []
     for folder in to_push:
         if len([x for x in [x in folder for x in excludes] if x]) == 0:
