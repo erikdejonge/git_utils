@@ -64,7 +64,7 @@ def main():
     for folder in to_push:
         if len([x for x in [x in folder for x in excludes] if x]) == 0:
 
-            p = subprocess.Popen(["/usr/local/bin/git", "push"], stdout=subprocess.PIPE, cwd=folder)
+            p = subprocess.Popen(["/usr/local/bin/git", "push"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder)
             procs.append({"folder": folder, "proc": p})
             if len(procs) % 15 == 0 and last_sleep != len(procs):
                 #print "sleep", len(procs), last_sleep
@@ -77,7 +77,7 @@ def main():
         p = d["proc"]
         p.wait()
 
-        output = p.stdout.read()
+        output = p.stderr.read()
 
         if "Already up-to-date" in output:
             print d["folder"], "up-to-date"
