@@ -1,2 +1,1 @@
-/Users/rabshakeh/workspace/git_utils/commitfast.sh;  
-/Users/rabshakeh/workspace/git_utils/push.sh;
+python /Users/rabshakeh/workspace/git_utils/commitpush.py
