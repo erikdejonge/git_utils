@@ -43,7 +43,7 @@ def main():
     for folder in dir_list:
 
         if len([x for x in [x in folder for x in excludes] if x]) == 0:
-            p = subprocess.Popen(["/usr/local/bin/git", "commit", "-am",  msg], stdout=subprocess.PIPE, cwd=folder)
+            p = subprocess.Popen(["/usr/local/bin/git", "commit", "-am",  msg], stderr=subprocess.PIPE, cwd=folder)
             procs.append({"folder":folder, "proc":p})
 
     to_push = []
@@ -55,10 +55,10 @@ def main():
             sys.stdout.write(".")
             sys.stdout.flush()
         else:
-            print
-            print d["folder"]
+            
+            print "commited:", d["folder"]
             to_push.append(d["folder"])
-            print output
+
     print
     procs = []
     for folder in to_push:
@@ -83,7 +83,7 @@ def main():
             print d["folder"], "up-to-date"
             sys.stdout.flush()
         else:
-            print "pushed", d["folder"]
+            print "pushed:", d["folder"]
             #print output
 
 
