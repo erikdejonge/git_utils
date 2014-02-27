@@ -79,7 +79,7 @@ def main():
 
         output = p.stdout.read()
 
-        if "xAlready up-to-date" in output:
+        if "Already up-to-date" in output:
             print d["folder"], "up-to-date"
             sys.stdout.flush()
         else:
