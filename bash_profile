@@ -32,6 +32,7 @@ alias gcom='git commit -am "-" > /dev/null; git status'
 alias gstats='git status'
 alias gpush='git commit -am "-"; git push'
 alias gpull='git pull'
+alias dump='/Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/scripts/create/make_local_copy_databases.sh'
 alias todo='vi /etc/motd'
 alias upgrade="sudo ls > /dev/null; brew update; brew upgrade; brew doctor; brew cleanup -s --force; sudo gem update bropages; sudo /Users/rabshakeh/upgradepython.sh"
 alias compush='/Users/rabshakeh/workspace/git_utils/commitfast.sh;  /Users/rabshakeh/workspace/git_utils/push.sh; '
