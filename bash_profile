@@ -59,3 +59,4 @@ export DATASTORE_DATASET="cryptobox2013"
 #export DATASTORE_SERVICE_ACCOUNT="1077532276852@developer.gserviceaccount.com"
 #export DATASTORE_PRIVATE_KEY_FILE="/Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/c839e87ac6666dac54456db3d86a82f68c18dfc1-privatekey.p12"
 
+alias checkoutseebregts='git clone ssh://faith.active8.nl/git/SeebregtsSaey'
