@@ -40,7 +40,7 @@ alias pullcompush='/Users/rabshakeh/workspace/git_utils/pull.sh; /Users/rabshake
 alias pull='/Users/rabshakeh/workspace/git_utils/pull.sh;'
 alias push='/Users/rabshakeh/workspace/git_utils/push.sh;'
 alias stats='/Users/rabshakeh/workspace/git_utils/status.sh;'
-alias comm='/Users/rabshakeh/workspace/git_utils/commit.sh;'
+alias comm='cd /Users/rabshakeh/workspace/git_utils; python make_exclude_dirs.py; /Users/rabshakeh/workspace/git_utils/commit.sh;'
 export PYRO_HMAC_KEY="sdhjfghvgchjgfuyeaguy"
 export PYTHONPATH=${PYTHONPATH}:$HOME/gsutil/third_party/boto:$HOME/gsutil;
 alias app='cd /Users/rabshakeh/workspace/cryptobox/cryptobox_app/source/commands/'
@@ -60,4 +60,4 @@ export DATASTORE_DATASET="cryptobox2013"
 #export DATASTORE_PRIVATE_KEY_FILE="/Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/c839e87ac6666dac54456db3d86a82f68c18dfc1-privatekey.p12"
 
 alias checkoutseebregts='git clone ssh://faith.active8.nl/git/SeebregtsSaey'
-alias cronjob="killall Python; echo 'flush_all' | nc localhost 11211; clear; /Users/rabshakeh/workspace/cryptobox/crypto_taskworker/cronjob.py -v"
+alias cronjob="/Users/rabshakeh/workspace/cryptobox/crypto_taskworker/cronjob.py -v"
