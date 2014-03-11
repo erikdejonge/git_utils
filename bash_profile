@@ -44,6 +44,7 @@ alias comm='cd /Users/rabshakeh/workspace/git_utils; python make_exclude_dirs.py
 export PYRO_HMAC_KEY="sdhjfghvgchjgfuyeaguy"
 export PYTHONPATH=${PYTHONPATH}:$HOME/gsutil/third_party/boto:$HOME/gsutil;
 alias app='cd /Users/rabshakeh/workspace/cryptobox/cryptobox_app/source/commands/'
+alias rredis="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist; launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
 alias commit="git commit -am '-'"
 ulimit -n 10000
 export BOTO_PATH="/Users/rabshakeh/.boto"
