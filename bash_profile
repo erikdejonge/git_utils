@@ -8,6 +8,7 @@ function _google() {
   open 'https://www.google.nl/search?site=&source=hp&q='$1
 }
 alias google='_google'
+alias res='cd /Users/rabshakeh/workspace/research'
 alias down='cd; cd Downloads'
 alias updatedb='sudo /usr/libexec/locate.updatedb'
 alias j2c="js2coffee -X -i4 test.js > test.coffee"
