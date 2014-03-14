@@ -5,7 +5,7 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 export PATH=/usr/local/bin:/usr/local/share/npm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/rabshakeh/workspace/depot_tools
 export LC_ALL=en_US.UTF-8
 function _google() { 
-  open 'https://www.google.nl/search?site=&source=hp&q='$1
+  open 'https://www.google.nl/search?site=&source=hp&q='$1+$2+$3+$4+$5
 }
 alias google='_google'
 alias res='cd /Users/rabshakeh/workspace/research'
