@@ -54,7 +54,7 @@ def main():
                 except Exception, e:
                     print str(e)
 
-            p = procs.pop()
+            d = procs.pop()
             p = d["proc"]
             p.wait()
             output = p.stderr.read()
