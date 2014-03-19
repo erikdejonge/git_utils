@@ -4,9 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6f2dfb3-74c7-41e2-af02-10f9cb3a9ca7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commit_all_git_folders.py" afterPath="$PROJECT_DIR$/commit_all_git_folders.py" />
-    </list>
+    <list default="true" id="d6f2dfb3-74c7-41e2-af02-10f9cb3a9ca7" name="Default" comment="" />
     <ignored path="git_utils.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -37,19 +35,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="commit_all_git_folders.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="commit_all_git_folders.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/commit_all_git_folders.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="4" selection-start="333" selection-end="333" vertical-scroll-proportion="0.20607787" vertical-offset="157" max-vertical-offset="1870">
+            <state line="17" column="0" selection-start="329" selection-end="329" vertical-scroll-proportion="0.0" vertical-offset="157" max-vertical-offset="1870">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pull_all_git_folders.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="pull_all_git_folders.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pull_all_git_folders.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="0" selection-start="262" selection-end="262" vertical-scroll-proportion="0.0" vertical-offset="107" max-vertical-offset="1804">
+            <state line="16" column="0" selection-start="262" selection-end="262" vertical-scroll-proportion="0.23266856" vertical-offset="107" max-vertical-offset="1804">
               <folding />
             </state>
           </provider>
@@ -522,16 +520,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pull_all_git_folders.py">
+    <entry file="file://$PROJECT_DIR$/commit_all_git_folders.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="262" selection-end="262" vertical-scroll-proportion="0.0" vertical-offset="107" max-vertical-offset="1804">
+        <state line="17" column="0" selection-start="329" selection-end="329" vertical-scroll-proportion="0.0" vertical-offset="157" max-vertical-offset="1870">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/commit_all_git_folders.py">
+    <entry file="file://$PROJECT_DIR$/pull_all_git_folders.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="4" selection-start="333" selection-end="333" vertical-scroll-proportion="0.20607787" vertical-offset="157" max-vertical-offset="1870">
+        <state line="16" column="0" selection-start="262" selection-end="262" vertical-scroll-proportion="0.23266856" vertical-offset="107" max-vertical-offset="1804">
           <folding />
         </state>
       </provider>

@@ -15,7 +15,7 @@ findcnt = 0
 def find_git_repos(arg, directory, files):
     """ find the git repositories """
     global findcnt
-    
+
     findcnt += 1
     if findcnt % 100 == 0:
         sys.stdout.write(".")
