@@ -47,6 +47,7 @@ def main():
 
         if len([x for x in [x in folder for x in excludes] if x]) == 0:
             started = False
+            print folder,
             while not started:
                 try:
                     procs.append({"folder": folder, "proc": subprocess.Popen(["/usr/local/bin/git", "push"], stderr=subprocess.PIPE, cwd=folder)})
@@ -59,7 +60,7 @@ def main():
             p.wait()
             output = p.stderr.read()
             if "Everything up-to-date" in output:
-                print d["folder"], "ok"
+                print "ok"
             else:
                 print
                 print d["folder"]
