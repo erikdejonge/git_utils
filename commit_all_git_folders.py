@@ -22,7 +22,7 @@ def find_git_repos(arg, directory, files):
     git_dir = os.path.join(directory, ".git")
     if os.path.exists(git_dir):
         print
-        print directory
+        print git_dir
         arg.append(directory)
 
 
