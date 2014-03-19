@@ -14,7 +14,7 @@ def find_git_repos(arg, directory, files):
     @type directory: str
     @type files: str
     """
-    
+
     disp = directory.replace("/Users/rabshakeh/workspace/", "")[:100]
 
     if len(disp) < 100:

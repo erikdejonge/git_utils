@@ -15,6 +15,7 @@ def find_git_repos(arg, directory, files):
     """ find the git repositories """
 
     files = files
+    print directory,
     git_dir = os.path.join(directory, ".git")
     if os.path.exists(git_dir):
         arg.append(directory)
@@ -36,7 +37,7 @@ def main():
         os.remove(dfp)
     dir_list = []
     os.path.walk("/Users/rabshakeh/workspace", find_git_repos, dir_list)
-
+    print
     #dir_list = [os.path.join("/Users/rabshakeh/workspace", x.lstrip("./")) for x in dir_list]
 
 
