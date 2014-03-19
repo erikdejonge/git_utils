@@ -20,10 +20,11 @@ def find_git_repos(arg, directory, files):
     if len(ds)>7:
         printpath = ds[len(ds)-7]+"/"+ds[len(ds)-6]+"/"+ds[len(ds)-5]+"/"+ds[len(ds)-4]+"/"+ds[len(ds)-3]+"/"+ds[len(ds)-2]+"/"+ds[len(ds)-1]
         if str(ds[len(ds)-7]).strip() not in lastdirvisited:
-            print printpath
+            #print printpath
             lastdirvisited[str(ds[len(ds)-7]).strip()] = True
     git_dir = os.path.join(directory, ".git")
     if os.path.exists(git_dir):
+        print directory
         arg.append(directory)
 
 
