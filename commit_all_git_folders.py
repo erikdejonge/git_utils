@@ -11,17 +11,17 @@ import os
 import subprocess
 import cPickle as pickle
 
-toggle = False
+findcnt = 0
 def find_git_repos(arg, directory, files):
     """ find the git repositories """
-    global toggle
-    toggle = not toggle
-    if toggle:
+    global findcnt
+    findcnt += 1
+    if findcnt % 100 == 0:
         print ".",
-    else:
-        print "*",
+
     git_dir = os.path.join(directory, ".git")
     if os.path.exists(git_dir):
+        print
         print directory
         arg.append(directory)
 
