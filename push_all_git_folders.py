@@ -41,10 +41,7 @@ def main():
         dir_list = [os.path.join(currdir, x.lstrip("./")) for x in dir_list]
         cPickle.dump(dir_list, open(dfp, "w"))
 
-    procs = []
-
     for folder in dir_list:
-
         if len([x for x in [x in folder for x in excludes] if x]) == 0:
 
             print folder,
