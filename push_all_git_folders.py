@@ -51,7 +51,7 @@ def main():
             sys.stdout.flush()
             p = subprocess.Popen(["/usr/local/bin/git", "status"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
             p.wait()
-            if "nothing to commit" in p.stdout.read():
+            if "Your branch is ahead" in p.stdout.read():
                 print "ok"
             else:
                 p = subprocess.Popen(["/usr/local/bin/git", "push"], stderr=subprocess.PIPE, cwd=folder)
