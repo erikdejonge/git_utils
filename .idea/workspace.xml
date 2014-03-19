@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6f2dfb3-74c7-41e2-af02-10f9cb3a9ca7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commit_all_git_folders.py" afterPath="$PROJECT_DIR$/commit_all_git_folders.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="git_utils.iws" />
     <ignored path=".idea/workspace.xml" />
