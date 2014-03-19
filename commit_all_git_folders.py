@@ -17,7 +17,7 @@ def find_git_repos(arg, directory, files):
     global findcnt
     findcnt += 1
     if findcnt % 100 == 0:
-        print ".",
+        sys.stdout.write(".")
         sys.stdout.flush()
     git_dir = os.path.join(directory, ".git")
     if os.path.exists(git_dir):
