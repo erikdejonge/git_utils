@@ -51,18 +51,20 @@ def main():
             sys.stdout.flush()
             p = subprocess.Popen(["/usr/local/bin/git", "status"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
             p.wait()
+            print p.stdout.read()
             if "Your branch is ahead" in p.stdout.read():
                 print "ok"
             else:
-                p = subprocess.Popen(["/usr/local/bin/git", "push"], stderr=subprocess.PIPE, cwd=folder)
-                p.wait()
-                output = p.stderr.read()
-                if "Everything up-to-date" in output:
-                    print "ok"
-                else:
-                    print
-                    print folder
-                    print output
+                if False:
+                    p = subprocess.Popen(["/usr/local/bin/git", "push"], stderr=subprocess.PIPE, cwd=folder)
+                    p.wait()
+                    output = p.stderr.read()
+                    if "Everything up-to-date" in output:
+                        print "ok"
+                    else:
+                        print
+                        print folder
+                        print output
     print
 
 
