@@ -15,7 +15,9 @@ def find_git_repos(arg, directory, files):
     """ find the git repositories """
 
     files = files
-    print os.path.basename(directory),"\r",
+    ds = directory.split("/")
+    if len(ds)>0:
+        print ds[len(ds)-1],"\r",
     git_dir = os.path.join(directory, ".git")
     if os.path.exists(git_dir):
         arg.append(directory)
