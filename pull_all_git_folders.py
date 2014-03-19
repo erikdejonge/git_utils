@@ -5,15 +5,16 @@ import os
 import sys
 import subprocess
 import time
+import cPickle
 
 
 def find_git_repos(arg, directory, files):
     """
     @type arg: str
     @type directory: str
-    @type files: list
+    @type files: str
     """
-    files = files
+    
     disp = directory.replace("/Users/rabshakeh/workspace/", "")[:100]
 
     if len(disp) < 100:
@@ -31,13 +32,19 @@ def main():
     """
     main
     """
-    excludes = []
-    """ check all folders and pull all from the server """
-    dir_list = []
-    os.path.walk("/Users/rabshakeh/workspace", find_git_repos, dir_list)
-    currdir = "/"
+    if os.path.exists("/Users/rabshakeh/workspace/git_utils/exclude_dirs"):
+        excludes = [x.strip() for x in open("/Users/rabshakeh/workspace/git_utils/exclude_dirs").read().split("\n") if x.strip()]
+    dfp = "/Users/rabshakeh/workspace/git_utils/gitdirlist.pickle"
 
-    dir_list = [os.path.join(currdir, x.lstrip("./")) for x in dir_list]
+    if os.path.exists(dfp):
+        dir_list = cPickle.load(open(dfp))
+    else:
+        dir_list = []
+        os.path.walk(".", find_git_repos, dir_list)
+        currdir = os.popen("pwd").read().strip()
+
+        dir_list = [os.path.join(currdir, x.lstrip("./")) for x in dir_list]
+        cPickle.dump(dir_list, open(dfp, "w"))
     procs = []
     last_sleep = 0
 
