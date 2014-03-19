@@ -59,8 +59,7 @@ def main():
             p.wait()
             output = p.stderr.read()
             if "Everything up-to-date" in output:
-                sys.stdout.write(".")
-                sys.stdout.flush()
+                print d["folder"], "ok"
             else:
                 print
                 print d["folder"]
