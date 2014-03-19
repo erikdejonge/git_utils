@@ -46,26 +46,23 @@ def main():
     for folder in dir_list:
 
         if len([x for x in [x in folder for x in excludes] if x]) == 0:
-            started = False
+
             print folder,
             sys.stdout.flush()
-            while not started:
-                try:
-                    procs.append({"folder": folder, "proc": subprocess.Popen(["/usr/local/bin/git", "push"], stderr=subprocess.PIPE, cwd=folder)})
-                    started = True
-                except Exception, e:
-                    print str(e)
-
-            d = procs.pop()
-            p = d["proc"]
+            p = subprocess.Popen(["/usr/local/bin/git", "status"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
             p.wait()
-            output = p.stderr.read()
-            if "Everything up-to-date" in output:
+            if "nothing to commit" in p.stdout.read():
                 print "ok"
             else:
-                print
-                print d["folder"]
-                print output
+                p = subprocess.Popen(["/usr/local/bin/git", "push"], stderr=subprocess.PIPE, cwd=folder)
+                p.wait()
+                output = p.stderr.read()
+                if "Everything up-to-date" in output:
+                    print "ok"
+                else:
+                    print
+                    print folder
+                    print output
     print
 
 
