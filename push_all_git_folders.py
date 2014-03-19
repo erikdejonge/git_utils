@@ -48,6 +48,7 @@ def main():
         if len([x for x in [x in folder for x in excludes] if x]) == 0:
             started = False
             print folder,
+            sys.stdout.flush()
             while not started:
                 try:
                     procs.append({"folder": folder, "proc": subprocess.Popen(["/usr/local/bin/git", "push"], stderr=subprocess.PIPE, cwd=folder)})
