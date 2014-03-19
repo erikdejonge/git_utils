@@ -42,7 +42,7 @@ def main():
         cPickle.dump(dir_list, open(dfp, "w"))
 
     procs = []
-    last_sleep = 0
+
     for folder in dir_list:
 
         if len([x for x in [x in folder for x in excludes] if x]) == 0:
@@ -53,23 +53,18 @@ def main():
                     started = True
                 except Exception, e:
                     print str(e)
-                    time.sleep(1)
-        if len(procs) % 5 == 0 and last_sleep!=len(procs):
-            #print "sleep", len(procs), last_sleep
-            time.sleep(1)
-            last_sleep = len(procs)
 
-    for d in procs:
-        p = d["proc"]
-        p.wait()
-        output = p.stderr.read()
-        if "Everything up-to-date" in output:
-            sys.stdout.write(".")
-            sys.stdout.flush()
-        else:
-            print
-            print d["folder"]
-            print output
+            p = procs.pop()
+            p = d["proc"]
+            p.wait()
+            output = p.stderr.read()
+            if "Everything up-to-date" in output:
+                sys.stdout.write(".")
+                sys.stdout.flush()
+            else:
+                print
+                print d["folder"]
+                print output
     print
 
 
