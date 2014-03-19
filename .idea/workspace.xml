@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d6f2dfb3-74c7-41e2-af02-10f9cb3a9ca7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commit_all_git_folders.py" afterPath="$PROJECT_DIR$/commit_all_git_folders.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="git_utils.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,7 +40,7 @@
       <file leaf-file-name="commit_all_git_folders.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/commit_all_git_folders.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="20" selection-start="526" selection-end="526" vertical-scroll-proportion="0.32472825" vertical-offset="201" max-vertical-offset="1804">
+            <state line="19" column="81" selection-start="446" selection-end="446" vertical-scroll-proportion="0.32472825" vertical-offset="179" max-vertical-offset="1782">
               <folding />
             </state>
           </provider>
@@ -532,7 +531,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/commit_all_git_folders.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="20" selection-start="526" selection-end="526" vertical-scroll-proportion="0.32472825" vertical-offset="201" max-vertical-offset="1804">
+        <state line="19" column="81" selection-start="446" selection-end="446" vertical-scroll-proportion="0.32472825" vertical-offset="179" max-vertical-offset="1782">
           <folding />
         </state>
       </provider>
