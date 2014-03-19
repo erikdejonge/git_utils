@@ -60,7 +60,7 @@ alias stats='/Users/rabshakeh/workspace/git_utils/status.sh;'
 alias stop_couch='/usr/bin/sudo launchctl unload /Library/LaunchDaemons/org.apache.couchdb.plist'
 alias test='cd /Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/scripts/test'
 alias todo='vi /etc/motd'
-alias updatedb='sudo /usr/libexec/locate.updatedb'
+alias updatedb='sudo date; sudo /usr/libexec/locate.updatedb &'
 alias upgrade='sudo ls > /dev/null; brew update; brew upgrade; brew doctor; brew cleanup -s --force; sudo gem update bropages; sudo /Users/rabshakeh/upgradepython.sh'
 alias ws='cd /Users/rabshakeh/workspace'
 
