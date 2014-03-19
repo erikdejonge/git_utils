@@ -10,18 +10,16 @@ import sys
 import os
 import subprocess
 import cPickle as pickle
-lastdirvisited = {}
 
+toggle = False
 def find_git_repos(arg, directory, files):
     """ find the git repositories """
-    global lastdirvisited
-    files = files
-    ds = directory.split("/")
-    if len(ds)>7:
-        printpath = ds[len(ds)-7]+"/"+ds[len(ds)-6]+"/"+ds[len(ds)-5]+"/"+ds[len(ds)-4]+"/"+ds[len(ds)-3]+"/"+ds[len(ds)-2]+"/"+ds[len(ds)-1]
-        if str(ds[len(ds)-7]).strip() not in lastdirvisited:
-            #print printpath
-            lastdirvisited[str(ds[len(ds)-7]).strip()] = True
+    global toggle
+    toggle = not toggle
+    if toggle:
+        print ".",
+    else:
+        print "*",
     git_dir = os.path.join(directory, ".git")
     if os.path.exists(git_dir):
         print directory
