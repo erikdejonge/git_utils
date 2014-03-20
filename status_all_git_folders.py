@@ -53,10 +53,10 @@ def main():
 
             status = os.popen("git status").read()
             if "modified" in status or "Untracked" in status:
-                print "----"
-                print folder
-                print status
-                print "--"
+
+                print "\033[96mstatus", os.path.basename(folder), "\033[0m"
+                print "\033[93m", status, "\033[0m"
+
 
             os.chdir(currdir)
 
