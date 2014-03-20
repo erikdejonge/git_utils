@@ -60,10 +60,11 @@ def main():
         output = p[1].stderr.read()
         if "Everything up-to-date" in output:
             pass
+
         else:
             print
-            print p[0]
-            print output
+            print "\033[93m", output, "\033[0m"
+
 
 if __name__ == "__main__":
     main()
