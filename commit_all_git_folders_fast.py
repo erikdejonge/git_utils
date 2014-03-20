@@ -56,7 +56,7 @@ def main():
         else:
             print
             print d["folder"]
-            print output.strip()
+            print output.strip()+"\n"
 
 
 if __name__ == "__main__":
