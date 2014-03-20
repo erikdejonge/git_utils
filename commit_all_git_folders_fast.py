@@ -12,14 +12,6 @@ import sys
 import cPickle as pickle
 import subprocess
 
-def find_git_repos(arg, directory, files):
-    """ find the git repositories """
-
-    files = files
-    git_dir = os.path.join(directory, ".git")
-    if os.path.exists(git_dir):
-        arg.append(directory)
-
 
 def main():
     """ check all folders and pull all from the server """
@@ -32,12 +24,7 @@ def main():
     if os.path.exists(dfp):
         dir_list = pickle.load(open(dfp))
     else:
-        dir_list = []
-        os.path.walk(".", find_git_repos, dir_list)
-        currdir = os.popen("pwd").read().strip()
-        dir_list = [os.path.join(currdir, x.lstrip("./")) for x in dir_list]
-        pickle.dump(dir_list, open(dfp, "w"))
-
+        raise RuntimeError("Cannot find /Users/rabshakeh/workspace/git_utils/gitdirlist.pickle")
     msg = os.popen("date").read().strip()
     procs = []
     for folder in dir_list:

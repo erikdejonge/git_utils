@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6f2dfb3-74c7-41e2-af02-10f9cb3a9ca7" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commit_all_git_folders_fast.py" afterPath="$PROJECT_DIR$/commit_all_git_folders_fast.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pull_all_git_folders.py" afterPath="$PROJECT_DIR$/pull_all_git_folders.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/push_all_git_folders.py" afterPath="$PROJECT_DIR$/push_all_git_folders.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="git_utils.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,7 +33,7 @@
       <file leaf-file-name="commit_all_git_folders_fast.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/commit_all_git_folders_fast.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="34" selection-start="1713" selection-end="1713" vertical-scroll-proportion="0.0" vertical-offset="247" max-vertical-offset="1562">
+            <state line="21" column="0" selection-start="515" selection-end="759" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1276">
               <folding />
             </state>
           </provider>
@@ -47,10 +48,19 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="commit_all_git_folders.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/commit_all_git_folders.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="55" column="114" selection-start="1630" selection-end="1630" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1870">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="pull_all_git_folders.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pull_all_git_folders.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="0" selection-start="641" selection-end="641" vertical-scroll-proportion="0.0" vertical-offset="181" max-vertical-offset="1540">
+            <state line="40" column="0" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1100">
               <folding />
             </state>
           </provider>
@@ -59,7 +69,7 @@
       <file leaf-file-name="push_all_git_folders.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/push_all_git_folders.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="16" selection-start="1876" selection-end="1876" vertical-scroll-proportion="0.8638824" vertical-offset="203" max-vertical-offset="1606">
+            <state line="51" column="0" selection-start="1309" selection-end="1516" vertical-scroll-proportion="0.6256767" vertical-offset="313" max-vertical-offset="1606">
               <folding />
             </state>
           </provider>
@@ -100,8 +110,8 @@
         <option value="$PROJECT_DIR$/commitpush.sh" />
         <option value="$PROJECT_DIR$/commit_all_git_folders.py" />
         <option value="$PROJECT_DIR$/status_all_git_folders.py" />
-        <option value="$PROJECT_DIR$/commit_all_git_folders_fast.py" />
         <option value="$PROJECT_DIR$/push_all_git_folders.py" />
+        <option value="$PROJECT_DIR$/commit_all_git_folders_fast.py" />
         <option value="$PROJECT_DIR$/pull_all_git_folders.py" />
       </list>
     </option>
@@ -685,30 +695,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/commit_all_git_folders_fast.py">
+    <entry file="file://$PROJECT_DIR$/commit_all_git_folders.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="34" selection-start="1713" selection-end="1713" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1562">
+        <state line="55" column="114" selection-start="1630" selection-end="1630" vertical-scroll-proportion="0.0" vertical-offset="462" max-vertical-offset="1870">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/commit_all_git_folders.py">
+    <entry file="file://$PROJECT_DIR$/commit_all_git_folders_fast.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="0" selection-start="1153" selection-end="1236" vertical-scroll-proportion="0.7826759" vertical-offset="0" max-vertical-offset="1870">
+        <state line="21" column="0" selection-start="515" selection-end="759" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1276">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pull_all_git_folders.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="0" selection-start="641" selection-end="641" vertical-scroll-proportion="0.0" vertical-offset="181" max-vertical-offset="1540">
+        <state line="40" column="0" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1100">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/push_all_git_folders.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="16" selection-start="1876" selection-end="1876" vertical-scroll-proportion="0.8638824" vertical-offset="203" max-vertical-offset="1606">
+        <state line="51" column="0" selection-start="1309" selection-end="1516" vertical-scroll-proportion="0.6256767" vertical-offset="313" max-vertical-offset="1606">
           <folding />
         </state>
       </provider>
