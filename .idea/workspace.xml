@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d6f2dfb3-74c7-41e2-af02-10f9cb3a9ca7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/push_all_git_folders.py" afterPath="$PROJECT_DIR$/push_all_git_folders.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="git_utils.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -68,7 +67,7 @@
       <file leaf-file-name="push_all_git_folders.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/push_all_git_folders.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="16" selection-start="1628" selection-end="1628" vertical-scroll-proportion="0.6597061" vertical-offset="313" max-vertical-offset="1650">
+            <state line="52" column="30" selection-start="1568" selection-end="1568" vertical-scroll-proportion="0.64269143" vertical-offset="313" max-vertical-offset="1650">
               <folding />
             </state>
           </provider>
@@ -366,6 +365,23 @@
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="sslv3">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="d6f2dfb3-74c7-41e2-af02-10f9cb3a9ca7" name="Default" comment="" />
@@ -611,7 +627,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/push_all_git_folders.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="16" selection-start="1628" selection-end="1628" vertical-scroll-proportion="0.6597061" vertical-offset="313" max-vertical-offset="1650">
+        <state line="52" column="30" selection-start="1568" selection-end="1568" vertical-scroll-proportion="0.64269143" vertical-offset="313" max-vertical-offset="1650">
           <folding />
         </state>
       </provider>
