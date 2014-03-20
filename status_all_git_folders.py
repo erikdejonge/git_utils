@@ -47,7 +47,8 @@ def main():
                     fl = os.path.basename(folder)
                     if len(fl) < 25:
                         fl += (" "*(25-len(fl)))
-                    print fl+"\t"+branch.replace("*", "").strip()
+                    if "master" not in branch:
+                        print fl+"\t"+branch.replace("*", "").strip()
 
             status = os.popen("git status").read()
             if "modified" in status or "Untracked" in status:

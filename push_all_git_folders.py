@@ -62,10 +62,6 @@ def main():
             print
             print p[0]
             print output
-    else:
-        print "ok"
-    print
-
 
 if __name__ == "__main__":
     main()
