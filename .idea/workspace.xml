@@ -4,7 +4,10 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6f2dfb3-74c7-41e2-af02-10f9cb3a9ca7" name="Default" comment="" />
+    <list default="true" id="d6f2dfb3-74c7-41e2-af02-10f9cb3a9ca7" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pull_all_git_folders.py" afterPath="$PROJECT_DIR$/pull_all_git_folders.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/push_all_git_folders.py" afterPath="$PROJECT_DIR$/push_all_git_folders.py" />
+    </list>
     <ignored path="git_utils.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,7 +32,7 @@
       <file leaf-file-name="commit_all_git_folders_fast.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/commit_all_git_folders_fast.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="34" selection-start="1713" selection-end="1713" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1562">
+            <state line="57" column="34" selection-start="1713" selection-end="1713" vertical-scroll-proportion="0.0" vertical-offset="247" max-vertical-offset="1562">
               <folding />
             </state>
           </provider>
@@ -44,28 +47,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="commit_all_git_folders.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/commit_all_git_folders.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="0" selection-start="509" selection-end="509" vertical-scroll-proportion="0.0" vertical-offset="528" max-vertical-offset="1870">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="pull_all_git_folders.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pull_all_git_folders.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="0" selection-start="263" selection-end="263" vertical-scroll-proportion="0.0" vertical-offset="748" max-vertical-offset="1804">
+            <state line="38" column="0" selection-start="641" selection-end="641" vertical-scroll-proportion="0.0" vertical-offset="181" max-vertical-offset="1540">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="push_all_git_folders.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="push_all_git_folders.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/push_all_git_folders.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="36" selection-start="1552" selection-end="1552" vertical-scroll-proportion="0.0" vertical-offset="269" max-vertical-offset="1628">
+            <state line="60" column="16" selection-start="1876" selection-end="1876" vertical-scroll-proportion="0.8638824" vertical-offset="203" max-vertical-offset="1606">
               <folding />
             </state>
           </provider>
@@ -75,15 +69,6 @@
         <entry file="file://$PROJECT_DIR$/push.sh">
           <provider selected="true" editor-type-id="text-editor">
             <state line="3" column="0" selection-start="70" selection-end="70" vertical-scroll-proportion="0.0" vertical-offset="66" max-vertical-offset="264">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="status_all_git_folders.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/status_all_git_folders.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="37" selection-start="1830" selection-end="1830" vertical-scroll-proportion="0.7780356" vertical-offset="226" max-vertical-offset="1540">
               <folding />
             </state>
           </provider>
@@ -114,10 +99,10 @@
         <option value="$PROJECT_DIR$/commitpush.py" />
         <option value="$PROJECT_DIR$/commitpush.sh" />
         <option value="$PROJECT_DIR$/commit_all_git_folders.py" />
-        <option value="$PROJECT_DIR$/pull_all_git_folders.py" />
         <option value="$PROJECT_DIR$/status_all_git_folders.py" />
-        <option value="$PROJECT_DIR$/push_all_git_folders.py" />
         <option value="$PROJECT_DIR$/commit_all_git_folders_fast.py" />
+        <option value="$PROJECT_DIR$/push_all_git_folders.py" />
+        <option value="$PROJECT_DIR$/pull_all_git_folders.py" />
       </list>
     </option>
   </component>
@@ -152,7 +137,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -173,6 +157,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -294,6 +279,9 @@
       <option name="PARAMETERS" value="" />
       <method />
     </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+      <method />
+    </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -315,9 +303,6 @@
       <option name="PUREUNITTEST" value="true" />
       <option name="PARAMS" value="" />
       <option name="USE_PARAM" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -397,7 +382,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329188" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991952" sideWeight="0.6909091" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.05996823" sideWeight="0.64447695" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.09769659" sideWeight="0.64447695" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.098490864" sideWeight="0.64447695" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35552305" sideWeight="0.59029436" order="7" side_tool="false" content_ui="tabs" x="2" y="1018" width="2514" height="308" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.45354792" sideWeight="0.3989658" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34723276" sideWeight="0.40970564" order="2" side_tool="true" content_ui="tabs" />
@@ -433,6 +418,55 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/commit_all_git_folders_fast.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="34" selection-start="1713" selection-end="1713" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1562">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commit.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="242">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commit_all_git_folders.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="0" selection-start="509" selection-end="509" vertical-scroll-proportion="0.0" vertical-offset="528" max-vertical-offset="1870">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pull_all_git_folders.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="0" selection-start="263" selection-end="263" vertical-scroll-proportion="0.0" vertical-offset="748" max-vertical-offset="1804">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/push_all_git_folders.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="36" selection-start="1552" selection-end="1552" vertical-scroll-proportion="0.0" vertical-offset="269" max-vertical-offset="1628">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/push.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="70" selection-end="70" vertical-scroll-proportion="0.0" vertical-offset="66" max-vertical-offset="264">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/status_all_git_folders.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="37" selection-start="1830" selection-end="1830" vertical-scroll-proportion="0.0" vertical-offset="1232" max-vertical-offset="1540">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/commit_all_git_folders_fast.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="59" column="4" selection-start="1794" selection-end="1794" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1562">
@@ -630,13 +664,6 @@
         <state line="2" column="0" selection-start="98" selection-end="98" vertical-scroll-proportion="0.052194543" vertical-offset="0" max-vertical-offset="843" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pull_all_git_folders.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="263" selection-end="263" vertical-scroll-proportion="0.0" vertical-offset="748" max-vertical-offset="1804">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/push.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="0" selection-start="70" selection-end="70" vertical-scroll-proportion="0.0" vertical-offset="66" max-vertical-offset="264">
@@ -651,16 +678,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/commit_all_git_folders.py">
+    <entry file="file://$PROJECT_DIR$/status_all_git_folders.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="0" selection-start="509" selection-end="509" vertical-scroll-proportion="0.0" vertical-offset="528" max-vertical-offset="1870">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/push_all_git_folders.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="36" selection-start="1552" selection-end="1552" vertical-scroll-proportion="0.0" vertical-offset="269" max-vertical-offset="1628">
+        <state line="38" column="0" selection-start="893" selection-end="1093" vertical-scroll-proportion="0.47177106" vertical-offset="226" max-vertical-offset="1540">
           <folding />
         </state>
       </provider>
@@ -672,9 +692,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/status_all_git_folders.py">
+    <entry file="file://$PROJECT_DIR$/commit_all_git_folders.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="37" selection-start="1830" selection-end="1830" vertical-scroll-proportion="0.7780356" vertical-offset="226" max-vertical-offset="1540">
+        <state line="46" column="0" selection-start="1153" selection-end="1236" vertical-scroll-proportion="0.7826759" vertical-offset="0" max-vertical-offset="1870">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pull_all_git_folders.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="0" selection-start="641" selection-end="641" vertical-scroll-proportion="0.0" vertical-offset="181" max-vertical-offset="1540">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/push_all_git_folders.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="16" selection-start="1876" selection-end="1876" vertical-scroll-proportion="0.8638824" vertical-offset="203" max-vertical-offset="1606">
           <folding />
         </state>
       </provider>

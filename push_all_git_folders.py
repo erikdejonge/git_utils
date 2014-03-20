@@ -59,7 +59,6 @@ def main():
         output = p[1].stderr.read()
         if "Everything up-to-date" in output:
             pass
-
         else:
             print "\033[93m"+output.strip()+"\033[0m"
 
