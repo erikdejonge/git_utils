@@ -57,7 +57,7 @@ def main():
         p[1].wait()
         output = p[1].stderr.read()
         if "Everything up-to-date" in output:
-            print "ok"
+            print p[0], "ok"
         else:
             print
             print p[0]
