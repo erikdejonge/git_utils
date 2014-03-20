@@ -44,8 +44,6 @@ def main():
     procs = []
     for folder in dir_list:
         if len([x for x in [x in folder for x in excludes] if x]) == 0:
-
-
             sys.stdout.flush()
             p = subprocess.Popen(["/usr/local/bin/git", "status"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
             p.wait()
@@ -53,11 +51,12 @@ def main():
             if "Your branch is ahead" in p.stdout.read():
                 p = subprocess.Popen(["/usr/local/bin/git", "push"], stderr=subprocess.PIPE, cwd=folder)
                 procs.append((folder, p))
+                
     for p in procs:
         p[1].wait()
         output = p[1].stderr.read()
         if "Everything up-to-date" in output:
-            print p[0], "ok"
+            pass
         else:
             print
             print p[0]
