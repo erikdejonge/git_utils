@@ -62,8 +62,7 @@ def main():
             pass
 
         else:
-            print
-            print "\033[93m", output, "\033[0m"
+            print "\033[93m", output.strip(), "\033[0m"
 
 
 if __name__ == "__main__":
