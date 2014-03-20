@@ -54,10 +54,10 @@ def main():
             sys.stdout.write(".")
             sys.stdout.flush()
         else:
-            print
-            #print d["folder"]
+            #print
+            print d["folder"]
             print output
-    print
+    
 
 if __name__ == "__main__":
     main()
