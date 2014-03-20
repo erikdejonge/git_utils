@@ -40,6 +40,7 @@ def main():
 
     for folder in dir_list:
         if len([x for x in [x in folder for x in excludes] if x]) == 0:
+            print folder
             os.chdir(folder)
             #os.system("git rm --cached -r .idea/")
             for branch in os.popen("git branch").read().split("\n"):
