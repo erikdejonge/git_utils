@@ -55,7 +55,7 @@ def main():
             if "modified" in status or "Untracked" in status:
 
                 print "\033[96mstatus", os.path.basename(folder), "\033[0m"
-                print "\033[93m", status, "\033[0m"
+                print "\033[93m"+status.strip()+"\033[0m"
 
 
             os.chdir(currdir)
