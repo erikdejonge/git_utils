@@ -41,26 +41,29 @@ def main():
         dir_list = [os.path.join(currdir, x.lstrip("./")) for x in dir_list]
         cPickle.dump(dir_list, open(dfp, "w"))
 
+    procs = []
     for folder in dir_list:
         if len([x for x in [x in folder for x in excludes] if x]) == 0:
 
-            print folder,
+
             sys.stdout.flush()
             p = subprocess.Popen(["/usr/local/bin/git", "status"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
             p.wait()
 
             if "Your branch is ahead" in p.stdout.read():
                 p = subprocess.Popen(["/usr/local/bin/git", "push"], stderr=subprocess.PIPE, cwd=folder)
-                p.wait()
-                output = p.stderr.read()
-                if "Everything up-to-date" in output:
-                    print "ok"
-                else:
-                    print
-                    print folder
-                    print output
-            else:
-                print "ok"
+                procs.append((folder, p))
+    for p in procs:
+        p[1].wait()
+        output = p[1].stderr.read()
+        if "Everything up-to-date" in output:
+            print "ok"
+        else:
+            print
+            print p[0]
+            print output
+    else:
+        print "ok"
     print
 
 
