@@ -45,7 +45,7 @@ def main():
         if len([x for x in [x in folder for x in excludes] if x]) == 0:
             p = subprocess.Popen(["/usr/local/bin/git", "commit", "-am",  msg], stdout=subprocess.PIPE, cwd=folder)
             procs.append({"folder":folder, "proc":p})
-    addenter = False
+
     for d in procs:
         p = d["proc"]
         p.wait()
@@ -56,7 +56,7 @@ def main():
         else:
             print
             print "\033[92mcommit"+os.path.basename(d["folder"])+"\033[0m\n\033[93m"+output.strip()+"\033[0m"
-            addenter = True
+    
 
 
     print
