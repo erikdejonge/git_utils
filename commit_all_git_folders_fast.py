@@ -55,7 +55,7 @@ def main():
             sys.stdout.flush()
         else:
             print
-            print "commit", os.path.basename(d["folder"])
+            print "\033[92mcommit", os.path.basename(d["folder"]), "\033[93m"
             print output.strip()
 
 
