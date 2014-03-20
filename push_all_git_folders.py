@@ -50,7 +50,8 @@ def main():
 
             if "Your branch is ahead" in p.stdout.read():
                 print
-                print "push", os.path.basename(folder)
+                print "\033[92mpush", os.path.basename(folder), "\033[0m"
+                
                 p = subprocess.Popen(["/usr/local/bin/git", "push"], stderr=subprocess.PIPE, cwd=folder)
                 procs.append((folder, p))
 
