@@ -28,10 +28,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="commit_all_git_folders_fast.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="commit_all_git_folders_fast.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/commit_all_git_folders_fast.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="109" selection-start="1691" selection-end="1788" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1518">
+            <state line="61" column="13" selection-start="1868" selection-end="1868" vertical-scroll-proportion="0.8638824" vertical-offset="225" max-vertical-offset="1606">
               <folding />
             </state>
           </provider>
@@ -64,10 +64,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="push_all_git_folders.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="push_all_git_folders.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/push_all_git_folders.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="44" selection-start="1959" selection-end="1959" vertical-scroll-proportion="0.8638824" vertical-offset="291" max-vertical-offset="1650">
+            <state line="64" column="44" selection-start="1959" selection-end="1959" vertical-scroll-proportion="0.0" vertical-offset="291" max-vertical-offset="1650">
               <folding />
             </state>
           </provider>
@@ -618,16 +618,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/commit_all_git_folders_fast.py">
+    <entry file="file://$PROJECT_DIR$/push_all_git_folders.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="109" selection-start="1691" selection-end="1788" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1518">
+        <state line="64" column="44" selection-start="1959" selection-end="1959" vertical-scroll-proportion="0.0" vertical-offset="291" max-vertical-offset="1650">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/push_all_git_folders.py">
+    <entry file="file://$PROJECT_DIR$/commit_all_git_folders_fast.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="44" selection-start="1959" selection-end="1959" vertical-scroll-proportion="0.8638824" vertical-offset="291" max-vertical-offset="1650">
+        <state line="61" column="13" selection-start="1868" selection-end="1868" vertical-scroll-proportion="0.8638824" vertical-offset="225" max-vertical-offset="1606">
           <folding />
         </state>
       </provider>
