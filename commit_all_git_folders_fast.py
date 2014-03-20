@@ -55,7 +55,7 @@ def main():
             sys.stdout.flush()
         else:
             print
-            print d["folder"]
+            print "commit", os.path.basename(d["folder"])
             print output.strip()
 
 
