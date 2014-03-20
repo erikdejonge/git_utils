@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6f2dfb3-74c7-41e2-af02-10f9cb3a9ca7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commit_all_git_folders_fast.py" afterPath="$PROJECT_DIR$/commit_all_git_folders_fast.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pull_all_git_folders.py" afterPath="$PROJECT_DIR$/pull_all_git_folders.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="git_utils.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,19 +55,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pull_all_git_folders.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="pull_all_git_folders.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pull_all_git_folders.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="0" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1100">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="push_all_git_folders.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/push_all_git_folders.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="0" selection-start="1309" selection-end="1516" vertical-scroll-proportion="0.6256767" vertical-offset="313" max-vertical-offset="1606">
+            <state line="27" column="60" selection-start="711" selection-end="711" vertical-scroll-proportion="0.45939675" vertical-offset="0" max-vertical-offset="1293">
               <folding />
             </state>
           </provider>
@@ -709,16 +698,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pull_all_git_folders.py">
+    <entry file="file://$PROJECT_DIR$/push_all_git_folders.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="0" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1100">
+        <state line="52" column="0" selection-start="1589" selection-end="1589" vertical-scroll-proportion="0.64269143" vertical-offset="313" max-vertical-offset="1606">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/push_all_git_folders.py">
+    <entry file="file://$PROJECT_DIR$/pull_all_git_folders.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="0" selection-start="1309" selection-end="1516" vertical-scroll-proportion="0.6256767" vertical-offset="313" max-vertical-offset="1606">
+        <state line="27" column="60" selection-start="711" selection-end="711" vertical-scroll-proportion="0.45939675" vertical-offset="0" max-vertical-offset="1293">
           <folding />
         </state>
       </provider>
