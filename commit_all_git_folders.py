@@ -67,6 +67,7 @@ def main():
             p = subprocess.Popen(["/usr/local/bin/git", "commit", "-am", msg], stdout=subprocess.PIPE, cwd=folder)
             p.wait()
     if not fcheck:
+        print
         print "skipping check"
         return
     print
