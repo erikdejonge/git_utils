@@ -22,8 +22,18 @@ def find_git_repos(arg, directory, files):
         sys.stdout.flush()
     git_dir = os.path.join(directory, ".git")
     if os.path.exists(git_dir):
+        try:
+            config = open(git_dir + "/config").read().split("url =")[1].split("\n")[0].strip().split("//")[1].split("/")[0]
+        except IndexError:
+            config = open(git_dir + "/config").read().split("url =")[1].split("\n")[0].strip().split(":")[0].split("/")[0]
+        except Exception, ex:
+            config = str(ex)
+
+
         print
-        print "gitdir:", directory
+        print "gitdir:", directory, "("+config+")"
+
+
         arg.append(directory)
 
 
@@ -46,16 +56,18 @@ def main():
     print
     #dir_list = [os.path.join("/Users/rabshakeh/workspace", x.lstrip("./")) for x in dir_list]
 
-
+    print "committing"
     pickle.dump(dir_list, open(dfp, "w"))
 
     procs = []
     for folder in dir_list:
         if len([x for x in [x in folder for x in excludes] if x]) == 0:
-            print folder
+            sys.stdout.write(".")
+            sys.stdout.flush()
             p = subprocess.Popen(["/usr/local/bin/git", "commit", "-am", msg], stdout=subprocess.PIPE, cwd=folder)
             p.wait()
     if not fcheck:
+        print
         print "skipping check"
         return
     print
@@ -73,7 +85,7 @@ def main():
     for p in procs:
         p.wait()
 
-
+    print "done"
 
 if __name__ == "__main__":
     main()
