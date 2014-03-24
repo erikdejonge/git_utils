@@ -47,7 +47,7 @@ def main():
             sys.stdout.flush()
             p = subprocess.Popen(["/usr/local/bin/git", "status"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
             p.wait()
-            
+
             if "Your branch is ahead" in p.stdout.read():
                 print "\033[95mpush "+os.path.basename(folder)+"\033[0m"
 
