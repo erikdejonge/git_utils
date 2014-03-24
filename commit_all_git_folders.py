@@ -56,12 +56,14 @@ def main():
     print
     #dir_list = [os.path.join("/Users/rabshakeh/workspace", x.lstrip("./")) for x in dir_list]
 
-
+    print "committing"
     pickle.dump(dir_list, open(dfp, "w"))
 
     procs = []
     for folder in dir_list:
         if len([x for x in [x in folder for x in excludes] if x]) == 0:
+            sys.stdout.write(".")
+            sys.stdout.flush()
             p = subprocess.Popen(["/usr/local/bin/git", "commit", "-am", msg], stdout=subprocess.PIPE, cwd=folder)
             p.wait()
     if not fcheck:
@@ -82,7 +84,7 @@ def main():
     for p in procs:
         p.wait()
 
-
+    print "done"
 
 if __name__ == "__main__":
     main()
