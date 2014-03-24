@@ -31,7 +31,7 @@ def find_git_repos(arg, directory, files):
 
 
         print
-        print "gitdir:", directory, " location:", config
+        print "gitdir:", directory, "("+config+")"
 
 
         arg.append(directory)
