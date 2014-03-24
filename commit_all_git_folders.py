@@ -24,11 +24,14 @@ def find_git_repos(arg, directory, files):
     if os.path.exists(git_dir):
         try:
             config = open(git_dir + "/config").read().split("url =")[1].split("\n")[0].strip().split("//")[1].split("/")[0]
+        except IndexError:
+            config = open(git_dir + "/config").read().split("url =")[1].split("\n")[0].strip().split(":")[0].split("/")[0]
         except Exception, ex:
             config = str(ex)
 
+
         print
-        print "gitdir:", directory, config
+        print "gitdir:", directory, " location:", config
 
 
         arg.append(directory)
