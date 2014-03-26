@@ -61,6 +61,7 @@ alias pullcompush='/Users/rabshakeh/workspace/git_utils/pull.sh; /Users/rabshake
 alias push='/Users/rabshakeh/workspace/git_utils/push.sh;'
 alias res='cd /Users/rabshakeh/workspace/research'
 alias restart_couch='/usr/bin/sudo launchctl stop org.apache.couchdb'
+alias rmpyc="find . -type f -name '*.pyc' -exec rm {} \;"
 alias rredis='launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist; launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist'
 alias scr='cd /Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/scripts'
 alias stats='/Users/rabshakeh/workspace/git_utils/status.sh;'
