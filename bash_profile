@@ -43,6 +43,7 @@ alias cwvkill='python /Users/rabshakeh/workspace/cryptobox/crypto_taskworker/cmd
 alias cwkillall='python /Users/rabshakeh/workspace/cryptobox/crypto_taskworker/cmd_crypto_taskworker_kill_all.py -n "x"'
 alias cwvkillall='python /Users/rabshakeh/workspace/cryptobox/crypto_taskworker/cmd_crypto_taskworker_kill_all.py -n "x"'
 alias deletecb='cd /Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl;/Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/scripts/create/delete_cryptobox.sh;'
+alias desk='cd /Users/rabshakeh/Desktop'
 alias down='cd; cd Downloads'
 alias dump='/Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/scripts/create/make_local_copy_databases.sh'
 alias flush='redis-cli flushall'
