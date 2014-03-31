@@ -71,6 +71,6 @@ alias startdata='nohup /Users/rabshakeh/workspace/google/gcd-v1beta2-rev1-2.1.1/
 alias test='cd /Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/scripts/test'
 alias todo='vi /etc/motd'
 alias updatedb='sudo date; sudo /usr/libexec/locate.updatedb &'
-alias upgrade="sudo ls > /dev/null; brew update; brew upgrade; brew doctor; brew cleanup -s --force; sudo gem update bropages; sudo pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs sudo pip install -U"
+alias upgrade="sudo ls > /dev/null; brew update; brew upgrade; brew doctor; brew cleanup -s --force; sudo gem update bropages; sudo pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs sudo pip install -U; gcloud -q components update"
 alias ws='cd /Users/rabshakeh/workspace'
 
