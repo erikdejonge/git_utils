@@ -25,7 +25,7 @@ export DATASTORE_DATASET="cryptobox2013"
 
 alias app='cd /Users/rabshakeh/workspace/cryptobox/cryptobox_app/source/commands/'
 alias ca='cd /Users/rabshakeh/workspace/cryptobox/crypto_data/'
-alias cb='cd /Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/'
+alias cb='cd /Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/source/coffee'
 alias cls='printf "\033c"'
 alias com='/Users/rabshakeh/workspace/git_utils/commitfast.sh;'
 alias comm='cd /Users/rabshakeh/workspace/git_utils; python make_exclude_dirs.py; /Users/rabshakeh/workspace/git_utils/commit.sh;'
@@ -70,7 +70,9 @@ alias stats='/Users/rabshakeh/workspace/git_utils/status.sh;'
 alias startdata='nohup /Users/rabshakeh/workspace/google/gcd-v1beta2-rev1-2.1.1/gcd.sh start /Users/rabshakeh/workspace/google/cryptobox2013/ &'
 alias test='cd /Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/scripts/test'
 alias todo='vi /etc/motd'
+alias touchall='find . -name "*.foo" -exec touch {} \;'
 alias updatedb='sudo date; sudo /usr/libexec/locate.updatedb &'
-alias upgrade="sudo ls > /dev/null; brew update; brew upgrade; brew doctor; brew cleanup -s --force; sudo gem update bropages; sudo pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs sudo pip install -U; gcloud -q components update"
+alias upgrade="sudo ls > /dev/null; brew update; brew upgrade; brew doctor; brew cleanup -s --force; sudo gem update bropages; sudo pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs sudo pip install -U --allow-external PIL --allow-unverified PIL; gcloud -q components update"
 alias ws='cd /Users/rabshakeh/workspace'
+alias www='cd /Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl'
 
