@@ -52,13 +52,15 @@ def main():
                         print fl+"\t"+branch.replace("*", "").strip()
 
             status = os.popen("git status").read()
-            if "modified" in status or "Untracked" in status or "new file" in status:
+            if "modified" in status or "Untracked" in status or "new file" in status or "deleted" in status:
 
-                print "\033[96mstatus", os.path.basename(folder), "\033[0m"
+                print "\033[96mstatus:", os.path.basename(folder), "\033[0m"
                 if "new file" in status:
-                    print "\033[92m" + status.strip() + "\033[0m"
+                    print "\033[92m" + status.strip() + "\033[0m\n"
+                if "deleted" in status:
+                    print "\033[91m" + status.strip() + "\033[0m\n"
                 else:
-                    print "\033[93m"+status.strip()+"\033[0m"
+                    print "\033[93m"+status.strip()+"\033[0m\n"
 
 
             os.chdir(currdir)
