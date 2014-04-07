@@ -15,8 +15,6 @@ export BOTO_PATH="/Users/rabshakeh/.boto"
 # The next line updates PATH for the Google Cloud SDK.
 export PATH=/Users/rabshakeh/google-cloud-sdk/bin:$PATH
 
-# The next line enables bash completion for gcloud.
-source /Users/rabshakeh/google-cloud-sdk/arg_rc
 
 export DATASTORE_HOST="http://localhost:8080"
 export DATASTORE_DATASET="cryptobox2013"
