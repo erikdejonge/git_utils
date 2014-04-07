@@ -51,16 +51,11 @@ def main():
             if "Your branch is ahead" in p.stdout.read():
                 print "\033[95mpush "+os.path.basename(folder)+"\033[0m"
 
-                p = subprocess.Popen(["/usr/local/bin/git", "push"], stderr=subprocess.PIPE, cwd=folder)
-                procs.append((folder, p))
+                p2 = subprocess.Popen(["/usr/local/bin/git", "push"], cwd=folder)
+                procs.append((folder, p2))
 
     for p in procs:
         p[1].wait()
-        output = p[1].stderr.read()
-        if "Everything up-to-date" in output:
-            pass
-        else:
-            print "\033[93m"+output.strip()+"\033[0m"
 
 
 if __name__ == "__main__":
