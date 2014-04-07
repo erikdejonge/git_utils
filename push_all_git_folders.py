@@ -56,7 +56,7 @@ def main():
 
     for p in procs:
         p[1].wait()
-
+        print
 
 if __name__ == "__main__":
     main()
