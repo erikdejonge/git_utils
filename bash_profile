@@ -8,7 +8,7 @@ function _google() {
   open 'https://www.google.nl/search?site=&source=hp&q='$1+$2+$3+$4+$5
 }
 export PYRO_HMAC_KEY="sdhjfghvgchjgfuyeaguy"
-export PYTHONPATH=${PYTHONPATH}:$HOME/gsutil/third_party/boto:$HOME/gsutil;
+export PYTHONPATH=${PYTHONPATH}:$HOME/gsutil/third_party/boto:$HOME/gsutil:/Users/rabshakeh/workspace/cryptobox;
 ulimit -n 10000
 export BOTO_PATH="/Users/rabshakeh/.boto"
 
@@ -59,7 +59,7 @@ alias n1='ssh node1-us.a8.nl'
 alias pull='/Users/rabshakeh/workspace/git_utils/pull.sh;'
 alias pullcompush='/Users/rabshakeh/workspace/git_utils/pull.sh; /Users/rabshakeh/workspace/git_utils/commitfast.sh; /Users/rabshakeh/workspace/git_utils/push.sh;'
 alias push='/Users/rabshakeh/workspace/git_utils/push.sh;'
-alias res='cd /Users/rabshakeh/workspace/research'
+alias res='ssh 188.226.155.145'
 alias restart_couch='/usr/bin/sudo launchctl stop org.apache.couchdb'
 alias rmpyc="find . -type f -name '*.pyc' -exec rm {} \;"
 alias rredis='launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist; launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist'
