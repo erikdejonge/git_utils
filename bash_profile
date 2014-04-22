@@ -8,7 +8,7 @@ function _google() {
   open 'https://www.google.nl/search?site=&source=hp&q='$1+$2+$3+$4+$5
 }
 export PYRO_HMAC_KEY="sdhjfghvgchjgfuyeaguy"
-export PYTHONPATH=${PYTHONPATH}:$HOME/gsutil/third_party/boto:$HOME/gsutil;
+export PYTHONPATH=${PYTHONPATH}:$HOME/gsutil/third_party/boto:$HOME/gsutil:/Users/rabshakeh/workspace/cryptobox:/Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl;
 ulimit -n 10000
 export BOTO_PATH="/Users/rabshakeh/.boto"
 
