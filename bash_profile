@@ -1,14 +1,25 @@
+export LDFLAGS='-L/usr/local/opt/openssl/lib'
+export CPPFLAGS='-I/usr/local/opt/openssl/include'
+# build pycrypto
+# sudo ln -s /usr/local/Cellar/gmp/5.1.3/lib/libgmp.dylib /usr/lib/libgmp.dylib
+# ARCHFLAGS=-Wno-error CFLAGS=-I/usr/local/Cellar/gmp/5.1.3/include sudo -E pip install pycrypto
+export HOMEBREW_BUILD_FROM_SOURCE=1
+
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
 
-export PATH=/usr/local/bin:/usr/local/share/npm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/rabshakeh/workspace/depot_tools
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/rabshakeh/workspace/depot_tools
 export LC_ALL=en_US.UTF-8
 function _google() { 
   open 'https://www.google.nl/search?site=&source=hp&q='$1+$2+$3+$4+$5
 }
 export PYRO_HMAC_KEY="sdhjfghvgchjgfuyeaguy"
+<<<<<<< HEAD
 export PYTHONPATH=${PYTHONPATH}:$HOME/gsutil/third_party/boto:$HOME/gsutil:/Users/rabshakeh/workspace/cryptobox;
+=======
+export PYTHONPATH=${PYTHONPATH}:$HOME/gsutil/third_party/boto:$HOME/gsutil:/Users/rabshakeh/workspace/cryptobox:/Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl;
+>>>>>>> 8a249b0831062d5b47315a633deb74efd22e0459
 ulimit -n 10000
 export BOTO_PATH="/Users/rabshakeh/.boto"
 
@@ -20,7 +31,6 @@ export DATASTORE_HOST="http://localhost:8080"
 export DATASTORE_DATASET="cryptobox2013"
 #export DATASTORE_SERVICE_ACCOUNT="1077532276852@developer.gserviceaccount.com"
 #export DATASTORE_PRIVATE_KEY_FILE="/Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/c839e87ac6666dac54456db3d86a82f68c18dfc1-privatekey.p12"
-
 alias app='cd /Users/rabshakeh/workspace/cryptobox/cryptobox_app/source/commands/'
 alias ca='cd /Users/rabshakeh/workspace/cryptobox/crypto_data/'
 alias cb='cd /Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl'
@@ -44,7 +54,7 @@ alias deletecb='cd /Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl;/Users/
 alias desk='cd /Users/rabshakeh/Desktop'
 alias down='cd; cd Downloads'
 alias dump='/Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/scripts/create/make_local_copy_databases.sh'
-alias flush='redis-cli flushall'
+alias flush='redis-cli flushall; celery purge -f'
 alias gcom='git commit -am "-" > /dev/null; git status'
 alias google='_google'
 alias gpull='git pull'
@@ -70,7 +80,8 @@ alias test='cd /Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/scripts/tes
 alias todo='vi /etc/motd'
 alias touchall='find . -name "*.coffee" -exec touch {} \;'
 alias updatedb='sudo date; sudo /usr/libexec/locate.updatedb &'
-alias upgrade="brew update; brew upgrade; brew doctor; brew cleanup -s --force; sudo gem update bropages; sudo pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs sudo pip install -U --allow-external PIL --allow-unverified PIL; gcloud -q components update"
+alias upgrade="sudo date; brew update; brew upgrade; brew doctor; brew cleanup -s --force; sudo gem update bropages; sudo pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs sudo pip install -U --allow-external PIL --allow-unverified PIL; gcloud -q components update"
 alias ws='cd /Users/rabshakeh/workspace'
 alias www='cd /Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/source/coffee'
 
+export PATH=/usr/local/sbin:$PATH
