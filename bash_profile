@@ -1,3 +1,9 @@
+export LDFLAGS='-L/usr/local/opt/openssl/lib'
+export CPPFLAGS='-I/usr/local/opt/openssl/include'
+# build pycrypto
+# sudo ln -s /usr/local/Cellar/gmp/5.1.3/lib/libgmp.dylib /usr/lib/libgmp.dylib
+# ARCHFLAGS=-Wno-error CFLAGS=-I/usr/local/Cellar/gmp/5.1.3/include sudo -E pip install pycrypto
+
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
