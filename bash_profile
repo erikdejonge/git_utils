@@ -15,11 +15,7 @@ function _google() {
   open 'https://www.google.nl/search?site=&source=hp&q='$1+$2+$3+$4+$5
 }
 export PYRO_HMAC_KEY="sdhjfghvgchjgfuyeaguy"
-<<<<<<< HEAD
-export PYTHONPATH=${PYTHONPATH}:$HOME/gsutil/third_party/boto:$HOME/gsutil:/Users/rabshakeh/workspace/cryptobox;
-=======
 export PYTHONPATH=${PYTHONPATH}:$HOME/gsutil/third_party/boto:$HOME/gsutil:/Users/rabshakeh/workspace/cryptobox:/Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl;
->>>>>>> 8a249b0831062d5b47315a633deb74efd22e0459
 ulimit -n 10000
 export BOTO_PATH="/Users/rabshakeh/.boto"
 
