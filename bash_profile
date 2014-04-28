@@ -66,7 +66,8 @@ alias pull='/Users/rabshakeh/workspace/git_utils/pull.sh;'
 alias pullcompush='/Users/rabshakeh/workspace/git_utils/pull.sh; /Users/rabshakeh/workspace/git_utils/commitfast.sh; /Users/rabshakeh/workspace/git_utils/push.sh;'
 alias push='/Users/rabshakeh/workspace/git_utils/push.sh;'
 alias res='ssh 188.226.155.145'
-alias restart_couch='/usr/bin/sudo launchctl stop org.apache.couchdb'
+alias restart_safe='sudo nvram boot-args="-x";sudo shutdown -r now'
+alias restart_normal='sudo nvram boot-args="";sudo shutdown -r now'
 alias rmpyc="find . -type f -name '*.pyc' -exec rm {} \;"
 alias rredis='launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist; launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist'
 alias scr='cd /Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/scripts'
@@ -77,6 +78,7 @@ alias todo='vi /etc/motd'
 alias touchall='find . -name "*.coffee" -exec touch {} \;'
 alias updatedb='sudo date; sudo /usr/libexec/locate.updatedb &'
 alias upgrade="sudo date; brew update; brew upgrade; brew doctor; brew cleanup -s --force; sudo gem update bropages; sudo pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs sudo pip install -U --allow-external PIL --allow-unverified PIL; gcloud -q components update"
+alias verifydisk='diskutil verify /'
 alias ws='cd /Users/rabshakeh/workspace'
 alias www='cd /Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/source/coffee'
 
