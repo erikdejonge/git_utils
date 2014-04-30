@@ -77,7 +77,7 @@ alias test='cd /Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/scripts/tes
 alias todo='vi /etc/motd'
 alias touchall='find . -name "*.coffee" -exec touch {} \;'
 alias updatedb='sudo date; sudo /usr/libexec/locate.updatedb &'
-alias upgrade="sudo date; brew update; brew upgrade; brew doctor; brew cleanup -s --force; sudo gem update bropages; sudo pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs sudo pip install -U --allow-external PIL --allow-unverified PIL; gcloud -q components update"
+alias upgrade="sudo date; brew update; brew upgrade; brew doctor; brew cleanup -s --force; sudo gem update bropages; sudo python /Users/rabshakeh/workspace/research/upgrade_python_packs.py; gcloud -q components update; sudo npm update -g"
 alias verifydisk='diskutil verifyVolume /'
 alias ws='cd /Users/rabshakeh/workspace'
 alias www='cd /Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/source/coffee'
