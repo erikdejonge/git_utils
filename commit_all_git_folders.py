@@ -31,8 +31,8 @@ def find_git_repos(arg, directory, files):
             config = open(git_dir + "/config").read().split("url =")[1].split("\n")[0].strip().split(":")[0].split("/")[0]
         except Exception, ex:
             config = str(ex)
-        print "commit_all_git_folders.py:35"
-        print "commit_all_git_folders.py:36", "gitdir:", directory, "("+config+")"
+        print
+        print "gitdir:", directory, "("+config+")"
         arg.append(directory)
 
 
@@ -57,10 +57,10 @@ def main():
 
     dir_list = []
     os.path.walk("/Users/rabshakeh/workspace", find_git_repos, dir_list)
-    print "commit_all_git_folders.py:61"
+
 
     #dir_list = [os.path.join("/Users/rabshakeh/workspace", x.lstrip("./")) for x in dir_list]
-    print "commit_all_git_folders.py:64", "committing"
+    print "committing"
     pickle.dump(dir_list, open(dfp, "w"))
     procs = []
 
@@ -72,10 +72,10 @@ def main():
             p.wait()
 
     if not fcheck:
-        print "commit_all_git_folders.py:76"
-        print "commit_all_git_folders.py:77", "skipping check"
+        print
+        print "skipping check"
         return
-    print "commit_all_git_folders.py:79"
+    print
     procs = []
 
     for folder in dir_list:
@@ -91,7 +91,7 @@ def main():
 
     for p in procs:
         p.wait()
-    print "commit_all_git_folders.py:95", "done"
+    print "done"
 
 
 if __name__ == "__main__":
