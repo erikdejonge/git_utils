@@ -44,7 +44,7 @@ def main():
     if os.path.exists("/Users/rabshakeh/workspace/git_utils/exclude_dirs"):
         excludes = [x.strip() for x in open("/Users/rabshakeh/workspace/git_utils/exclude_dirs").read().split("\n") if x.strip()]
 
-    msg = raw_input("checkin message")
+    msg = raw_input("checkin message: ")
 
     if msg and len(msg.strip())==0:
         msg = os.popen("date").read().strip()
