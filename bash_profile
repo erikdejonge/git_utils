@@ -3,6 +3,7 @@ export CPPFLAGS='-I/usr/local/opt/openssl/include'
 # build pycrypto
 # sudo ln -s /usr/local/Cellar/gmp/5.1.3/lib/libgmp.dylib /usr/lib/libgmp.dylib
 # ARCHFLAGS=-Wno-error CFLAGS=-I/usr/local/Cellar/gmp/5.1.3/include sudo -E pip install pycrypto
+# ARCHFLAGS=-Wno-error CFLAGS=-I/usr/include sudo -E pip install pycrypto
 export HOMEBREW_BUILD_FROM_SOURCE=1
 
 export CLICOLOR=1
@@ -69,6 +70,7 @@ alias res='ssh 188.226.155.145'
 alias restart_safe='sudo nvram boot-args="-x";sudo shutdown -r now'
 alias restart_normal='sudo nvram boot-args="";sudo shutdown -r now'
 alias rmpyc="find . -type f -name '*.pyc' -exec rm {} \;"
+alias rmdstore="find . -name \".DS_Store\" -depth -exec rm {} \;"
 alias rredis='launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist; launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist'
 alias scr='cd /Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/scripts'
 alias stats='/Users/rabshakeh/workspace/git_utils/status.sh;'
@@ -77,7 +79,7 @@ alias test='cd /Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/scripts/tes
 alias todo='vi /etc/motd'
 alias touchall='find . -name "*.coffee" -exec touch {} \;'
 alias updatedb='sudo date; sudo /usr/libexec/locate.updatedb &'
-alias upgrade="sudo date; brew update; brew upgrade; brew doctor; brew cleanup -s --force; sudo gem update bropages; sudo python /Users/rabshakeh/workspace/research/upgrade_python_packs.py; gcloud -q components update; sudo npm update -g"
+alias upgrade="sudo date; brew update; brew upgrade; brew doctor; brew cleanup -s --force; sudo gem update bropages; sudo python /Users/rabshakeh/workspace/research/upgrade_python_packs.py; gcloud -q components update;"
 alias verifydisk='diskutil verifyVolume /'
 alias ws='cd /Users/rabshakeh/workspace'
 alias www='cd /Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/source/coffee'

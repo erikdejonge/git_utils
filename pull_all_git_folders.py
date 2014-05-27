@@ -21,11 +21,18 @@ def main():
         raise RuntimeError("Cannot find /Users/rabshakeh/workspace/git_utils/gitdirlist.pickle")
 
     procs = []
-
+    cnt = 0
     for folder in dir_list:
         p = subprocess.Popen(["/usr/local/bin/git", "pull"], stdout=subprocess.PIPE, cwd=folder)
         procs.append({"folder": folder, "proc": p})
+
         print "\033[92mpull " + os.path.basename(folder) + "\033[0m"
+        if cnt > 10:
+            p.wait()
+            cnt = 0
+        else:
+            cnt += 1
+
 
     for d in procs:
         p = d["proc"]
