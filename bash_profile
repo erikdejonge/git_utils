@@ -31,6 +31,7 @@ export DATASTORE_DATASET="cryptobox2013"
 alias app='cd /Users/rabshakeh/workspace/cryptobox/cryptobox_app/source/commands/'
 alias ca='cd /Users/rabshakeh/workspace/cryptobox/crypto_data/'
 alias cb='cd /Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl'
+alias cbbuildfrontend='/Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/scripts/build/build_frontend.sh'
 alias cls='printf "\033c"'
 alias com='/Users/rabshakeh/workspace/git_utils/commitfast.sh;'
 alias comm='cd /Users/rabshakeh/workspace/git_utils; python make_exclude_dirs.py; /Users/rabshakeh/workspace/git_utils/commit.sh;'
