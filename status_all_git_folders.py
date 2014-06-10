@@ -39,7 +39,7 @@ def main():
         pickle.dump(dir_list, open(dfp, "w"))
 
     for folder in dir_list:
-        
+
         if len([x for x in [x in folder for x in excludes] if x]) == 0:
 
             os.chdir(folder)
