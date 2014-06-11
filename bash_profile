@@ -20,9 +20,6 @@ export PYTHONPATH=/Users/rabshakeh/workspace/cryptobox:/Users/rabshakeh/workspac
 ulimit -n 10000
 export BOTO_PATH="/Users/rabshakeh/.boto"
 
-# The next line updates PATH for the Google Cloud SDK.
-export PATH=/Users/rabshakeh/google-cloud-sdk/bin:$PATH
-
 
 export DATASTORE_HOST="http://localhost:8080"
 export DATASTORE_DATASET="cryptobox2013"
@@ -86,3 +83,9 @@ alias ws='cd /Users/rabshakeh/workspace'
 alias www='cd /Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/source/coffee'
 
 export PATH=/usr/local/sbin:$PATH
+
+# The next line updates PATH for the Google Cloud SDK.
+source /Users/rabshakeh/google-cloud-sdk/path.bash.inc
+
+# The next line enables bash completion for gcloud.
+source /Users/rabshakeh/google-cloud-sdk/completion.bash.inc
