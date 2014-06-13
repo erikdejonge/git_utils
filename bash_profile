@@ -16,10 +16,8 @@ function _google() {
   open 'https://www.google.nl/search?site=&source=hp&q='$1+$2+$3+$4+$5
 }
 export PYRO_HMAC_KEY="sdhjfghvgchjgfuyeaguy"
-export PYTHONPATH=/Users/rabshakeh/workspace/cryptobox:/Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl:/usr/local/lib/python2.7/site-packages/gslib/third_party
 ulimit -n 10000
 export BOTO_PATH="/Users/rabshakeh/.boto"
-
 
 export DATASTORE_HOST="http://localhost:8080"
 export DATASTORE_DATASET="cryptobox2013"
@@ -89,3 +87,7 @@ source /Users/rabshakeh/google-cloud-sdk/path.bash.inc
 
 # The next line enables bash completion for gcloud.
 source /Users/rabshakeh/google-cloud-sdk/completion.bash.inc
+
+
+export PYTHONPATH=${PYTHONPATH}:/Users/rabshakeh/workspace/cryptobox:/Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl:/usr/local/lib/python2.7/site-packages/gcs_oauth2_boto_plugin
+export PYTHONPATH=`brew --prefix`/lib/python2.7/site-packages:$PYTHONPATH
