@@ -4,7 +4,22 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6f2dfb3-74c7-41e2-af02-10f9cb3a9ca7" name="Default" comment="" />
+    <list default="true" id="d6f2dfb3-74c7-41e2-af02-10f9cb3a9ca7" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bash_profile" afterPath="$PROJECT_DIR$/bash_profile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commit.sh" afterPath="$PROJECT_DIR$/commit.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commit_all_git_folders.py" afterPath="$PROJECT_DIR$/commit_all_git_folders.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commit_all_git_folders_fast.py" afterPath="$PROJECT_DIR$/commit_all_git_folders_fast.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commit_slow.py" afterPath="$PROJECT_DIR$/commit_slow.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commitfast.sh" afterPath="$PROJECT_DIR$/commitfast.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commitpush.sh" afterPath="$PROJECT_DIR$/commitpush.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/find_git_repos.py" afterPath="$PROJECT_DIR$/find_git_repos.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pull.sh" afterPath="$PROJECT_DIR$/pull.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pull_all_git_folders.py" afterPath="$PROJECT_DIR$/pull_all_git_folders.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/push.sh" afterPath="$PROJECT_DIR$/push.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/push_all_git_folders.py" afterPath="$PROJECT_DIR$/push_all_git_folders.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/status.sh" afterPath="$PROJECT_DIR$/status.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/status_all_git_folders.py" afterPath="$PROJECT_DIR$/status_all_git_folders.py" />
+    </list>
     <ignored path="git_utils.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -56,11 +71,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="status_all_git_folders.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="status_all_git_folders.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/status_all_git_folders.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.42072698" vertical-offset="358" max-vertical-offset="1672">
-              <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="358" max-vertical-offset="1672">
+              <caret line="26" column="43" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bash_profile" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/bash_profile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.159375" vertical-offset="60" max-vertical-offset="2178">
+              <caret line="12" column="98" selection-start-line="12" selection-start-column="98" selection-end-line="12" selection-end-column="98" />
               <folding />
             </state>
           </provider>
@@ -106,6 +131,7 @@
         <option value="$PROJECT_DIR$/commit_all_git_folders.py" />
         <option value="$PROJECT_DIR$/find_git_repos.py" />
         <option value="$PROJECT_DIR$/status_all_git_folders.py" />
+        <option value="$PROJECT_DIR$/bash_profile" />
       </list>
     </option>
   </component>
@@ -381,14 +407,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="2560" height="1414" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991952" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3252464" sideWeight="0.592681" order="1" side_tool="false" content_ui="tabs" x="2560" y="1" width="1440" height="900" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329188" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.50492054" sideWeight="0.76929194" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991952" sideWeight="0.6909091" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.05996823" sideWeight="0.64447695" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12662014" sideWeight="0.64447695" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12748213" sideWeight="0.64447695" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35552305" sideWeight="0.59029436" order="11" side_tool="false" content_ui="tabs" x="2" y="1018" width="2514" height="308" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.45354792" sideWeight="0.3989658" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34723276" sideWeight="0.40970564" order="2" side_tool="true" content_ui="tabs" />
@@ -398,7 +425,6 @@
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="99" y="122" width="2360" height="1214" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5054865" sideWeight="0.76929194" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1063022" sideWeight="0.4984089" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.6981818" order="3" side_tool="true" content_ui="tabs" />
@@ -429,14 +455,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/commit_all_git_folders_fast.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="462" max-vertical-offset="1276">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/commit.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="242">
@@ -799,8 +817,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/status_all_git_folders.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42072698" vertical-offset="358" max-vertical-offset="1672">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="358" max-vertical-offset="1672">
+          <caret line="26" column="43" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bash_profile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.159375" vertical-offset="60" max-vertical-offset="2178">
+          <caret line="12" column="98" selection-start-line="12" selection-start-column="98" selection-end-line="12" selection-end-column="98" />
           <folding />
         </state>
       </provider>

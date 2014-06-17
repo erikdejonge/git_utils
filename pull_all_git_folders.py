@@ -14,11 +14,11 @@ def main():
     main
     """
 
-    dfp = "/Users/rabshakeh/workspace/git_utils/gitdirlist.pickle"
+    dfp = "/cygdrive/d/workarea/git_utils/gitdirlist.pickle"
     if os.path.exists(dfp):
         dir_list = cPickle.load(open(dfp))
     else:
-        raise RuntimeError("Cannot find /Users/rabshakeh/workspace/git_utils/gitdirlist.pickle")
+        raise RuntimeError("Cannot find /cygdrive/d/workarea/git_utils/gitdirlist.pickle")
 
     procs = []
     cnt = 0

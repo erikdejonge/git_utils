@@ -41,8 +41,8 @@ def main():
     fcheck = raw_input("fcheck? (y/n): ")
     fcheck = fcheck.strip() == "y"
 
-    if os.path.exists("/Users/rabshakeh/workspace/git_utils/exclude_dirs"):
-        excludes = [x.strip() for x in open("/Users/rabshakeh/workspace/git_utils/exclude_dirs").read().split("\n") if x.strip()]
+    if os.path.exists("/cygdrive/d/workarea/git_utils/exclude_dirs"):
+        excludes = [x.strip() for x in open("/cygdrive/d/workarea/git_utils/exclude_dirs").read().split("\n") if x.strip()]
 
     msg = raw_input("checkin message: ")
 
@@ -50,16 +50,16 @@ def main():
         msg = os.popen("date").read().strip()
         msg += " commit and gc"
 
-    dfp = "/Users/rabshakeh/workspace/git_utils/gitdirlist.pickle"
+    dfp = "/cygdrive/d/workarea/git_utils/gitdirlist.pickle"
 
     if os.path.exists(dfp):
         os.remove(dfp)
 
     dir_list = []
-    os.path.walk("/Users/rabshakeh/workspace", find_git_repos, dir_list)
+    os.path.walk("/cygdrive/d/workarea", find_git_repos, dir_list)
 
 
-    #dir_list = [os.path.join("/Users/rabshakeh/workspace", x.lstrip("./")) for x in dir_list]
+    #dir_list = [os.path.join("/cygdrive/d/workarea", x.lstrip("./")) for x in dir_list]
     print "committing"
     pickle.dump(dir_list, open(dfp, "w"))
     procs = []

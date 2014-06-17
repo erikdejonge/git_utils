@@ -1,2 +1,2 @@
-/Users/rabshakeh/workspace/git_utils/commitfast.sh;
-/Users/rabshakeh/workspace/git_utils/push.sh;
+/cygdrive/d/workarea/git_utils/commitfast.sh;
+/cygdrive/d/workarea/git_utils/push.sh;
