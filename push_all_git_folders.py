@@ -45,13 +45,13 @@ def main():
     for folder in dir_list:
         if len([x for x in [x in folder for x in excludes] if x]) == 0:
             sys.stdout.flush()
-            p = subprocess.Popen(["/usr/local/bin/git", "status"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
+            p = subprocess.Popen(["/usr/bin/git", "status"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
             p.wait()
 
             if "Your branch is ahead" in p.stdout.read():
                 print "\033[95mpush "+os.path.basename(folder)+"\033[0m"
 
-                p2 = subprocess.Popen(["/usr/local/bin/git", "push"], cwd=folder)
+                p2 = subprocess.Popen(["/usr/bin/git", "push"], cwd=folder)
                 procs.append((folder, p2))
                 if cnt > 5:
                     p2.wait()

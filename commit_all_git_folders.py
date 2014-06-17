@@ -68,7 +68,7 @@ def main():
         if len([x for x in [x in folder for x in excludes] if x]) == 0:
             sys.stdout.write(".")
             sys.stdout.flush()
-            p = subprocess.Popen(["/usr/local/bin/git", "commit", "-am", msg], stdout=subprocess.PIPE, cwd=folder)
+            p = subprocess.Popen(["/usr/bin/git", "commit", "-am", msg], stdout=subprocess.PIPE, cwd=folder)
             p.wait()
 
     if not fcheck:
@@ -79,7 +79,7 @@ def main():
     procs = []
 
     for folder in dir_list:
-        procs.append(subprocess.Popen(["/usr/local/bin/git", "fsck"], cwd=folder))
+        procs.append(subprocess.Popen(["/usr/bin/git", "fsck"], cwd=folder))
 
     for p in procs:
         p.wait()
@@ -87,7 +87,7 @@ def main():
     procs = []
 
     for folder in dir_list:
-        procs.append(subprocess.Popen(["/usr/local/bin/git", "gc"], cwd=folder))
+        procs.append(subprocess.Popen(["/usr/bin/git", "gc"], cwd=folder))
 
     for p in procs:
         p.wait()

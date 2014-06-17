@@ -23,7 +23,7 @@ def main():
     procs = []
     cnt = 0
     for folder in dir_list:
-        p = subprocess.Popen(["/usr/local/bin/git", "pull"], stdout=subprocess.PIPE, cwd=folder)
+        p = subprocess.Popen(["/usr/bin/git", "pull"], stdout=subprocess.PIPE, cwd=folder)
         procs.append({"folder": folder, "proc": p})
 
         print "\033[92mpull " + os.path.basename(folder) + "\033[0m"
