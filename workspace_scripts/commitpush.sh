@@ -1,1 +1,0 @@
-../../commitpush.sh

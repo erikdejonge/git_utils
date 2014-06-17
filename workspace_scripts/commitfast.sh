@@ -1,1 +1,0 @@
-../../commitfast.sh
