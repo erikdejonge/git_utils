@@ -20,7 +20,7 @@ def main():
         raise RuntimeError("Cannot find /cygdrive/d/workarea/git_utils/gitdirlist.pickle")
 
     for folder in dir_list:
-        print "\033[pull " + os.path.basename(folder) + "\033[0m", '\033[m'
+        print "\033[0mpull " + os.path.basename(folder) + "\033[0m", '\033[m'
         p = subprocess.Popen(["/usr/bin/git", "pull"], stdout=subprocess.PIPE, cwd=folder)
         p.wait()
         output = p.stdout.read()
@@ -29,7 +29,7 @@ def main():
         if "Already up-to-date" in output:
             print "\033[96m" + os.path.basename(folder) + " up-to-date\033[0m"
         else:
-            print "\033[93m" + output.strip() + "\033[0m", '\033[m'
+            print "\033[93m" + output.strip() + "\033[0m"
 
 
 if __name__ == "__main__":
