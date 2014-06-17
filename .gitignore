@@ -1,5 +1,13 @@
-exclude_dirs
-.svn
-gitdirlist.pickle
+ast.pickle
+hazmat
+macros.pickle
+nohup.out
 .DS_Store
+*.pyo
 *.pyc
+.idea
+*.lock
+testfile.att
+*.cryptobox
+databases
+cffi
