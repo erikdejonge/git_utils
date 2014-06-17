@@ -65,6 +65,7 @@ def main():
     procs = []
 
     for folder in dir_list:
+        print folder
         if len([x for x in [x in folder for x in excludes] if x]) == 0:
             sys.stdout.write(".")
             sys.stdout.flush()
@@ -79,18 +80,14 @@ def main():
     procs = []
 
     for folder in dir_list:
-        procs.append(subprocess.Popen(["/usr/bin/git", "fsck"], cwd=folder))
+        subprocess.Popen(["/usr/bin/git", "fsck"], cwd=folder).wait()
 
-    for p in procs:
-        p.wait()
 
     procs = []
 
     for folder in dir_list:
-        procs.append(subprocess.Popen(["/usr/bin/git", "gc"], cwd=folder))
+        subprocess.Popen(["/usr/bin/git", "gc"], cwd=folder).wait()
 
-    for p in procs:
-        p.wait()
     print "done"
 
 
