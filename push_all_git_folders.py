@@ -8,9 +8,11 @@
 """ git checking script """
 
 import os
+import time
 import sys
-import cPickle as pickle
+import cPickle
 import subprocess
+
 
 def find_git_repos(arg, directory, files):
     """ find the git repositories """
@@ -18,7 +20,8 @@ def find_git_repos(arg, directory, files):
     files = files
     git_dir = os.path.join(directory, ".git")
     if os.path.exists(git_dir):
-        arg.append(directory)
+        if os.path.isdir(git_dir):
+            arg.append(directory)
 
 
 def main():
@@ -30,29 +33,35 @@ def main():
 
     dfp = "/Users/rabshakeh/workspace/git_utils/gitdirlist.pickle"
     if os.path.exists(dfp):
-        dir_list = pickle.load(open(dfp))
+        dir_list = cPickle.load(open(dfp))
     else:
         dir_list = []
         os.path.walk(".", find_git_repos, dir_list)
         currdir = os.popen("pwd").read().strip()
         dir_list = [os.path.join(currdir, x.lstrip("./")) for x in dir_list]
-        pickle.dump(dir_list, open(dfp, "w"))
-
-    msg = os.popen("date").read().strip()
+        cPickle.dump(dir_list, open(dfp, "w"))
+    cnt = 0
     procs = []
     for folder in dir_list:
         if len([x for x in [x in folder for x in excludes] if x]) == 0:
-            print folder
-            p = subprocess.Popen(["/usr/local/bin/git", "commit", "-am",  msg], stdout=subprocess.PIPE, cwd=folder)
+            sys.stdout.flush()
+            p = subprocess.Popen(["/usr/local/bin/git", "status"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
             p.wait()
-            output = p.stdout.read()
-            if "nothing to commit" in output:
-                sys.stdout.write(".")
-                sys.stdout.flush()
-            else:
-                sys.stdout.write("\n")
-                print output
-    print
+
+            if "Your branch is ahead" in p.stdout.read():
+                print "\033[95mpush "+os.path.basename(folder)+"\033[0m"
+
+                p2 = subprocess.Popen(["/usr/local/bin/git", "push"], cwd=folder)
+                procs.append((folder, p2))
+                if cnt > 5:
+                    p2.wait()
+                    cnt = 0
+                else:
+                    cnt += 1
+
+    for p in procs:
+        p[1].wait()
+        print
 
 if __name__ == "__main__":
     main()

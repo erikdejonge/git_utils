@@ -8,9 +8,7 @@
 """ git checking script """
 
 import os
-import sys
 import cPickle as pickle
-import subprocess
 
 def find_git_repos(arg, directory, files):
     """ find the git repositories """
@@ -23,6 +21,7 @@ def find_git_repos(arg, directory, files):
 
 def main():
     """ check all folders and pull all from the server """
+
     excludes = []
 
     if os.path.exists("/Users/rabshakeh/workspace/git_utils/exclude_dirs"):
@@ -31,6 +30,7 @@ def main():
     dfp = "/Users/rabshakeh/workspace/git_utils/gitdirlist.pickle"
     if os.path.exists(dfp):
         dir_list = pickle.load(open(dfp))
+        currdir = os.popen("pwd").read().strip()
     else:
         dir_list = []
         os.path.walk(".", find_git_repos, dir_list)
@@ -38,21 +38,33 @@ def main():
         dir_list = [os.path.join(currdir, x.lstrip("./")) for x in dir_list]
         pickle.dump(dir_list, open(dfp, "w"))
 
-    msg = os.popen("date").read().strip()
-    procs = []
     for folder in dir_list:
+
         if len([x for x in [x in folder for x in excludes] if x]) == 0:
-            print folder
-            p = subprocess.Popen(["/usr/local/bin/git", "commit", "-am",  msg], stdout=subprocess.PIPE, cwd=folder)
-            p.wait()
-            output = p.stdout.read()
-            if "nothing to commit" in output:
-                sys.stdout.write(".")
-                sys.stdout.flush()
-            else:
-                sys.stdout.write("\n")
-                print output
-    print
+
+            os.chdir(folder)
+            #os.system("git rm --cached -r .idea/")
+            for branch in os.popen("git branch").read().split("\n"):
+                if "*" in branch:
+                    fl = os.path.basename(folder)
+                    if len(fl) < 25:
+                        fl += (" "*(25-len(fl)))
+                    if "master" not in branch:
+                        print fl+"\t"+branch.replace("*", "").strip()
+
+            status = os.popen("git status").read()
+            if "modified" in status or "Untracked" in status or "new file" in status or "deleted" in status:
+
+                print "\033[96mstatus:", os.path.basename(folder), "\033[0m"
+                if "new file" in status:
+                    print "\033[92m" + status.strip() + "\033[0m\n"
+                if "deleted" in status:
+                    print "\033[91m" + status.strip() + "\033[0m\n"
+                else:
+                    print "\033[93m"+status.strip()+"\033[0m\n"
+
+
+            os.chdir(currdir)
 
 if __name__ == "__main__":
     main()
