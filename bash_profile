@@ -19,10 +19,10 @@ export PYRO_HMAC_KEY="sdhjfghvgchjgfuyeaguy"
 ulimit -n 10000
 export BOTO_PATH="/Users/rabshakeh/.boto"
 
-export DATASTORE_HOST="http://localhost:8080"
+#export DATASTORE_HOST="http://localhost:8080"
 export DATASTORE_DATASET="cryptobox2013"
-#export DATASTORE_SERVICE_ACCOUNT="1077532276852@developer.gserviceaccount.com"
-#export DATASTORE_PRIVATE_KEY_FILE="/Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/c839e87ac6666dac54456db3d86a82f68c18dfc1-privatekey.p12"
+export DATASTORE_SERVICE_ACCOUNT="1077532276852@developer.gserviceaccount.com"
+export DATASTORE_PRIVATE_KEY_FILE="/Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/privatekey.pem"
 alias app='cd /Users/rabshakeh/workspace/cryptobox/cryptobox_app/source/commands/'
 alias ca='cd /Users/rabshakeh/workspace/cryptobox/crypto_data/'
 alias cb='cd /Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl'
@@ -89,5 +89,4 @@ source /Users/rabshakeh/google-cloud-sdk/path.bash.inc
 source /Users/rabshakeh/google-cloud-sdk/completion.bash.inc
 
 
-export PYTHONPATH=${PYTHONPATH}:/Users/rabshakeh/workspace/cryptobox:/Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl:/usr/local/lib/python2.7/site-packages/gcs_oauth2_boto_plugin
-export PYTHONPATH=`brew --prefix`/lib/python2.7/site-packages:$PYTHONPATH
+export PYTHONPATH=${PYTHONPATH}:/Users/rabshakeh/google-cloud-sdk/platform/gsutil/third_party/gcs-oauth2-boto-plugin:/Users/rabshakeh/workspace/cryptobox:/Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl:/usr/local/lib/python2.7/site-packages:/Users/rabshakeh/google-cloud-sdk/platform/gsutil/third_party/gcs-oauth2-boto-plugin
