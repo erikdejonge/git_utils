@@ -20,9 +20,11 @@ ulimit -n 10000
 export BOTO_PATH="/Users/rabshakeh/.boto"
 
 #export DATASTORE_HOST="http://localhost:8080"
-export DATASTORE_DATASET="cryptobox2013"
-export DATASTORE_SERVICE_ACCOUNT="1077532276852@developer.gserviceaccount.com"
-export DATASTORE_PRIVATE_KEY_FILE="/Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/privatekey.pem"
+#export DATASTORE_DATASET="cryptobox2013"
+#export DATASTORE_SERVICE_ACCOUNT="1077532276852@developer.gserviceaccount.com"
+#export DATASTORE_PRIVATE_KEY_FILE="/Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/privatekey.pem"
+#export OAUTH2_CLIENT_ID="32555940559.apps.googleusercontent.com"
+#export OAUTH2_CLIENT_SECRET="ZmssLNjJy2998hD4CTg2ejr2"
 alias app='cd /Users/rabshakeh/workspace/cryptobox/cryptobox_app/source/commands/'
 alias ca='cd /Users/rabshakeh/workspace/cryptobox/crypto_data/'
 alias cb='cd /Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl'
@@ -34,7 +36,7 @@ alias commit='git commit -am '\''-'\'''
 alias compush='tar -cf /Users/rabshakeh/workspace/cryptobox/idea.tar /Users/rabshakeh/workspace/cryptobox/.idea 2>&1 | grep -v "Removing leading"; mv /Users/rabshakeh/workspace/cryptobox/idea.tar /Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/scripts/var; /Users/rabshakeh/workspace/git_utils/commitfast.sh; /Users/rabshakeh/workspace/git_utils/push.sh'
 alias cpa='/Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/scripts/run_cp_all.sh;'
 alias cr='cd /Users/rabshakeh/workspace/cryptobox/crypto_api'
-alias createcb='cd /Users/rabshakeh/workspace/cryptobox/crypto_data/; python delete_database.py -f; cd /Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl;/Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/scripts/create/create_cryptobox.sh'
+alias createcb='cd /Users/rabshakeh/workspace/cryptobox/crypto_data/;cd /Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl;/Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/scripts/create/create_cryptobox.sh'
 alias ct='cd /Users/rabshakeh/workspace/cryptobox/crypto_taskworker'
 alias ctr='cd /Users/rabshakeh/workspace/cryptobox/crypto_tree'
 alias cw='clear; /Users/rabshakeh/workspace/cryptobox/crypto_taskworker/starter.py'
