@@ -64,7 +64,7 @@ alias n1='ssh node1-us.a8.nl'
 alias pull='/Users/rabshakeh/workspace/git_utils/pull.sh;'
 alias pullcompush='/Users/rabshakeh/workspace/git_utils/pull.sh; /Users/rabshakeh/workspace/git_utils/commitfast.sh; /Users/rabshakeh/workspace/git_utils/push.sh;'
 alias push='/Users/rabshakeh/workspace/git_utils/push.sh;'
-alias res='ssh 188.226.155.145'
+alias res='cd /Users/rabshakeh/workspace/research'
 alias restart_safe='sudo nvram boot-args="-x";sudo shutdown -r now'
 alias restart_normal='sudo nvram boot-args="";sudo shutdown -r now'
 alias rmpyc="find . -type f -name '*.pyc' -exec rm {} \;"
@@ -91,4 +91,4 @@ source /Users/rabshakeh/google-cloud-sdk/path.bash.inc
 source /Users/rabshakeh/google-cloud-sdk/completion.bash.inc
 
 
-export PYTHONPATH=${PYTHONPATH}:/Users/rabshakeh/google-cloud-sdk/platform/gsutil/third_party/gcs-oauth2-boto-plugin:/Users/rabshakeh/workspace/cryptobox:/Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl:/usr/local/lib/python2.7/site-packages:/Users/rabshakeh/google-cloud-sdk/platform/gsutil/third_party/gcs-oauth2-boto-plugin
+export PYTHONPATH=${PYTHONPATH}:/Users/rabshakeh/google-cloud-sdk/platform/gsutil/third_party/gcs-oauth2-boto-plugin:/Users/rabshakeh/workspace/cryptobox:/Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl:/usr/local/lib/python2.7/site-packages:/Users/rabshakeh/google-cloud-sdk/platform/gsutil/third_party/gcs-oauth2-boto-plugin:/Users/rabshakeh/google-cloud-sdk/platform/gsutil/third_party/gcs-oauth2-boto-plugin/gcs_oauth2_boto_plugin;
