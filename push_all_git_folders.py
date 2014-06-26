@@ -63,7 +63,7 @@ def main():
         p[1].wait()
         output = p[1].stdout.read()
         output = output.strip()
-        print "\033[93m" + os.path.basename(d["folder"]) + " pushed *\n" + output.strip() + "\033[0m"
+        print "\033[93m" + os.path.basename(p[0]) + " pushed *\n" + output.strip() + "\033[0m"
 
 if __name__ == "__main__":
     main()
