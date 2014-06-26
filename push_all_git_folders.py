@@ -51,7 +51,7 @@ def main():
             if "Your branch is ahead" in p.stdout.read():
                 print "\033[95mpush "+os.path.basename(folder)+"\033[0m"
 
-                p2 = subprocess.Popen(["/usr/local/bin/git", "push"], cwd=folder)
+                p2 = subprocess.Popen(["/usr/local/bin/git", "push"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
                 procs.append((folder, p2))
                 if cnt > 5:
                     p2.wait()
@@ -61,7 +61,9 @@ def main():
 
     for p in procs:
         p[1].wait()
-        print
+        output = p[1].stdout.read()
+        output = output.strip()
+        print "\033[93m" + os.path.basename(d["folder"]) + " pushed *\n" + output.strip() + "\033[0m"
 
 if __name__ == "__main__":
     main()
