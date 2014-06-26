@@ -61,7 +61,7 @@ def main():
 
     for p in procs:
         p[1].wait()
-        output = p[1].stdout.read()
+        output = p[1].stderr.read()
         output = output.strip()
         print "\033[93m" + os.path.basename(p[0]) + " pushed *\n" + output.strip() + "\033[0m"
 
