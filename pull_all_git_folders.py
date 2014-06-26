@@ -42,7 +42,7 @@ def main():
         #output += p.stderr.read()
         #output = output.strip()
         if "Already up-to-date" in output:
-            print "\033[96m"+os.path.basename(d["folder"])+" up-to-date\033[0m"
+            print "\033[90m"+os.path.basename(d["folder"])+" up-to-date\033[0m"
         else:
             print "\033[93m" + os.path.basename(d["folder"]) + " updated *\n" + output.strip() + "\033[0m"
 
