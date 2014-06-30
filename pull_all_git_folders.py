@@ -27,7 +27,7 @@ def main():
         procs.append({"folder": folder, "proc": p})
 
         print "\033[92mpull " + os.path.basename(folder) + "\033[0m"
-        if cnt > 10:
+        if cnt > 4:
             p.wait()
             cnt = 0
         else:
