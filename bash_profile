@@ -80,6 +80,7 @@ alias stats='/Users/rabshakeh/workspace/git_utils/status.sh;'
 alias startdata='nohup /Users/rabshakeh/workspace/google/gcd-v1beta2-rev1-2.1.1/gcd.sh start /Users/rabshakeh/workspace/google/cryptobox2013/ &'
 alias test='cd /Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/scripts/test'
 alias todo='vi /etc/motd'
+alias top='python /Users/rabshakeh/workspace/research/top.py'
 alias touchall='find . -name "*.coffee" -exec touch {} \;'
 alias updatedb='sudo date; sudo /usr/libexec/locate.updatedb &'
 alias upgrade="sudo date; brew update; brew upgrade; brew cleanup -s --force; sudo gem update bropages; python /Users/rabshakeh/workspace/research/list_python_packages.py > /Users/rabshakeh/workspace/research/upgrade_python_packs.sh; sudo /Users/rabshakeh/workspace/research/upgrade_python_packs.sh; gcloud -q components update; brew doctor"
