@@ -53,7 +53,7 @@ def main():
 
                 p2 = subprocess.Popen(["/usr/local/bin/git", "push"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
                 procs.append((folder, p2))
-                if cnt > 5:
+                if cnt > 3:
                     p2.wait()
                     cnt = 0
                 else:
