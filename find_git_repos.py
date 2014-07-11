@@ -30,7 +30,7 @@ def find_git_repos(arg, directory, files):
 
 def main():
     dir_list = []
-    os.path.walk("/cygdrive/c/workarea/cryptobox", find_git_repos, dir_list)
+    os.path.walk("/cygdrive/c/workspace/cryptobox", find_git_repos, dir_list)
     for i in dir_list:
         print i[1]
 

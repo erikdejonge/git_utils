@@ -10,7 +10,7 @@ export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
 
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/cygdrive/c/workarea/depot_tools
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/cygdrive/c/workspace/depot_tools
 export LC_ALL=en_US.UTF-8
 function _google() {
   open 'https://www.google.nl/search?site=&source=hp&q='$1+$2+$3+$4+$5
@@ -22,31 +22,31 @@ export BOTO_PATH="/Users/rabshakeh/.boto"
 export DATASTORE_HOST="http://localhost:8080"
 export DATASTORE_DATASET="cryptobox2013"
 #export DATASTORE_SERVICE_ACCOUNT="1077532276852@developer.gserviceaccount.com"
-#export DATASTORE_PRIVATE_KEY_FILE="/cygdrive/c/workarea/cryptobox/www_cryptobox_nl/c839e87ac6666dac54456db3d86a82f68c18dfc1-privatekey.p12"
-alias app='cd /cygdrive/c/workarea/cryptobox/cryptobox_app/source/commands/'
-alias ca='cd /cygdrive/c/workarea/cryptobox/crypto_data/'
-alias cb='cd /cygdrive/c/workarea/cryptobox/www_cryptobox_nl'
-alias cbbuildfrontend='/cygdrive/c/workarea/cryptobox/www_cryptobox_nl/scripts/build/build_frontend.sh'
+#export DATASTORE_PRIVATE_KEY_FILE="/cygdrive/c/workspace/cryptobox/www_cryptobox_nl/c839e87ac6666dac54456db3d86a82f68c18dfc1-privatekey.p12"
+alias app='cd /cygdrive/c/workspace/cryptobox/cryptobox_app/source/commands/'
+alias ca='cd /cygdrive/c/workspace/cryptobox/crypto_data/'
+alias cb='cd /cygdrive/c/workspace/cryptobox/www_cryptobox_nl'
+alias cbbuildfrontend='/cygdrive/c/workspace/cryptobox/www_cryptobox_nl/scripts/build/build_frontend.sh'
 alias cls='printf "\033c"'
-alias com='/cygdrive/c/workarea/git_utils/commitfast.sh;'
-alias comm='cd /cygdrive/c/workarea/git_utils; python make_exclude_dirs.py; /cygdrive/c/workarea/git_utils/commit.sh;'
+alias com='/cygdrive/c/workspace/git_utils/commitfast.sh;'
+alias comm='cd /cygdrive/c/workspace/git_utils; python make_exclude_dirs.py; /cygdrive/c/workspace/git_utils/commit.sh;'
 alias commit='git commit -am '\''-'\'''
-alias compush='tar -cf /cygdrive/c/workarea/cryptobox/idea.tar /cygdrive/c/workarea/cryptobox/.idea 2>&1 | grep -v "Removing leading"; mv /cygdrive/c/workarea/cryptobox/idea.tar /cygdrive/c/workarea/cryptobox/www_cryptobox_nl/scripts/var; /cygdrive/c/workarea/git_utils/commitfast.sh; /cygdrive/c/workarea/git_utils/push.sh'
-alias cpa='/cygdrive/c/workarea/cryptobox/www_cryptobox_nl/scripts/run_cp_all.sh;'
-alias cr='cd /cygdrive/c/workarea/cryptobox/crypto_api'
-alias createcb='cd /cygdrive/c/workarea/cryptobox/crypto_data/; python delete_database.py -f; cd /cygdrive/c/workarea/cryptobox/www_cryptobox_nl;/cygdrive/c/workarea/cryptobox/www_cryptobox_nl/scripts/create/create_cryptobox.sh'
-alias ct='cd /cygdrive/c/workarea/cryptobox/crypto_taskworker'
-alias ctr='cd /cygdrive/c/workarea/cryptobox/crypto_tree'
-alias cw='clear; /cygdrive/c/workarea/cryptobox/crypto_taskworker/starter.py'
-alias cwv='printf "\033c"; /cygdrive/c/workarea/cryptobox/crypto_taskworker/starter.py -v -w 1'
-alias cwkill='python /cygdrive/c/workarea/cryptobox/crypto_taskworker/cmd_crypto_taskworker_kill.py -n "x"'
-alias cwvkill='python /cygdrive/c/workarea/cryptobox/crypto_taskworker/cmd_crypto_taskworker_kill.py -n "x"'
-alias cwkillall='python /cygdrive/c/workarea/cryptobox/crypto_taskworker/cmd_crypto_taskworker_kill_all.py -n "x"'
-alias cwvkillall='python /cygdrive/c/workarea/cryptobox/crypto_taskworker/cmd_crypto_taskworker_kill_all.py -n "x"'
-alias deletecb='cd /cygdrive/c/workarea/cryptobox/www_cryptobox_nl;/cygdrive/c/workarea/cryptobox/www_cryptobox_nl/scripts/create/delete_cryptobox.sh;'
+alias compush='tar -cf /cygdrive/c/workspace/cryptobox/idea.tar /cygdrive/c/workspace/cryptobox/.idea 2>&1 | grep -v "Removing leading"; mv /cygdrive/c/workspace/cryptobox/idea.tar /cygdrive/c/workspace/cryptobox/www_cryptobox_nl/scripts/var; /cygdrive/c/workspace/git_utils/commitfast.sh; /cygdrive/c/workspace/git_utils/push.sh'
+alias cpa='/cygdrive/c/workspace/cryptobox/www_cryptobox_nl/scripts/run_cp_all.sh;'
+alias cr='cd /cygdrive/c/workspace/cryptobox/crypto_api'
+alias createcb='cd /cygdrive/c/workspace/cryptobox/crypto_data/; python delete_database.py -f; cd /cygdrive/c/workspace/cryptobox/www_cryptobox_nl;/cygdrive/c/workspace/cryptobox/www_cryptobox_nl/scripts/create/create_cryptobox.sh'
+alias ct='cd /cygdrive/c/workspace/cryptobox/crypto_taskworker'
+alias ctr='cd /cygdrive/c/workspace/cryptobox/crypto_tree'
+alias cw='clear; /cygdrive/c/workspace/cryptobox/crypto_taskworker/starter.py'
+alias cwv='printf "\033c"; /cygdrive/c/workspace/cryptobox/crypto_taskworker/starter.py -v -w 1'
+alias cwkill='python /cygdrive/c/workspace/cryptobox/crypto_taskworker/cmd_crypto_taskworker_kill.py -n "x"'
+alias cwvkill='python /cygdrive/c/workspace/cryptobox/crypto_taskworker/cmd_crypto_taskworker_kill.py -n "x"'
+alias cwkillall='python /cygdrive/c/workspace/cryptobox/crypto_taskworker/cmd_crypto_taskworker_kill_all.py -n "x"'
+alias cwvkillall='python /cygdrive/c/workspace/cryptobox/crypto_taskworker/cmd_crypto_taskworker_kill_all.py -n "x"'
+alias deletecb='cd /cygdrive/c/workspace/cryptobox/www_cryptobox_nl;/cygdrive/c/workspace/cryptobox/www_cryptobox_nl/scripts/create/delete_cryptobox.sh;'
 alias desk='cd /Users/rabshakeh/Desktop'
 alias down='cd; cd Downloads'
-alias dump='/cygdrive/c/workarea/cryptobox/www_cryptobox_nl/scripts/create/make_local_copy_databases.sh'
+alias dump='/cygdrive/c/workspace/cryptobox/www_cryptobox_nl/scripts/create/make_local_copy_databases.sh'
 alias flush='redis-cli flushall; celery purge -f'
 alias gcom='git commit -am "-" > /dev/null; git status'
 alias google='_google'
@@ -59,26 +59,26 @@ alias locate='/usr/bin/mdfind'
 alias ly2='ssh 192.168.14.7'
 alias mov='cd /Users/rabshakeh/Movies/Wondershare; python convertm4b.py'
 alias n1='ssh node1-us.a8.nl'
-alias pull='/cygdrive/c/workarea/git_utils/pull.sh;'
-alias pullcompush='/cygdrive/c/workarea/git_utils/pull.sh; /cygdrive/c/workarea/git_utils/commitfast.sh; /cygdrive/c/workarea/git_utils/push.sh;'
-alias push='/cygdrive/c/workarea/git_utils/push.sh;'
+alias pull='/cygdrive/c/workspace/git_utils/pull.sh;'
+alias pullcompush='/cygdrive/c/workspace/git_utils/pull.sh; /cygdrive/c/workspace/git_utils/commitfast.sh; /cygdrive/c/workspace/git_utils/push.sh;'
+alias push='/cygdrive/c/workspace/git_utils/push.sh;'
 alias res='ssh 188.226.155.145'
 alias restart_safe='sudo nvram boot-args="-x";sudo shutdown -r now'
 alias restart_normal='sudo nvram boot-args="";sudo shutdown -r now'
 alias rmpyc="find . -type f -name '*.pyc' -exec rm {} \;"
 alias rmdstore="find . -name \".DS_Store\" -depth -exec rm {} \;"
 alias rredis='launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist; launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist'
-alias scr='cd /cygdrive/c/workarea/cryptobox/www_cryptobox_nl/scripts'
-alias stats='/cygdrive/c/workarea/git_utils/status.sh;'
-alias startdata='nohup /cygdrive/c/workarea/google/gcd-v1beta2-rev1-2.1.1/gcd.sh start /cygdrive/c/workarea/google/cryptobox2013/ &'
-alias test='cd /cygdrive/c/workarea/cryptobox/www_cryptobox_nl/scripts/test'
+alias scr='cd /cygdrive/c/workspace/cryptobox/www_cryptobox_nl/scripts'
+alias stats='/cygdrive/c/workspace/git_utils/status.sh;'
+alias startdata='nohup /cygdrive/c/workspace/google/gcd-v1beta2-rev1-2.1.1/gcd.sh start /cygdrive/c/workspace/google/cryptobox2013/ &'
+alias test='cd /cygdrive/c/workspace/cryptobox/www_cryptobox_nl/scripts/test'
 alias todo='vi /etc/motd'
 alias touchall='find . -name "*.coffee" -exec touch {} \;'
 alias updatedb='sudo date; sudo /usr/libexec/locate.updatedb &'
-alias upgrade="sudo date; brew update; brew upgrade; brew doctor; brew cleanup -s --force; sudo gem update bropages; sudo python /cygdrive/c/workarea/research/upgrade_python_packs.py; gcloud -q components update;"
+alias upgrade="sudo date; brew update; brew upgrade; brew doctor; brew cleanup -s --force; sudo gem update bropages; sudo python /cygdrive/c/workspace/research/upgrade_python_packs.py; gcloud -q components update;"
 alias verifydisk='diskutil verifyVolume /'
-alias ws='cd /cygdrive/c/workarea'
-alias www='cd /cygdrive/c/workarea/cryptobox/www_cryptobox_nl/source/coffee'
+alias ws='cd /cygdrive/c/workspace'
+alias www='cd /cygdrive/c/workspace/cryptobox/www_cryptobox_nl/source/coffee'
 
 export PATH=/usr/local/sbin:$PATH
 
@@ -89,5 +89,5 @@ source /Users/rabshakeh/google-cloud-sdk/path.bash.inc
 source /Users/rabshakeh/google-cloud-sdk/completion.bash.inc
 
 
-export PYTHONPATH=${PYTHONPATH}:/cygdrive/c/workarea/cryptobox:/cygdrive/c/workarea/cryptobox/www_cryptobox_nl:/usr/local/lib/python2.7/site-packages/gcs_oauth2_boto_plugin
+export PYTHONPATH=${PYTHONPATH}:/cygdrive/c/workspace/cryptobox:/cygdrive/c/workspace/cryptobox/www_cryptobox_nl:/usr/local/lib/python2.7/site-packages/gcs_oauth2_boto_plugin
 export PYTHONPATH=`brew --prefix`/lib/python2.7/site-packages:$PYTHONPATH

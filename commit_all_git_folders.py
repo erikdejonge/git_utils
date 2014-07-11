@@ -23,7 +23,7 @@ def find_git_repos(arg, directory, files):
         sys.stdout.flush()
 
     git_dir = os.path.join(directory, ".git")
-    print "scanning for git repositories..", git_dir    
+    print "scanning for git repositories..", git_dir
     if os.path.exists(git_dir):
         try:
             config = open(git_dir + "/config").read().split("url =")[1].split("\n")[0].strip().split("//")[1].split("/")[0]
@@ -41,8 +41,8 @@ def main():
     fcheck = raw_input("fcheck? (y/n): ")
     fcheck = fcheck.strip() == "y"
 
-    if os.path.exists("/cygdrive/c/workarea/git_utils/exclude_dirs"):
-        excludes = [x.strip() for x in open("/cygdrive/c/workarea/git_utils/exclude_dirs").read().split("\n") if x.strip()]
+    if os.path.exists("/cygdrive/c/workspace/git_utils/exclude_dirs"):
+        excludes = [x.strip() for x in open("/cygdrive/c/workspace/git_utils/exclude_dirs").read().split("\n") if x.strip()]
 
     msg = raw_input("checkin message: ")
 
@@ -50,7 +50,7 @@ def main():
         msg = os.popen("date").read().strip()
         msg += " commit and gc"
 
-    dfp = "/cygdrive/c/workarea/git_utils/gitdirlist.pickle"
+    dfp = "/cygdrive/c/workspace/git_utils/gitdirlist.pickle"
 
     if os.path.exists(dfp):
         os.remove(dfp)
@@ -59,7 +59,7 @@ def main():
     os.path.walk("/cygdrive/c/workspace", find_git_repos, dir_list)
     #os.path.walk("/cygdrive/d/workspace", find_git_repos, dir_list)
 
-    #dir_list = [os.path.join("/cygdrive/c/workarea", x.lstrip("./")) for x in dir_list]
+    #dir_list = [os.path.join("/cygdrive/c/workspace", x.lstrip("./")) for x in dir_list]
     print "committing"
     pickle.dump(dir_list, open(dfp, "w"))
     procs = []

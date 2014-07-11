@@ -17,14 +17,14 @@ def main():
     """ check all folders and pull all from the server """
     excludes = []
 
-    if os.path.exists("/cygdrive/c/workarea/git_utils/exclude_dirs"):
-        excludes = [x.strip() for x in open("/cygdrive/c/workarea/git_utils/exclude_dirs").read().split("\n") if x.strip()]
+    if os.path.exists("/cygdrive/c/workspace/git_utils/exclude_dirs"):
+        excludes = [x.strip() for x in open("/cygdrive/c/workspace/git_utils/exclude_dirs").read().split("\n") if x.strip()]
 
-    dfp = "/cygdrive/c/workarea/git_utils/gitdirlist.pickle"
+    dfp = "/cygdrive/c/workspace/git_utils/gitdirlist.pickle"
     if os.path.exists(dfp):
         dir_list = pickle.load(open(dfp))
     else:
-        raise RuntimeError("Cannot find /cygdrive/c/workarea/git_utils/gitdirlist.pickle")
+        raise RuntimeError("Cannot find /cygdrive/c/workspace/git_utils/gitdirlist.pickle")
     msg = os.popen("date").read().strip()
     procs = []
 
