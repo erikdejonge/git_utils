@@ -1,2 +1,2 @@
-/cygdrive/d/workarea/git_utils/commitfast.sh;
-/cygdrive/d/workarea/git_utils/push.sh;
+/cygdrive/c/workarea/git_utils/commitfast.sh;
+/cygdrive/c/workarea/git_utils/push.sh;

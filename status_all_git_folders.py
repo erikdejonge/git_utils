@@ -24,10 +24,10 @@ def main():
 
     excludes = []
 
-    if os.path.exists("/cygdrive/d/workarea/git_utils/exclude_dirs"):
-        excludes = [x.strip() for x in open("/cygdrive/d/workarea/git_utils/exclude_dirs").read().split("\n") if x.strip()]
+    if os.path.exists("/cygdrive/c/workarea/git_utils/exclude_dirs"):
+        excludes = [x.strip() for x in open("/cygdrive/c/workarea/git_utils/exclude_dirs").read().split("\n") if x.strip()]
 
-    dfp = "/cygdrive/d/workarea/git_utils/gitdirlist.pickle"
+    dfp = "/cygdrive/c/workarea/git_utils/gitdirlist.pickle"
     if os.path.exists(dfp):
         dir_list = pickle.load(open(dfp))
         currdir = os.popen("pwd").read().strip()

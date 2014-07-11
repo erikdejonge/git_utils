@@ -12,12 +12,12 @@ def main():
     """
     main
     """
-    dfp = "/cygdrive/d/workarea/git_utils/gitdirlist.pickle"
+    dfp = "/cygdrive/c/workarea/git_utils/gitdirlist.pickle"
 
     if os.path.exists(dfp):
         dir_list = cPickle.load(open(dfp))
     else:
-        raise RuntimeError("Cannot find /cygdrive/d/workarea/git_utils/gitdirlist.pickle")
+        raise RuntimeError("Cannot find /cygdrive/c/workarea/git_utils/gitdirlist.pickle")
 
     for folder in dir_list:
         print "\033[0mpull " + os.path.basename(folder) + "\033[0m", '\033[m'

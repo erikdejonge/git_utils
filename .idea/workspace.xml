@@ -5,8 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6f2dfb3-74c7-41e2-af02-10f9cb3a9ca7" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bash_profile" afterPath="$PROJECT_DIR$/bash_profile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commit.sh" afterPath="$PROJECT_DIR$/commit.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commit_all_git_folders.py" afterPath="$PROJECT_DIR$/commit_all_git_folders.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commit_all_git_folders_fast.py" afterPath="$PROJECT_DIR$/commit_all_git_folders_fast.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commit_slow.py" afterPath="$PROJECT_DIR$/commit_slow.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commitfast.sh" afterPath="$PROJECT_DIR$/commitfast.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commitpush.sh" afterPath="$PROJECT_DIR$/commitpush.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/find_git_repos.py" afterPath="$PROJECT_DIR$/find_git_repos.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pull.sh" afterPath="$PROJECT_DIR$/pull.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pull_all_git_folders.py" afterPath="$PROJECT_DIR$/pull_all_git_folders.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/push.sh" afterPath="$PROJECT_DIR$/push.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/push_all_git_folders.py" afterPath="$PROJECT_DIR$/push_all_git_folders.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/status.sh" afterPath="$PROJECT_DIR$/status.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/status_all_git_folders.py" afterPath="$PROJECT_DIR$/status_all_git_folders.py" />
     </list>
     <ignored path="git_utils.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,11 +41,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="commit_all_git_folders_fast.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="commit_all_git_folders_fast.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/commit_all_git_folders_fast.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.612529" vertical-offset="0" max-vertical-offset="1293">
-              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1056">
+              <caret line="19" column="26" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -42,8 +54,8 @@
       <file leaf-file-name="push_all_git_folders.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/push_all_git_folders.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="292" max-vertical-offset="1606">
-              <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1100" max-vertical-offset="1606">
+              <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -53,7 +65,7 @@
         <entry file="file://$PROJECT_DIR$/pull_all_git_folders.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="924">
-              <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
+              <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -62,8 +74,8 @@
       <file leaf-file-name="find_git_repos.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/find_git_repos.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="550" max-vertical-offset="968">
-              <caret line="25" column="76" selection-start-line="25" selection-start-column="76" selection-end-line="25" selection-end-column="76" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="528" max-vertical-offset="968">
+              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -72,18 +84,18 @@
       <file leaf-file-name="status_all_git_folders.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/status_all_git_folders.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="358" max-vertical-offset="1672">
-              <caret line="26" column="43" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="336" max-vertical-offset="1672">
+              <caret line="25" column="0" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bash_profile" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="bash_profile" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bash_profile">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="2178">
-              <caret line="12" column="98" selection-start-line="12" selection-start-column="98" selection-end-line="12" selection-end-column="98" />
+            <state vertical-scroll-proportion="0.3328125" vertical-offset="256" max-vertical-offset="2178">
+              <caret line="31" column="77" selection-start-line="31" selection-start-column="77" selection-end-line="31" selection-end-column="77" />
               <folding />
             </state>
           </provider>
@@ -92,8 +104,8 @@
       <file leaf-file-name="commit_all_git_folders.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/commit_all_git_folders.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1958" max-vertical-offset="2222">
-              <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="731" max-vertical-offset="2222">
+              <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -102,8 +114,8 @@
       <file leaf-file-name="push.sh" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/push.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="66" max-vertical-offset="264">
-              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="44" max-vertical-offset="264">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -136,10 +148,10 @@
         <option value="$PROJECT_DIR$/push_all_git_folders.py" />
         <option value="$PROJECT_DIR$/find_git_repos.py" />
         <option value="$PROJECT_DIR$/status_all_git_folders.py" />
-        <option value="$PROJECT_DIR$/bash_profile" />
-        <option value="$PROJECT_DIR$/commit_all_git_folders.py" />
         <option value="$PROJECT_DIR$/pull_all_git_folders.py" />
         <option value="$PROJECT_DIR$/commit_all_git_folders_fast.py" />
+        <option value="$PROJECT_DIR$/commit_all_git_folders.py" />
+        <option value="$PROJECT_DIR$/bash_profile" />
       </list>
     </option>
   </component>
@@ -316,9 +328,6 @@
       <option name="PARAMETERS" value="" />
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
-      <method />
-    </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -340,6 +349,9 @@
       <option name="PUREUNITTEST" value="true" />
       <option name="PARAMS" value="" />
       <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
     <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
@@ -406,27 +418,28 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991952" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3252464" sideWeight="0.592681" order="1" side_tool="false" content_ui="tabs" x="2560" y="1" width="1440" height="900" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329188" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.50492054" sideWeight="0.76929194" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991952" sideWeight="0.6909091" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.05996823" sideWeight="0.64447695" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12907068" sideWeight="0.64447695" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12986498" sideWeight="0.64447695" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35552305" sideWeight="0.59029436" order="11" side_tool="false" content_ui="tabs" x="2" y="1018" width="2514" height="308" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.45354792" sideWeight="0.3989658" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34723276" sideWeight="0.40970564" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32172596" sideWeight="0.7541766" order="12" side_tool="false" content_ui="tabs" x="2560" y="22" width="1280" height="778" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38909918" sideWeight="0.6010342" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850242" sideWeight="0.4969697" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="99" y="122" width="2360" height="1214" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.6981818" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297953" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850242" sideWeight="0.4969697" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.50492054" sideWeight="0.76929194" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Copy/Paste" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32903716" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1063022" sideWeight="0.4984089" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.6981818" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Time Tracking" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29324698" sideWeight="0.6054395" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297953" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Time Tracking" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -758,8 +771,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/push.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="66" max-vertical-offset="264">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="44" max-vertical-offset="264">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -773,40 +786,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/find_git_repos.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="968">
-          <caret line="25" column="76" selection-start-line="25" selection-start-column="76" selection-end-line="25" selection-end-column="76" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="528" max-vertical-offset="968">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/status_all_git_folders.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="358" max-vertical-offset="1672">
-          <caret line="26" column="43" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bash_profile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="2178">
-          <caret line="12" column="98" selection-start-line="12" selection-start-column="98" selection-end-line="12" selection-end-column="98" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/commit_all_git_folders.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="929" max-vertical-offset="2222">
-          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="336" max-vertical-offset="1672">
+          <caret line="25" column="0" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/push_all_git_folders.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="292" max-vertical-offset="1606">
-          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1100" max-vertical-offset="1606">
+          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -814,15 +811,31 @@
     <entry file="file://$PROJECT_DIR$/pull_all_git_folders.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="924">
-          <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
+          <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commit_all_git_folders.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="731" max-vertical-offset="2222">
+          <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/commit_all_git_folders_fast.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.612529" vertical-offset="0" max-vertical-offset="1293">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1056">
+          <caret line="19" column="26" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bash_profile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3328125" vertical-offset="256" max-vertical-offset="2178">
+          <caret line="31" column="77" selection-start-line="31" selection-start-column="77" selection-end-line="31" selection-end-column="77" />
           <folding />
         </state>
       </provider>
