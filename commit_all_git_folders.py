@@ -1,4 +1,4 @@
-# pylint: disable-msg=C0103
+    # pylint: disable-msg=C0103
 # pylint: enable-msg=C0103
 # tempfile regex format
 #!/usr/bin/python
