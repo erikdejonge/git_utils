@@ -19,6 +19,21 @@ export PYRO_HMAC_KEY="sdhjfghvgchjgfuyeaguy"
 ulimit -n 10000
 export BOTO_PATH="/Users/rabshakeh/.boto"
 
+function _concatmp3() {
+  echo "concatting mp3's and making audiobook" $1'.m4b'
+  sleep 1
+  for f in ./*.mp3; do echo "file '$f'" >> mylist.txt; done
+  wait
+  ffmpeg -f concat -i mylist.txt -c copy $1".mp3"
+  wait
+  ffmpeg -i $1".mp3" -threads 8 -metadata album=$1 -metadata title=$1 -vn $1'.m4a'
+  wait
+  mv $1'.m4a' $1'.m4b'
+  wait
+  rm $1'.mp3'
+  rm mylist.txt
+}
+
 #export DATASTORE_HOST="http://localhost:8080"
 #export DATASTORE_DATASET="cryptobox2013"
 #export DATASTORE_SERVICE_ACCOUNT="1077532276852@developer.gserviceaccount.com"
@@ -36,6 +51,7 @@ alias com='/Users/rabshakeh/workspace/git_utils/commitfast.sh;'
 alias comm='cd /Users/rabshakeh/workspace/git_utils; python make_exclude_dirs.py; /Users/rabshakeh/workspace/git_utils/commit.sh; /Users/rabshakeh/workspace/git_utils/push.sh'
 alias commit='git commit -am '\''-'\'''
 alias compush='tar -cf /Users/rabshakeh/workspace/cryptobox/idea.tar /Users/rabshakeh/workspace/cryptobox/.idea 2>&1 | grep -v "Removing leading"; mv /Users/rabshakeh/workspace/cryptobox/idea.tar /Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/scripts/var; /Users/rabshakeh/workspace/git_utils/commitfast.sh; /Users/rabshakeh/workspace/git_utils/push.sh'
+alias concatmp3='_concatmp3'
 alias cpa='/Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/scripts/run_cp_all.sh;'
 alias cr='cd /Users/rabshakeh/workspace/cryptobox/crypto_api'
 alias createcb='cd /Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl;/Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/scripts/create/create_cryptobox.sh'
