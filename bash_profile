@@ -41,6 +41,7 @@ function _concatmp3() {
 #export OAUTH2_CLIENT_ID="32555940559.apps.googleusercontent.com"
 #export OAUTH2_CLIENT_SECRET="ZmssLNjJy2998hD4CTg2ejr2"
 alias app='cd /Users/rabshakeh/workspace/cryptobox/cryptobox_app/source/commands/'
+alias androidemu='/Applications/Android Studio.app/sdk/tools/emulator" -avd galaxy -netspeed full -gpu on'
 alias act='open /Applications/Utilities/Activity\ Monitor.app'
 alias ca='cd /Users/rabshakeh/workspace/cryptobox/crypto_data/'
 alias cb='cd /Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl'
