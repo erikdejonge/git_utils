@@ -65,7 +65,7 @@ def main():
     procs = []
 
     for folder in dir_list:
-        if len([x for x in [x in folder for x in excludes] if x]) == 0:
+        if os.path.basename(folder) not in excludes:
             sys.stdout.write(".")
             sys.stdout.flush()
             p = subprocess.Popen(["/usr/local/bin/git", "commit", "-am", msg], stdout=subprocess.PIPE, cwd=folder)

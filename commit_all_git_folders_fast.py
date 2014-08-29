@@ -29,8 +29,7 @@ def main():
     procs = []
     cnt = 0
     for folder in dir_list:
-
-        if len([x for x in [x in folder for x in excludes] if x]) == 0:
+        if os.path.basename(folder) not in excludes:
             p = subprocess.Popen(["/usr/local/bin/git", "commit", "-am",  msg], stdout=subprocess.PIPE, cwd=folder)
             procs.append({"folder":folder, "proc":p})
             if cnt > 10:

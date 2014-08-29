@@ -1,5 +1,6 @@
 #!/bin/sh
-bash -c "cd /Users/rabshakeh/workspace/cryptobox/crypto_data&&git add databases/*;"
+rm /Users/rabshakeh/workspace/git_utils/exclude
+python /Users/rabshakeh/workspace/git_utils/commit_all_git_folders.py
 python /Users/rabshakeh/workspace/git_utils/commit_all_git_folders.py
 
 

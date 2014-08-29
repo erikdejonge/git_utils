@@ -43,7 +43,7 @@ def main():
     cnt = 0
     procs = []
     for folder in dir_list:
-        if len([x for x in [x in folder for x in excludes] if x]) == 0:
+        if os.path.basename(folder) not in excludes:
             sys.stdout.flush()
             p = subprocess.Popen(["/usr/local/bin/git", "status"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
             p.wait()
