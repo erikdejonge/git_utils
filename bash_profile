@@ -70,6 +70,7 @@ alias down='cd; cd Downloads'
 alias dump='/Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/scripts/create/make_local_copy_databases.sh'
 alias flush='redis-cli flushall; celery purge -f'
 alias gcom='git commit -am "-" > /dev/null; git status'
+alias ghb="cd /Users/rabshakeh/workspace/github"
 alias google='_google'
 alias gpull='git pull'
 alias gpush='git push'
