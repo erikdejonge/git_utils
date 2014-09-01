@@ -22,7 +22,7 @@ export BOTO_PATH="/Users/rabshakeh/.boto"
 function _concatmp3() {
   echo "concatting mp3's and making audiobook" $1'.m4b'
   sleep 1
-  for f in ./*.mp3; do echo "file '$f'" >> mylist.txt; done
+  find *|grep .mp3|while read f; do echo "file '$f'" >> mylist.txt; done
   wait
   ffmpeg -f concat -i mylist.txt -c copy $1".mp3"
   wait
