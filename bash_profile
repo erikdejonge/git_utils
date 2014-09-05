@@ -33,7 +33,9 @@ function _concatmp3() {
   rm $1'.mp3'
   rm mylist.txt
 }
-
+function _mdcat() {
+  markdown $1 | lynx -stdin
+}
 #export DATASTORE_HOST="http://localhost:8080"
 #export DATASTORE_DATASET="cryptobox2013"
 #export DATASTORE_SERVICE_ACCOUNT="1077532276852@developer.gserviceaccount.com"
@@ -81,6 +83,7 @@ alias kp='killall python; killall Python; redis-cli flushall'
 alias locate='/Users/rabshakeh/workspace/research/locate.py'
 alias lnd='ssh lycianode.a8.nl'
 alias ly2='ssh 192.168.14.7'
+alias mdcat='_mdcat'
 alias mov='cd /Users/rabshakeh/Movies/Wondershare; python convertm4b.py'
 alias n1='ssh node1-us.a8.nl'
 alias n2='ssh node2-us.a8.nl'
