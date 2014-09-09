@@ -25,12 +25,15 @@ function _concatmp3() {
   find *|grep .mp3|while read f; do echo "file '$f'" >> mylist.txt; done
   wait
   ffmpeg -f concat -i mylist.txt -c copy $1".mp3"
+  sleep 5
   wait
   ffmpeg -i $1".mp3" -threads 8 -metadata album=$1 -metadata title=$1 -vn $1'.m4a'
+  sleep 5
   wait
   mv $1'.m4a' $1'.m4b'
   wait
   rm $1'.mp3'
+
   rm mylist.txt
 }
 function _mdcat() {
