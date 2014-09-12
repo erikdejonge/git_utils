@@ -1,4 +1,5 @@
 export LDFLAGS='-L/usr/local/opt/openssl/lib'
+    base="Win32GUI",
 export CPPFLAGS='-I/usr/local/opt/openssl/include'
 # build pycrypto
 # sudo ln -s /usr/local/Cellar/gmp/5.1.3/lib/libgmp.dylib /usr/lib/libgmp.dylib
@@ -95,7 +96,7 @@ alias pull='python /Users/rabshakeh/workspace/git_utils/pull_all_git_folders.py 
 alias pullall='python /Users/rabshakeh/workspace/git_utils/pull_all_git_folders.py'
 alias pullcompush='/Users/rabshakeh/workspace/git_utils/pull.sh; /Users/rabshakeh/workspace/git_utils/commitfast.sh; /Users/rabshakeh/workspace/git_utils/push.sh;'
 alias push='/Users/rabshakeh/workspace/git_utils/push.sh;'
-alias setp3='unset PYTHONPATH;alias python=\"python3\"'
+alias setp3='unset PYTHONPATH;alias python=\"python3\";alias pip=\"pip3\"'
 alias res='cd /Users/rabshakeh/workspace/research'
 alias restart_safe='sudo nvram boot-args="-x";sudo shutdown -r now'
 alias restart_normal='sudo nvram boot-args="";sudo shutdown -r now'
@@ -123,5 +124,12 @@ source /Users/rabshakeh/google-cloud-sdk/path.bash.inc
 # The next line enables bash completion for gcloud.
 source /Users/rabshakeh/google-cloud-sdk/completion.bash.inc
 
-
 export PYTHONPATH=${PYTHONPATH}:/Users/rabshakeh/google-cloud-sdk/platform/gsutil/third_party/gcs-oauth2-boto-plugin:/Users/rabshakeh/workspace/cryptobox:/Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl:/usr/local/lib/python2.7/site-packages:/Users/rabshakeh/google-cloud-sdk/platform/gsutil/third_party/gcs-oauth2-boto-plugin:/Users/rabshakeh/google-cloud-sdk/platform/gsutil/third_party/gcs-oauth2-boto-plugin/gcs_oauth2_boto_plugin;
+function _setpy2() {
+export PYTHONPATH=${PYTHONPATH}:/Users/rabshakeh/google-cloud-sdk/platform/gsutil/third_party/gcs-oauth2-boto-plugin:/Users/rabshakeh/workspace/cryptobox:/Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl:/usr/local/lib/python2.7/site-packages:/Users/rabshakeh/google-cloud-sdk/platform/gsutil/third_party/gcs-oauth2-boto-plugin:/Users/rabshakeh/google-cloud-sdk/platform/gsutil/third_party/gcs-oauth2-boto-plugin/gcs_oauth2_boto_plugin;
+}
+alias setpy2="_setpy2"
+# Setting PATH for Python 3.4
+# The orginal version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
+export PATH
