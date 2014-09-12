@@ -95,6 +95,7 @@ alias pull='python /Users/rabshakeh/workspace/git_utils/pull_all_git_folders.py 
 alias pullall='python /Users/rabshakeh/workspace/git_utils/pull_all_git_folders.py'
 alias pullcompush='/Users/rabshakeh/workspace/git_utils/pull.sh; /Users/rabshakeh/workspace/git_utils/commitfast.sh; /Users/rabshakeh/workspace/git_utils/push.sh;'
 alias push='/Users/rabshakeh/workspace/git_utils/push.sh;'
+alias setp3='unset PYTHONPATH;alias python=\"python3\"'
 alias res='cd /Users/rabshakeh/workspace/research'
 alias restart_safe='sudo nvram boot-args="-x";sudo shutdown -r now'
 alias restart_normal='sudo nvram boot-args="";sudo shutdown -r now'
