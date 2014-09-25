@@ -40,6 +40,9 @@ function _concatmp3() {
 function _mdcat() {
   markdown $1 | lynx -stdin
 }
+function _opendir() {
+  python /Users/rabshakeh/workspace/research/openfolder.py --fp=$1
+}
 #export DATASTORE_HOST="http://localhost:8080"
 #export DATASTORE_DATASET="cryptobox2013"
 #export DATASTORE_SERVICE_ACCOUNT="1077532276852@developer.gserviceaccount.com"
@@ -92,6 +95,7 @@ alias mov='cd /Users/rabshakeh/Movies/Wondershare; python convertm4b.py'
 alias n1='ssh node1-us.a8.nl'
 alias n2='ssh node2-us.a8.nl'
 alias nxrestart='nginx -s stop; nginx'
+alias opendir='_opendir'
 alias pull='python /Users/rabshakeh/workspace/git_utils/pull_all_git_folders.py -i'
 alias pullall='python /Users/rabshakeh/workspace/git_utils/pull_all_git_folders.py'
 alias pullcompush='/Users/rabshakeh/workspace/git_utils/pull.sh; /Users/rabshakeh/workspace/git_utils/commitfast.sh; /Users/rabshakeh/workspace/git_utils/push.sh;'
