@@ -119,6 +119,7 @@ alias upgrade="sudo date; brew update; brew upgrade; brew cleanup -s --force; su
 alias verifydisk='diskutil verifyVolume /'
 alias ws='cd /Users/rabshakeh/workspace'
 alias www='cd /Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/source/coffee'
+alias wwwserver='python -m SimpleHTTPServer 8000'
 
 export PATH=/usr/local/sbin:$PATH
 
