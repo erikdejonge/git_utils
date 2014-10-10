@@ -110,6 +110,7 @@ alias rredis='launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist;
 alias scr='cd /Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/scripts'
 alias stats='/Users/rabshakeh/workspace/git_utils/status.sh;'
 alias startdata='rm nohup.out; nohup /Users/rabshakeh/workspace/google/gcd-v1beta2-rev1-2.1.1/gcd.sh start /Users/rabshakeh/workspace/google/cryptobox2013/ &'
+alias temp='cd /Users/rabshakeh/workspace/temp'
 alias test='cd /Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl/scripts/test'
 alias todo='vi /etc/motd'
 alias top='python /Users/rabshakeh/workspace/research/top.py'
