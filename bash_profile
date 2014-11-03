@@ -124,12 +124,6 @@ alias wwwserver='python -m SimpleHTTPServer 8000'
 
 export PATH=/usr/local/sbin:$PATH
 
-# The next line updates PATH for the Google Cloud SDK.
-source /Users/rabshakeh/google-cloud-sdk/path.bash.inc
-
-# The next line enables bash completion for gcloud.
-source /Users/rabshakeh/google-cloud-sdk/completion.bash.inc
-
 export PYTHONPATH=${PYTHONPATH}:/Users/rabshakeh/google-cloud-sdk/platform/gsutil/third_party/gcs-oauth2-boto-plugin:/Users/rabshakeh/workspace/cryptobox:/Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl:/usr/local/lib/python2.7/site-packages:/Users/rabshakeh/google-cloud-sdk/platform/gsutil/third_party/gcs-oauth2-boto-plugin:/Users/rabshakeh/google-cloud-sdk/platform/gsutil/third_party/gcs-oauth2-boto-plugin/gcs_oauth2_boto_plugin;
 function _setpy2() {
 export PYTHONPATH=${PYTHONPATH}:/Users/rabshakeh/google-cloud-sdk/platform/gsutil/third_party/gcs-oauth2-boto-plugin:/Users/rabshakeh/workspace/cryptobox:/Users/rabshakeh/workspace/cryptobox/www_cryptobox_nl:/usr/local/lib/python2.7/site-packages:/Users/rabshakeh/google-cloud-sdk/platform/gsutil/third_party/gcs-oauth2-boto-plugin:/Users/rabshakeh/google-cloud-sdk/platform/gsutil/third_party/gcs-oauth2-boto-plugin/gcs_oauth2_boto_plugin;
@@ -139,3 +133,9 @@ alias setpy2="_setpy2"
 # The orginal version is saved in .bash_profile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
 export PATH
+
+# The next line updates PATH for the Google Cloud SDK.
+source '/Users/rabshakeh/google-cloud-sdk/path.bash.inc'
+
+# The next line enables bash completion for gcloud.
+source '/Users/rabshakeh/google-cloud-sdk/completion.bash.inc'
