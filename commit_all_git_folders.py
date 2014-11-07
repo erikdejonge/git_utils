@@ -76,21 +76,16 @@ def main():
         print "skipping check"
         return
     print
-    procs = []
 
     for folder in dir_list:
-        procs.append(subprocess.Popen(["/usr/local/bin/git", "fsck"], cwd=folder))
-
-    for p in procs:
+        p = subprocess.Popen(["/usr/local/bin/git", "fsck"], cwd=folder)
         p.wait()
 
-    procs = []
 
     for folder in dir_list:
-        procs.append(subprocess.Popen(["/usr/local/bin/git", "gc"], cwd=folder))
-
-    for p in procs:
+        p = subprocess.Popen(["/usr/local/bin/git", "gc"], cwd=folder)
         p.wait()
+
     print "done"
 
 
