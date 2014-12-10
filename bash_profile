@@ -1,3 +1,7 @@
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/rabshakeh/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
+
 export LDFLAGS='-L/usr/local/opt/openssl/lib'
     base="Win32GUI",
 export CPPFLAGS='-I/usr/local/opt/openssl/include'
