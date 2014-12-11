@@ -1,3 +1,4 @@
+
     # pylint: disable-msg=C0103
 # pylint: enable-msg=C0103
 # tempfile regex format
@@ -31,8 +32,9 @@ def find_git_repos(arg, directory, files):
             config = open(git_dir + "/config").read().split("url =")[1].split("\n")[0].strip().split(":")[0].split("/")[0]
         except Exception, ex:
             config = str(ex)
-        print
-        print "gitdir:", directory, "("+config+")"
+
+        print "commit_all_git_folders.py:35"
+        print "commit_all_git_folders.py:36", "gitdir:", directory, "("+config+")"
         arg.append(directory)
 
 
@@ -58,9 +60,8 @@ def main():
     dir_list = []
     os.path.walk("/Users/rabshakeh/workspace", find_git_repos, dir_list)
 
-
     #dir_list = [os.path.join("/Users/rabshakeh/workspace", x.lstrip("./")) for x in dir_list]
-    print "committing"
+    print "commit_all_git_folders.py:63", "committing"
     pickle.dump(dir_list, open(dfp, "w"))
     procs = []
 
@@ -72,21 +73,32 @@ def main():
             p.communicate()
 
     if not fcheck:
-        print
-        print "skipping check"
+        print "commit_all_git_folders.py:75"
+        print "commit_all_git_folders.py:76", "skipping check"
         return
-    print
+
+    print "commit_all_git_folders.py:79"
+    l = []
 
     for folder in dir_list:
         p = subprocess.Popen(["/usr/local/bin/git", "fsck"], cwd=folder)
-        p.wait()
+        l.append(p)
+        if len(l) > 8:
+            [p.communicate() for p in l]
+            l = []
 
+    [p.communicate() for p in l]
+    l = []
 
     for folder in dir_list:
         p = subprocess.Popen(["/usr/local/bin/git", "gc"], cwd=folder)
-        p.wait()
+        l.append(p)
+        if len(l) > 8:
+            [p.communicate() for p in l]
+            l = []
 
-    print "done"
+    [p.communicate() for p in l]
+    print "commit_all_git_folders.py:92", "done"
 
 
 if __name__ == "__main__":
