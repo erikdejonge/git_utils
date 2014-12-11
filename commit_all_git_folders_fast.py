@@ -31,8 +31,8 @@ def main():
     for folder in dir_list:
         if os.path.basename(folder) not in excludes:
             p = subprocess.Popen(["/usr/local/bin/git", "commit", "-am",  msg], stdout=subprocess.PIPE, cwd=folder)
-            p.wait()
-            output = p.stdout.read()
+            output, se = p.communicate()
+             
             if "nothing to commit" in output:
                 sys.stdout.write(".")
                 sys.stdout.flush()
