@@ -46,9 +46,9 @@ def main():
         if os.path.basename(folder) not in excludes:
             sys.stdout.flush()
             p = subprocess.Popen(["/usr/local/bin/git", "status"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
-            p.wait()
+            output, se = p.communicate()
 
-            if "Your branch is ahead" in p.stdout.read():
+            if "Your branch is ahead" in output:
                 print "\033[95mpush "+os.path.basename(folder)+"\033[0m"
 
                 p2 = subprocess.Popen(["/usr/local/bin/git", "push"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
@@ -60,9 +60,9 @@ def main():
                     cnt += 1
 
     for p in procs:
-        p[1].wait()
-        output = p[1].stderr.read()
-        output = output.strip()
+        output, se = p[1].communicate()
+
+        output = se.strip()
         print "\033[93m" + os.path.basename(p[0]) + " pushed *\n" + output.strip() + "\033[0m"
 
 if __name__ == "__main__":
