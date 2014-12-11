@@ -38,11 +38,11 @@ def main():
 
         if len(procs) > 3:
             for p in procs:
-                p.wait()
+                p.communicate()
             procs = []
 
     for p in procs:
-        p.wait()
+        p.communicate()
 
 
 if __name__ == "__main__":

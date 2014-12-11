@@ -69,7 +69,7 @@ def main():
             sys.stdout.write(".")
             sys.stdout.flush()
             p = subprocess.Popen(["/usr/local/bin/git", "commit", "-am", msg], stdout=subprocess.PIPE, cwd=folder)
-            p.wait()
+            p.communicate()
 
     if not fcheck:
         print
