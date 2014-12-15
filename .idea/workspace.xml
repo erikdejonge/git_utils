@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d6f2dfb3-74c7-41e2-af02-10f9cb3a9ca7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/make_exclude_dirs.py" afterPath="$PROJECT_DIR$/make_exclude_dirs.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pull_all_git_folders.py" afterPath="$PROJECT_DIR$/pull_all_git_folders.py" />
     </list>
     <ignored path="git_utils.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,7 +52,7 @@
       <file leaf-file-name="pull_all_git_folders.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pull_all_git_folders.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="474" max-vertical-offset="1100">
+            <state vertical-scroll-proportion="0.0" vertical-offset="294" max-vertical-offset="1100">
               <caret line="40" column="29" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
               <folding />
             </state>
@@ -63,8 +62,8 @@
       <file leaf-file-name="commit_all_git_folders.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/commit_all_git_folders.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="708" max-vertical-offset="2200">
-              <caret line="98" column="0" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+            <state vertical-scroll-proportion="-21.666666" vertical-offset="495" max-vertical-offset="2200">
+              <caret line="54" column="25" selection-start-line="54" selection-start-column="22" selection-end-line="54" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -83,7 +82,7 @@
       <file leaf-file-name="commit_all_git_folders_fast.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/commit_all_git_folders_fast.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="800" max-vertical-offset="1080">
+            <state vertical-scroll-proportion="0.0" vertical-offset="314" max-vertical-offset="1080">
               <caret line="40" column="63" selection-start-line="40" selection-start-column="63" selection-end-line="40" selection-end-column="63" />
               <folding />
             </state>
@@ -114,7 +113,17 @@
         <entry file="file://$PROJECT_DIR$/make_exclude_dirs.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.3514377" vertical-offset="0" max-vertical-offset="626">
-              <caret line="11" column="72" selection-start-line="11" selection-start-column="72" selection-end-line="11" selection-end-column="72" />
+              <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="exclude_dirs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/exclude_dirs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="120">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -815,18 +824,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pull_all_git_folders.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="474" max-vertical-offset="1100">
-          <caret line="40" column="29" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/commit_slow.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="508" max-vertical-offset="1280">
           <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commit.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="260">
+          <caret line="2" column="49" selection-start-line="2" selection-start-column="49" selection-end-line="2" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exclude_dirs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="626">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pull_all_git_folders.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="294" max-vertical-offset="1100">
+          <caret line="40" column="29" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -841,16 +866,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/commit_all_git_folders.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="708" max-vertical-offset="2200">
-          <caret line="98" column="0" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/commit.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="260">
-          <caret line="2" column="49" selection-start-line="2" selection-start-column="49" selection-end-line="2" selection-end-column="49" />
+        <state vertical-scroll-proportion="-21.666666" vertical-offset="495" max-vertical-offset="2200">
+          <caret line="54" column="25" selection-start-line="54" selection-start-column="22" selection-end-line="54" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -858,7 +875,7 @@
     <entry file="file://$PROJECT_DIR$/make_exclude_dirs.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3514377" vertical-offset="0" max-vertical-offset="626">
-          <caret line="11" column="72" selection-start-line="11" selection-start-column="72" selection-end-line="11" selection-end-column="72" />
+          <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
           <folding />
         </state>
       </provider>
