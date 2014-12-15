@@ -9,5 +9,5 @@ def main():
     f.write("\n")
 if __name__=="__main__":
   main()
-  
+
 

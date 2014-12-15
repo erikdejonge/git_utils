@@ -53,7 +53,7 @@ def main():
 
                 p2 = subprocess.Popen(["/usr/local/bin/git", "push"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
                 procs.append((folder, p2))
-                if cnt > 3:
+                if cnt > 30:
                     p2.communicate()
                     cnt = 0
                 else:

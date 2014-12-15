@@ -36,7 +36,7 @@ def main():
             p = subprocess.Popen(["/usr/local/bin/git", "pull"], cwd=folder)
             procs.append(p)
 
-        if len(procs) > 20:
+        if len(procs) > 50:
             for p in procs:
                 p.communicate()
             procs = []
