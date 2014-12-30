@@ -17,14 +17,14 @@ def main():
     """ check all folders and pull all from the server """
     excludes = []
 
-    if os.path.exists("/Users/rabshakeh/workspace/git_utils/exclude_dirs"):
-        excludes = [x.strip() for x in open("/Users/rabshakeh/workspace/git_utils/exclude_dirs").read().split("\n") if x.strip()]
+    if os.path.exists("/home/rabshakeh/workspace/git_utils/exclude_dirs"):
+        excludes = [x.strip() for x in open("/home/rabshakeh/workspace/git_utils/exclude_dirs").read().split("\n") if x.strip()]
 
-    dfp = "/Users/rabshakeh/workspace/git_utils/gitdirlist.pickle"
+    dfp = "/home/rabshakeh/workspace/git_utils/gitdirlist.pickle"
     if os.path.exists(dfp):
         dir_list = pickle.load(open(dfp))
     else:
-        raise RuntimeError("Cannot find /Users/rabshakeh/workspace/git_utils/gitdirlist.pickle")
+        raise RuntimeError("Cannot find /home/rabshakeh/workspace/git_utils/gitdirlist.pickle")
     msg = os.popen("date").read().strip()
     procs = []
     cnt = 0

@@ -19,12 +19,12 @@ def main():
     parser = OptionParser()
     parser.add_option("-i", "--ignoregithub", help="Ignore paths with github in it", action="store_true")
     (options, args) = parser.parse_args()
-    dfp = "/Users/rabshakeh/workspace/git_utils/gitdirlist.pickle"
+    dfp = "/home/rabshakeh/workspace/git_utils/gitdirlist.pickle"
 
     if os.path.exists(dfp):
         dir_list = cPickle.load(open(dfp))
     else:
-        raise RuntimeError("Cannot find /Users/rabshakeh/workspace/git_utils/gitdirlist.pickle")
+        raise RuntimeError("Cannot find /home/rabshakeh/workspace/git_utils/gitdirlist.pickle")
 
     procs = []
 
