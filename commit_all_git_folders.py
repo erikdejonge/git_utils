@@ -47,18 +47,18 @@ def find_git_repos(arg, directory, files):
 
 def main():
     """ check all folders and pull all from the server """
-    fcheck = raw_input("fcheck? (y/n): ")
+    fcheck = raw_input("GC check? (y/n): ")
     fcheck = fcheck.strip() == "y"
     excludes = []
 
     if os.path.exists(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs"):
         excludes = [x.strip() for x in open(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs").read().split("\n") if x.strip()]
 
-    msg = raw_input("checkin message: ")
+    msg = raw_input("Checkin message: ")
 
     if msg and len(msg.strip()) == 0:
         msg = os.popen("date").read().strip()
-        msg += " commit and gc"
+        msg += " Commit and gc"
 
     dfp = os.path.expanduser(os.path.expanduser("~") + "/workspace/git_utils/gitdirlist.pickle")
 
@@ -79,8 +79,8 @@ def main():
 
     if not fcheck:
         print
+        print "\033[33mDone indexing, skipping check", len(dir_list), "items found\033[0m"
         print
-        print "\033[33mDone, skipping check", len(dir_list), "items found\033[0m"
         return
 
     print
