@@ -79,7 +79,8 @@ def main():
 
     if not fcheck:
         print
-        print "skipping check"
+        print
+        print "\033[33mDone, skipping check", len(dir_list), "items found\033[0m"
         return
 
     print
