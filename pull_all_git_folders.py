@@ -41,7 +41,7 @@ def main():
     for folder in dir_list:
         if os.path.exists(os.path.join(folder, "merge.sh")):
             print "merging:", os.path.join(folder, "merge.sh")
-            os.system(os.path.join(folder, "merge.sh"))
+            os.system(os.path.join(folder, "merge.sh")+" > /dev/null")
 
         if options.ignoregithub is True and "github" in folder:
             pass
