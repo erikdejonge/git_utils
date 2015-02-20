@@ -103,7 +103,7 @@ def main():
             [p.communicate() for p in l]
             l = []
     [p.communicate() for p in l]
-    print "done"
+    print "\033[33mDone", len(dir_list), "items found\033[0m"
 
 
 if __name__ == "__main__":
