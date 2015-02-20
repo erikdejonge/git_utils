@@ -17,7 +17,7 @@ def main():
     args, unknown = parser.parse_known_args()
 
     if args.message is None:
-        args.message = timestamp
+        args.message = timestamp + "\n" + str(os.path.basename(os.getcwd()))
 
     excludes = []
 
