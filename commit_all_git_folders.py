@@ -5,9 +5,7 @@
 import sys
 import os
 import subprocess
-# from argparse import ArgumentParser
 import cPickle
-
 
 findcnt = 0
 
@@ -44,11 +42,6 @@ def find_git_repos(arg, directory, files):
 
 def main():
     """ check all folders and pull all from the server """
-    # parser = ArgumentParser(description="Vagrant controller, argument 'all' is whole cluster")
-    # parser.add_argument("-m", "--message", dest="message", help="commit message", nargs='*')
-    # args, unknown = parser.parse_known_args()
-    args, unknown = parser.parse_known_args()
-
     fcheck = raw_input("GC check? (y/n): ")
     fcheck = fcheck.strip() == "y"
     excludes = []
