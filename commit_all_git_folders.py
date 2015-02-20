@@ -1,5 +1,4 @@
 # coding=utf-8
-# -*- coding: utf-8 -*-
 """ git checking script """
 
 import sys
@@ -12,10 +11,11 @@ findcnt = 0
 
 #noinspection PyUnusedLocal
 def find_git_repos(arg, directory, files):
-    """ find the git repositories
-    :param arg:
-    :param directory:
-    :param files:
+    """
+    @type arg: str, unicode
+    @type directory: str, unicode
+    @type files: str, unicode
+    @return: None
     """
     global findcnt
     findcnt += 1

@@ -1,5 +1,4 @@
 # coding=utf-8
-# -*- coding: utf-8 -*-
 """ git checking script """
 
 import os
