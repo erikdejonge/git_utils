@@ -47,6 +47,7 @@ def main():
     # parser = ArgumentParser(description="Vagrant controller, argument 'all' is whole cluster")
     # parser.add_argument("-m", "--message", dest="message", help="commit message", nargs='*')
     # args, unknown = parser.parse_known_args()
+    args, unknown = parser.parse_known_args()
 
     fcheck = raw_input("GC check? (y/n): ")
     fcheck = fcheck.strip() == "y"
