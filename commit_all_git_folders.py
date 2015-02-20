@@ -5,17 +5,14 @@
 import sys
 import os
 import subprocess
+# from argparse import ArgumentParser
+import cPickle
 
-#noinspection PyPep8Naming
-
-import cPickle as pickle
 
 findcnt = 0
 
 
 #noinspection PyUnusedLocal
-
-
 def find_git_repos(arg, directory, files):
     """ find the git repositories
     :param arg:
@@ -47,11 +44,9 @@ def find_git_repos(arg, directory, files):
 
 def main():
     """ check all folders and pull all from the server """
-    parser = ArgumentParser(description="Vagrant controller, argument 'all' is whole cluster")
-    parser.add_argument("-m", "--message", dest="message", help="commit message", nargs='*')
-    args, unknown = parser.parse_known_args()
-    print args, unknown
-    return
+    # parser = ArgumentParser(description="Vagrant controller, argument 'all' is whole cluster")
+    # parser.add_argument("-m", "--message", dest="message", help="commit message", nargs='*')
+    # args, unknown = parser.parse_known_args()
 
     fcheck = raw_input("GC check? (y/n): ")
     fcheck = fcheck.strip() == "y"
@@ -74,7 +69,7 @@ def main():
     dir_list = []
     os.path.walk(os.path.expanduser("~") + "/workspace", find_git_repos, dir_list)
     print "committing"
-    pickle.dump(dir_list, open(dfp, "w"))
+    cPickle.dump(dir_list, open(dfp, "w"))
 
     for folder in dir_list:
         if os.path.basename(folder) not in excludes:

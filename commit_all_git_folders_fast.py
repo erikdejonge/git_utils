@@ -4,28 +4,35 @@
 
 import os
 import sys
-
-#noinspection PyPep8Naming
-
-import cPickle as pickle
+import datetime
+import cPickle
 import subprocess
+from argparse import ArgumentParser
 
 
 def main():
     """ check all folders and pull all from the server """
-    excludes = []
+    timestamp = datetime.datetime.now().strftime("%A %d %B %Y (week:%w day;%j), %H:%M:%S").replace(";0", ":").replace(";", ":")
+    print timestamp
+    parser = ArgumentParser(description="Vagrant controller, argument 'all' is whole cluster")
+    parser.add_argument("-m", "--message", dest="message", help="commit message", nargs='?')
+    args, unknown = parser.parse_known_args()
 
+    if args.message is None:
+        args.message = timestamp
+    excludes = []
+    print args.message
     if os.path.exists(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs"):
         excludes = [x.strip() for x in open(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs").read().split("\n") if x.strip()]
 
     dfp = os.path.expanduser(os.path.expanduser("~") + "/workspace/git_utils/gitdirlist.pickle")
 
     if os.path.exists(dfp):
-        dir_list = pickle.load(open(dfp))
+        dir_list = cPickle.load(open(dfp))
     else:
         raise RuntimeError("Cannot find " + os.path.expanduser("~") + "/workspace/git_utils/gitdirlist.pickle")
 
-    msg = os.popen("date").read().strip()
+    msg = args.message
 
     for folder in dir_list:
         if os.path.basename(folder) not in excludes:
