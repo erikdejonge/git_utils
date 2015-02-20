@@ -41,7 +41,7 @@ def main():
                 print
                 print "\033[92mcommit "+os.path.basename(folder)+"\033[0m\n\033[93m"+output.strip()+"\033[0m"
 
-    print
+    print excludes
 
 
 if __name__ == "__main__":
