@@ -26,6 +26,9 @@ def main():
     procs = []
 
     for folder in dir_list:
+        if os.path.exists(os.path.join(folder, "mergse.sh")):
+            print folder
+
         if options.ignoregithub is True and "github" in folder:
             pass
         else:
