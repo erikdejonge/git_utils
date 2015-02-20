@@ -5,9 +5,6 @@ import os
 import subprocess
 import cPickle
 from optparse import OptionParser
-
-import termcolor
-
 findcnt = 0
 
 
@@ -19,7 +16,7 @@ def check_result(folder, p):
     """
     p.communicate()
     if 0 != p.returncode:
-        print termcolor.colored("Error in: " + folder, 'red')
+        print "\033[31mError in: " + folder + "\033[0m"
 
 
 def main():
@@ -41,7 +38,7 @@ def main():
     for folder in dir_list:
         if os.path.exists(os.path.join(folder, "merge.sh")):
             print "merging:", os.path.join(folder, "merge.sh")
-            os.system(os.path.join(folder, "merge.sh")+" > /dev/null")
+            os.system(os.path.join(folder, "merge.sh") + " > /dev/null")
 
         if options.ignoregithub is True and "github" in folder:
             pass
