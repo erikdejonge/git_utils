@@ -62,9 +62,12 @@ def main():
                     cnt += 1
 
     for p in procs:
-        output, se = p[1].communicate()
-        output = se.strip()
-        print "\033[93m" + os.path.basename(p[0]) + " pushed *\n" + output.strip() + "\033[0m"
+        if 0 != p[1].returncode:
+            print termcolor.colored("Error in: " + p[0], 'red')
+        else:
+            output, se = p[1].communicate()
+            output = se.strip()
+            print "\033[93m" + os.path.basename(p[0]) + " pushed *\n" + output.strip() + "\033[0m"
 
 
 if __name__ == "__main__":
