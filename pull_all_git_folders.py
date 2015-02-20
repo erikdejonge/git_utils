@@ -6,7 +6,20 @@ import subprocess
 import cPickle
 from optparse import OptionParser
 
+import termcolor
+
 findcnt = 0
+
+
+def check_result(folder, p):
+    """
+    @type folder: str, unicode
+    @type p: str, unicode
+    @return: None
+    """
+    p.communicate()
+    if 0 != p.returncode:
+        print termcolor.colored("Error in: " + folder, 'red')
 
 
 def main():
@@ -27,23 +40,23 @@ def main():
 
     for folder in dir_list:
         if os.path.exists(os.path.join(folder, "mergse.sh")):
-            print folder
+            print folder, "--->", "merge found"
 
         if options.ignoregithub is True and "github" in folder:
             pass
         else:
             print "pull_all_git_folders.py:35", "pull", folder
             p = subprocess.Popen(["/usr/local/bin/git", "pull"], cwd=folder)
-            procs.append(p)
+            procs.append((folder, p))
 
         if len(procs) > 8:
-            for p in procs:
-                p.communicate()
+            for folder, p in procs:
+                check_result(folder, p)
 
             procs = []
 
-    for p in procs:
-        p.communicate()
+    for folder, p in procs:
+        check_result(folder, p)
 
 
 if __name__ == "__main__":
