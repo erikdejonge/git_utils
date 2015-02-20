@@ -34,10 +34,6 @@ def main():
     msg = args.message
 
     for folder in dir_list:
-        if os.path.exists(os.path.join(folder, "merge.sh")):
-            print folder
-            print
-            print
         if os.path.basename(folder) not in excludes:
             p = subprocess.Popen(["/usr/local/bin/git", "commit", "-am",  msg], stdout=subprocess.PIPE, cwd=folder)
             output, se = p.communicate()

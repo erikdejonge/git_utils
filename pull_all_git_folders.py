@@ -39,13 +39,14 @@ def main():
     procs = []
 
     for folder in dir_list:
-        if os.path.exists(os.path.join(folder, "mergse.sh")):
-            print folder, "--->", "merge found"
+        if os.path.exists(os.path.join(folder, "merge.sh")):
+            print "merging:", os.path.join(folder, "merge.sh")
+            os.system(os.path.join(folder, "merge.sh"))
 
         if options.ignoregithub is True and "github" in folder:
             pass
         else:
-            print "pull_all_git_folders.py:35", "pull", folder
+            print "pull", folder
             p = subprocess.Popen(["/usr/local/bin/git", "pull"], cwd=folder)
             procs.append((folder, p))
 
