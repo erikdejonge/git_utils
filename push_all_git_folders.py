@@ -64,6 +64,7 @@ def main():
     for p in procs:
 
         output, se = p[1].communicate()
+        print p[1].returncode
         if 0 != p[1].returncode:
             print "\033[31mError in: " + p[0] + "\033[0m"
         else:
