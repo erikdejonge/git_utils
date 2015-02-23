@@ -57,7 +57,6 @@ def main():
                         fl += (" " * (25 - len(fl)))
 
                     if "master" not in branch:
-                        
                         if fl.strip() not in excludes and os.path.join(os.path.expanduser("~") + "/workspace", fl.strip()) not in excludes:
                             print fl + "\t" + branch.replace("*", "").strip()
 
