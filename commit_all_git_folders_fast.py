@@ -24,7 +24,6 @@ def main():
     if os.path.exists(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs"):
         excludes = [x.strip() for x in open(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs").read().split("\n") if x.strip()]
 
-
     if os.path.exists(os.path.expanduser("~") + "/workspace/.gitutilsexclude"):
         excludes.extend([os.path.join(os.path.expanduser("~") + "/workspace", x.strip()) for x in open(os.path.expanduser("~") + "/workspace/.gitutilsexclude").read().split("\n") if x.strip()])
 
