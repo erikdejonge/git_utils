@@ -57,7 +57,9 @@ def main():
                         fl += (" " * (25 - len(fl)))
 
                     if "master" not in branch:
-                        print fl + "\t" + branch.replace("*", "").strip()
+                        
+                        if fl.strip() not in excludes and os.path.join(os.path.expanduser("~") + "/workspace", fl.strip()) not in excludes:
+                            print fl + "\t" + branch.replace("*", "").strip()
 
             status = os.popen("git status").read()
 
