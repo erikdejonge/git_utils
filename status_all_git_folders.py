@@ -49,6 +49,7 @@ def main():
             os.chdir(folder)
 
             # os.system("git rm --cached -r .idea/")
+            print os.path.basename(folder), excludes
             for branch in os.popen("git branch").read().split("\n"):
                 if "*" in branch:
                     fl = os.path.basename(folder)
