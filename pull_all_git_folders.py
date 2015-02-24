@@ -46,8 +46,9 @@ def main():
 
     for folder in dir_list:
         if os.path.exists(os.path.join(folder, "merge.sh")):
-            print "merging:", os.path.join(folder, "merge.sh")
-            os.system(os.path.join(folder, "merge.sh") + " > /dev/null")
+            print 
+            print "merge file found", os.path.join(folder, "merge.sh")
+            print 
 
         if folder in resetgits:
             print folder, " ".join(["/usr/local/bin/git", "reset", "--hard", "origin/master"])
