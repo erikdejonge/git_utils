@@ -11,7 +11,9 @@ from argparse import ArgumentParser
 findcnt = 0
 
 
-#noinspection PyUnusedLocal
+# noinspection PyUnusedLocal
+
+
 def find_git_repos(arg, directory, files):
     """
     @type arg: str, unicode
@@ -43,19 +45,16 @@ def find_git_repos(arg, directory, files):
 
 
 def main():
+    """ check all folders and pull all from the server """
     timestamp = datetime.datetime.now().strftime("%A %d %B %Y (week:%w day;%j), %H:%M:%S").replace(";0", ":").replace(";", ":")
     parser = ArgumentParser(description="Vagrant controller, argument 'all' is whole cluster")
     parser.add_argument("-m", "--message", dest="message", help="commit message", nargs='?')
     parser.add_argument("-c", "--check", dest="check", help="git gc", action="store_true", default=False)
     args, unknown = parser.parse_known_args()
     print args, unknown, True
-
     if args.message is None:
         args.message = str(os.path.basename(os.getcwd())) + "\n" + str(timestamp)
 
-    """ check all folders and pull all from the server """
-    #fcheck = raw_input("GC check? (y/n): ")
-    #fcheck = fcheck.strip() == "y"
     fcheck = args.check
     excludes = []
 
@@ -64,12 +63,11 @@ def main():
 
     if os.path.exists(os.path.expanduser("~") + "/workspace/.gitutilsexclude"):
         excludes.extend([os.path.join(os.path.expanduser("~") + "/workspace/.gitutilsexclude", x.strip()) for x in open(os.path.expanduser("~") + "/workspace/.gitutilsexclude").read().split("\n") if x.strip()])
-        
+
     if os.path.exists(os.path.expanduser("~") + "/workspace/.gitutilsexclude"):
         excludes.extend([os.path.join(os.path.expanduser("~") + "/workspace", x.strip()) for x in open(os.path.expanduser("~") + "/workspace/.gitutilsexclude").read().split("\n") if x.strip()])
 
-    #msg = raw_input("Checkin message: ")
-    msg = datetime.datetime.now().strftime("%A %d %B %Y (week:%w day;%j), %H:%M:%S").replace(";0", ":").replace(";", ":")
+    msg = args.message
 
     if msg and len(msg.strip()) == 0:
         msg = os.popen("date").read().strip()
