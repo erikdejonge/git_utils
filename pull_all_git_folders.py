@@ -50,7 +50,7 @@ def main():
             os.system(os.path.join(folder, "merge.sh") + " > /dev/null")
 
         if folder in resetgits:
-            print folder, " ".joine(["/usr/local/bin/git", "reset", "--hard", "origin/master"])
+            print folder, " ".join(["/usr/local/bin/git", "reset", "--hard", "origin/master"])
             p = subprocess.Popen(["/usr/local/bin/git", "reset", "--hard", "origin/master"], cwd=folder, shell=True)
             p.wait()
 
