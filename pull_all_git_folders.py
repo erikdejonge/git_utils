@@ -51,7 +51,7 @@ def main():
 
         if folder in resetgits:
             print folder, " ".join(["/usr/local/bin/git", "reset", "--hard", "origin/master"])
-            p = subprocess.Popen(["/usr/local/bin/git", "reset", "--hard", "origin/master"], cwd=folder, shell=True)
+            p = subprocess.Popen(["/usr/local/bin/git", "reset", "--hard", "origin/master"], cwd=folder)
             p.wait()
 
         if options.ignoregithub is True and "github" in folder:
