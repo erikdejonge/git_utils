@@ -5,6 +5,7 @@ import sys
 import os
 import subprocess
 import cPickle
+import datetime
 
 findcnt = 0
 
@@ -42,8 +43,9 @@ def find_git_repos(arg, directory, files):
 
 def main():
     """ check all folders and pull all from the server """
-    fcheck = raw_input("GC check? (y/n): ")
-    fcheck = fcheck.strip() == "y"
+    #fcheck = raw_input("GC check? (y/n): ")
+    #fcheck = fcheck.strip() == "y"
+    fcheck = "n"
     excludes = []
 
     if os.path.exists(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs"):
@@ -55,7 +57,8 @@ def main():
     if os.path.exists(os.path.expanduser("~") + "/workspace/.gitutilsexclude"):
         excludes.extend([os.path.join(os.path.expanduser("~") + "/workspace", x.strip()) for x in open(os.path.expanduser("~") + "/workspace/.gitutilsexclude").read().split("\n") if x.strip()])
 
-    msg = raw_input("Checkin message: ")
+    #msg = raw_input("Checkin message: ")
+    msg = datetime.datetime.now().strftime("%A %d %B %Y (week:%w day;%j), %H:%M:%S").replace(";0", ":").replace(";", ":")
 
     if msg and len(msg.strip()) == 0:
         msg = os.popen("date").read().strip()
