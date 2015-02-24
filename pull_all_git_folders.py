@@ -16,7 +16,8 @@ def check_result(folder, p):
     @return: None
     """
     out, err = p.communicate()
-
+    if 0 == p.returncode:
+        print out
     out += err
     if 0 != p.returncode:
         print "\033[31mError in: " + folder + "\033[0m"
@@ -47,6 +48,7 @@ def main():
 
     procs = []
     ws = os.path.expanduser("~") + "/workspace/"
+
     for folder in dir_list:
         if folder in resetgits:
             print "\033[33mReset:", folder, "\033[0m"
@@ -55,8 +57,6 @@ def main():
             out += err
             if 0 != p.returncode:
                 print "\033[31m", out, "\033[0m"
-
-                
 
         if options.ignoregithub is True and "github" in folder:
             pass
@@ -68,11 +68,14 @@ def main():
         if len(procs) > 8:
             for folder, p in procs:
                 check_result(folder, p)
+
             procs = []
 
     for folder, p in procs:
         check_result(folder, p)
+
     print "\033[32mok\033[0m"
+
 
 if __name__ == "__main__":
     main()
