@@ -17,7 +17,8 @@ def check_result(folder, p):
     """
     out, err = p.communicate()
     if 0 == p.returncode:
-        print out
+        if "Already up-to-date." != out.strip():
+            print out
     out += err
     if 0 != p.returncode:
         print "\033[31mError in: " + folder + "\033[0m"
