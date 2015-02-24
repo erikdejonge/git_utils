@@ -15,9 +15,12 @@ def check_result(folder, p):
     @type p: str, unicode
     @return: None
     """
-    p.communicate()
+    out, err = p.communicate()
+
+    out += err
     if 0 != p.returncode:
         print "\033[31mError in: " + folder + "\033[0m"
+        print "\033[33m" + out + "\033[0m"
 
 
 def main():
@@ -43,34 +46,33 @@ def main():
         resetgits.extend([os.path.join(os.path.expanduser("~") + "/workspace", x.strip()) for x in open(os.path.expanduser("~") + "/workspace/.gitutilsexclude").read().split("\n") if x.strip()])
 
     procs = []
-
+    ws = os.path.expanduser("~") + "/workspace/"
     for folder in dir_list:
-        if os.path.exists(os.path.join(folder, "merge.sh")):
-            print 
-            print "merge file found", os.path.join(folder, "merge.sh")
-            print 
-
         if folder in resetgits:
-            print folder, " ".join(["/usr/local/bin/git", "reset", "--hard", "origin/master"])
-            p = subprocess.Popen(["/usr/local/bin/git", "reset", "--hard", "origin/master"], cwd=folder)
-            p.wait()
+            print "\033[33mReset:", folder, "\033[0m"
+            p = subprocess.Popen(["/usr/local/bin/git", "reset", "--hard", "origin/master"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder)
+            out, err = p.communicate()
+            out += err
+            if 0 != p.returncode:
+                print "\033[31m", out, "\033[0m"
+
+                
 
         if options.ignoregithub is True and "github" in folder:
             pass
         else:
-            print "pull", folder
-            p = subprocess.Popen(["/usr/local/bin/git", "pull"], cwd=folder)
+            print "\033[36mPull:", folder.replace(ws, ""), "\033[0m"
+            p = subprocess.Popen(["/usr/local/bin/git", "pull"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder)
             procs.append((folder, p))
 
         if len(procs) > 8:
             for folder, p in procs:
                 check_result(folder, p)
-
             procs = []
 
     for folder, p in procs:
         check_result(folder, p)
-
+    print "\033[32mok\033[0m"
 
 if __name__ == "__main__":
     main()
