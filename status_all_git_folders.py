@@ -71,7 +71,7 @@ def main():
                 if "deleted" in status:
                     print "\033[91m" + status.strip() + "\033[0m\n"
                 else:
-                    print "\033[93m" + status.strip() + "\033[0m\n"
+                    print "\033[33m" + status.strip() + "\033[0m\n"
 
             os.chdir(currdir)
 
