@@ -22,7 +22,7 @@ def check_result(folder, p):
     out += err
     if 0 != p.returncode:
         print "\033[31mError in: " + folder + "\033[0m"
-        print "\033[33m" + out + "\033[0m"
+        print "\033[37m" + out + "\033[0m"
 
 
 def main():
@@ -52,7 +52,7 @@ def main():
 
     for folder in dir_list:
         if folder in resetgits:
-            print "\033[33mReset:", folder, "\033[0m"
+            print "\033[37mReset:", folder, "\033[0m"
             p = subprocess.Popen(["/usr/local/bin/git", "reset", "--hard", "origin/master"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder)
             out, err = p.communicate()
             out += err
