@@ -51,7 +51,7 @@ def main():
     parser.add_argument("-m", "--message", dest="message", help="commit message", nargs='?')
     parser.add_argument("-c", "--check", dest="check", help="git gc", action="store_true", default=False)
     args, unknown = parser.parse_known_args()
-    
+
     if args.message is None:
         args.message = str(os.path.basename(os.getcwd())) + "\n" + str(timestamp)
 
