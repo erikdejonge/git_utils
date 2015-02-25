@@ -73,7 +73,7 @@ def main():
 
         if 0 != p[1].returncode:
             print "\033[31mError in: " + p[0] + "\033[0m"
-            print "\033[37m" + output.strip() + "\033[0m"
+            print "\033[37m" + se.strip() + output.strip() + "\033[0m"
         else:
             output = se.strip()
             print "\033[37m" + os.path.basename(p[0]) + " pushed *\n" + output.strip() + "\033[0m"
