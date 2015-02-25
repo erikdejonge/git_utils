@@ -62,9 +62,13 @@ def main():
         if options.ignoregithub is True and "github" in folder:
             pass
         else:
-            print "\033[36mPull:", folder.replace(ws, ""), "\033[0m"
-            p = subprocess.Popen(["/usr/local/bin/git", "pull"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder)
-            procs.append((folder, p))
+            if os.path.exists(folder):
+                print "\033[36mPull:", folder.replace(ws, ""), "\033[0m"
+
+                p = subprocess.Popen(["/usr/local/bin/git", "pull"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder)
+                procs.append((folder, p))
+            else:
+                print "\033[35mmissing:", os.path.basename(folder), "\033[0m"
 
         if len(procs) > 8:
             for folder, p in procs:
