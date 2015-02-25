@@ -66,7 +66,7 @@ def main():
                 print "\033[96mstatus:", folder, "\033[0m"
 
                 if "new file" in status:
-                    print "\033[92m" + status.strip() + "\033[0m\n"
+                    print "\033[32m" + status.strip() + "\033[0m\n"
 
                 if "deleted" in status:
                     print "\033[91m" + status.strip() + "\033[0m\n"
