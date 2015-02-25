@@ -63,7 +63,7 @@ def main():
             status = os.popen("git status").read()
 
             if "modified" in status or "Untracked" in status or "new file" in status or "deleted" in status:
-                print "\033[96mstatus:", folder, "\033[0m"
+                print "\033[36mstatus:", folder, "\033[0m"
 
                 if "new file" in status:
                     print "\033[32m" + status.strip() + "\033[0m\n"
