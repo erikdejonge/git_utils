@@ -12,7 +12,7 @@ from argparse import ArgumentParser
 def main():
     """ check all folders and pull all from the server """
     timestamp = datetime.datetime.now().strftime("%A %d %B %Y (week:%w day;%j), %H:%M:%S").replace(";0", ":").replace(";", ":")
-    parser = ArgumentParser(description="Vagrant controller, argument 'all' is whole cluster")
+    parser = ArgumentParser()
     parser.add_argument("-m", "--message", dest="message", help="commit message", nargs='?')
     args, unknown = parser.parse_known_args()
 
