@@ -26,7 +26,9 @@ def main():
 
     if os.path.exists(os.path.expanduser("~") + "/workspace/.gitutilsexclude"):
         excludes.extend([os.path.join(os.path.expanduser("~") + "/workspace", x.strip()) for x in open(os.path.expanduser("~") + "/workspace/.gitutilsexclude").read().split("\n") if x.strip()])
-
+    for i in excludes:
+        if "coreos" in i:
+            print i
     dfp = os.path.expanduser(os.path.expanduser("~") + "/workspace/git_utils/gitdirlist.pickle")
 
     if os.path.exists(dfp):
