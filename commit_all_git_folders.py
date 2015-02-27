@@ -46,7 +46,7 @@ def find_git_repos(arg, directory, files):
 
 def main():
     """ check all folders and pull all from the server """
-    timestamp = datetime.datetime.now().strftime("%A %d %B %Y (week:%w day;%j), %H:%M:%S").replace(";0", ":").replace(";", ":")
+    timestamp = datetime.datetime.now().strftime("%A %d %B %Y (week:%W day;%j), %H:%M:%S").replace(";0", ":").replace(";", ":")
     parser = ArgumentParser()
     parser.add_argument("-m", "--message", dest="message", help="commit message", nargs='?')
     parser.add_argument("-c", "--check", dest="check", help="git gc", action="store_true", default=False)
