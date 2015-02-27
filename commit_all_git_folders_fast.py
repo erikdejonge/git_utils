@@ -11,7 +11,7 @@ from argparse import ArgumentParser
 
 def main():
     """ check all folders and pull all from the server """
-    timestamp = datetime.datetime.now().strftime("%A %d %B %Y (week:%W day;%j), %H:%M:%S").replace(";0", ":").replace(";", ":")
+    timestamp = datetime.datetime.now().strftime("%A %d %B %Y (week;%W day;%j), %H:%M:%S").replace(";0", ":").replace(";", ":")
     parser = ArgumentParser()
     parser.add_argument("-m", "--message", dest="message", help="commit message", nargs='?')
     args, unknown = parser.parse_known_args()
