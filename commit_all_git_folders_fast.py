@@ -47,8 +47,8 @@ def main():
             else:
                 print
                 print "\033[32mcommit "+os.path.basename(folder)+"\033[0m\n\033[37m"+output.strip()+"\033[0m"
-        else:
-            print folder
+        #else:
+        #    print folder
     print   
 
 
