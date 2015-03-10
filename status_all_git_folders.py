@@ -36,7 +36,9 @@ def print_status(status, prstatus):
     @return: None
     """
     for line in status.strip().split("\n"):
-        if "deleted:" in line or prstatus[0] == "red" and not "git add <file>" in line:
+        if "deleted:" in line:
+            print("\033[35m" + line + "\033[0m")
+        elif prstatus[0] == "red" and not "git add <file>" in line:
             print("\033[31m" + line + "\033[0m")
         elif "Untracked files:" in line:
             prstatus[0] = "red"
@@ -44,7 +46,7 @@ def print_status(status, prstatus):
         elif "modified:" in line:
             print("\033[32m" + line + "\033[0m")
         else:
-            print("\033[37m" + line + "\033[0m")
+            print("\033[90m" + line + "\033[0m")
 
     print()
 
