@@ -49,7 +49,7 @@ def main():
         os.path.walk(".", find_git_repos, dir_list)
         currdir = os.popen("pwd").read().strip()
         dir_list = [os.path.join(currdir, x.lstrip("./")) for x in dir_list]
-        pickle.dump(dir_list, open(dfp, "w"))
+        pickle.dump(dir_list, open(dfp, "wb"))
 
     for folder in dir_list:
         if os.path.basename(folder) not in excludes:

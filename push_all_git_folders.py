@@ -52,7 +52,7 @@ def main():
         os.path.walk(".", find_git_repos, dir_list)
         currdir = os.popen("pwd").read().strip()
         dir_list = [os.path.join(currdir, x.lstrip("./")) for x in dir_list]
-        pickle.dump(dir_list, open(dfp, "w"))
+        pickle.dump(dir_list, open(dfp, "wb"))
 
     cnt = 0
     procs = []
@@ -62,6 +62,8 @@ def main():
             sys.stdout.flush()
             p = subprocess.Popen(["/usr/local/bin/git", "status"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
             output, se = p.communicate()
+            out = out.decode("utf-8")
+            se = se.decode("utf-8")
 
             if "Your branch is ahead" in output:
                 print("\033[35mpush "+os.path.basename(folder)+"\033[0m")

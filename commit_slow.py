@@ -1,5 +1,4 @@
 # coding=utf-8
-
 # -*- coding: utf-8 -*-
 """ git checking script """
 from __future__ import print_function
@@ -12,6 +11,7 @@ standard_library.install_aliases()
 
 import os
 import sys
+
 # noinspection PyPep8Naming
 import pickle as pickle
 import subprocess
@@ -50,17 +50,20 @@ def main():
         os.path.walk(".", find_git_repos, dir_list)
         currdir = os.popen("pwd").read().strip()
         dir_list = [os.path.join(currdir, x.lstrip("./")) for x in dir_list]
-        pickle.dump(dir_list, open(dfp, "w"))
+        pickle.dump(dir_list, open(dfp, "wb"))
 
     msg = os.popen("date").read().strip()
+
     # noinspection PyUnusedLocal
     procs = []
 
     for folder in dir_list:
         if len([x for x in [x in folder for x in excludes] if x]) == 0:
             print(folder)
-            p = subprocess.Popen(["/usr/local/bin/git", "commit", "-am",  msg], stdout=subprocess.PIPE, cwd=folder)
+            p = subprocess.Popen(["/usr/local/bin/git", "commit", "-am", msg], stdout=subprocess.PIPE, cwd=folder)
             output, stderrout = p.communicate()
+            output = output.decode("utf-8")
+            stderrout = stderrout.decode("utf-8")
 
             if "nothing to commit" in output:
                 sys.stdout.write(".")

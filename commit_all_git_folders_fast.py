@@ -51,14 +51,14 @@ def main():
             p = subprocess.Popen(["/usr/local/bin/git", "commit", "-am",  msg], stdout=subprocess.PIPE, cwd=folder)
             output, se = p.communicate()
             output = output.decode("utf-8")
+            se = se.decode("utf-8")
             if "nothing to commit" in str(output):
                 sys.stdout.write(".")
                 sys.stdout.flush()
             else:
                 print()
                 print("\033[32mcommit "+os.path.basename(folder)+"\033[0m\n\033[37m"+output.strip()+"\033[0m")
-        #else:
-        #    print folder
+
     print()   
 
 

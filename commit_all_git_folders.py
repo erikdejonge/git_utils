@@ -89,7 +89,7 @@ def main():
     dir_list = []
     os.path.walk(os.path.expanduser("~") + "/workspace", find_git_repos, dir_list)
     print("committing")
-    pickle.dump(dir_list, open(dfp, "w"))
+    pickle.dump(dir_list, open(dfp, "wb"))
 
     for folder in dir_list:
         if os.path.basename(folder) not in excludes:
