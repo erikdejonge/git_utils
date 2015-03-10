@@ -1,10 +1,18 @@
 # coding=utf-8
 """ git checking script """
+from __future__ import print_function
+from __future__ import unicode_literals
+from __future__ import division
+from __future__ import absolute_import
+from builtins import open
+from future import standard_library
+standard_library.install_aliases()
+from builtins import str
 
 import sys
 import os
 import subprocess
-import cPickle
+import pickle
 import datetime
 from argparse import ArgumentParser
 
@@ -35,7 +43,7 @@ def find_git_repos(arg, directory, files):
             config = open(git_dir + "/config").read().split("url =")[1].split("\n")[0].strip().split("//")[1].split("/")[0]
         except IndexError:
             config = open(git_dir + "/config").read().split("url =")[1].split("\n")[0].strip().split(":")[0].split("/")[0]
-        except Exception, ex:
+        except Exception as ex:
             config = str(ex)
 
         # print "gitdir:", directory, "("+config+")"
@@ -80,8 +88,8 @@ def main():
 
     dir_list = []
     os.path.walk(os.path.expanduser("~") + "/workspace", find_git_repos, dir_list)
-    print "committing"
-    cPickle.dump(dir_list, open(dfp, "w"))
+    print("committing")
+    pickle.dump(dir_list, open(dfp, "w"))
 
     for folder in dir_list:
         if os.path.basename(folder) not in excludes:
@@ -91,12 +99,12 @@ def main():
             p.communicate()
 
     if not fcheck:
-        print
-        print "\033[37mDone indexing, skipping check", len(dir_list), "items found\033[0m"
-        print
+        print()
+        print("\033[37mDone indexing, skipping check", len(dir_list), "items found\033[0m")
+        print()
         return
 
-    print
+    print()
     l = []
 
     for folder in dir_list:
@@ -117,7 +125,7 @@ def main():
             [p.communicate() for p in l]
             l = []
     [p.communicate() for p in l]
-    print "\033[37mDone", len(dir_list), "items found\033[0m"
+    print("\033[37mDone", len(dir_list), "items found\033[0m")
 
 
 if __name__ == "__main__":

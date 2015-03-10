@@ -1,10 +1,18 @@
 # coding=utf-8
 """ git checking script """
+from __future__ import print_function
+from __future__ import unicode_literals
+from __future__ import division
+from __future__ import absolute_import
+from builtins import open
+from future import standard_library
+standard_library.install_aliases()
+from builtins import str
 
 import os
 import sys
 import datetime
-import cPickle
+import pickle
 import subprocess
 from argparse import ArgumentParser
 
@@ -30,7 +38,9 @@ def main():
     dfp = os.path.expanduser(os.path.expanduser("~") + "/workspace/git_utils/gitdirlist.pickle")
 
     if os.path.exists(dfp):
-        dir_list = cPickle.load(open(dfp))
+        ofp = open(dfp, "rb")
+
+        dir_list = pickle.load(ofp)
     else:
         raise RuntimeError("Cannot find " + os.path.expanduser("~") + "/workspace/git_utils/gitdirlist.pickle")
 
@@ -41,15 +51,15 @@ def main():
             p = subprocess.Popen(["/usr/local/bin/git", "commit", "-am",  msg], stdout=subprocess.PIPE, cwd=folder)
             output, se = p.communicate()
 
-            if "nothing to commit" in output:
+            if "nothing to commit" in str(output):
                 sys.stdout.write(".")
                 sys.stdout.flush()
             else:
-                print
-                print "\033[32mcommit "+os.path.basename(folder)+"\033[0m\n\033[37m"+output.strip()+"\033[0m"
+                print()
+                print("\033[32mcommit "+os.path.basename(folder)+"\033[0m\n\033[37m"+output.strip()+"\033[0m")
         #else:
         #    print folder
-    print   
+    print()   
 
 
 if __name__ == "__main__":

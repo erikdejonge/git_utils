@@ -2,6 +2,13 @@
 
 # -*- coding: utf-8 -*-
 """ git checking script """
+from __future__ import print_function
+from __future__ import unicode_literals
+from __future__ import division
+from __future__ import absolute_import
+from builtins import open
+from future import standard_library
+standard_library.install_aliases()
 
 import sys
 import os
@@ -37,7 +44,7 @@ def main():
     os.path.walk(os.path.expanduser("~") + "/workspace", find_git_repos, dir_list)
 
     for i in dir_list:
-        print i[1]
+        print(i[1])
 
 
 if __name__ == "__main__":

@@ -2,9 +2,16 @@
 
 # -*- coding: utf-8 -*-
 """ git checking script """
+from __future__ import print_function
+from __future__ import unicode_literals
+from __future__ import division
+from __future__ import absolute_import
+from builtins import open
+from future import standard_library
+standard_library.install_aliases()
 
 import os
-import cPickle
+import pickle
 
 def main():
     """ check all folders and pull all from the server """
@@ -12,7 +19,7 @@ def main():
     dfp = os.path.expanduser(os.path.expanduser("~") + "/workspace/git_utils/gitdirlist.pickle")
 
     if os.path.exists(dfp):
-        dir_list = cPickle.load(open(dfp))
+        dir_list = pickle.load(open(dfp))
     else:
         raise RuntimeError("Cannot find " + os.path.expanduser("~") + "/workspace/git_utils/gitdirlist.pickle")
 
@@ -21,7 +28,7 @@ def main():
     for folder in dir_list:
         os.chdir(folder)
         status = os.popen("git gc").read()
-        print status
+        print(status)
         os.chdir(currdir)
 
 

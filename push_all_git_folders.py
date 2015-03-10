@@ -1,10 +1,17 @@
 # coding=utf-8
 # -*- coding: utf-8 -*-
 """ git checking script """
+from __future__ import print_function
+from __future__ import unicode_literals
+from __future__ import division
+from __future__ import absolute_import
+from builtins import open
+from future import standard_library
+standard_library.install_aliases()
 
 import os
 import sys
-import cPickle
+import pickle
 import subprocess
 
 
@@ -39,13 +46,13 @@ def main():
     dfp = os.path.expanduser(os.path.expanduser("~") + "/workspace/git_utils/gitdirlist.pickle")
 
     if os.path.exists(dfp):
-        dir_list = cPickle.load(open(dfp))
+        dir_list = pickle.load(open(dfp))
     else:
         dir_list = []
         os.path.walk(".", find_git_repos, dir_list)
         currdir = os.popen("pwd").read().strip()
         dir_list = [os.path.join(currdir, x.lstrip("./")) for x in dir_list]
-        cPickle.dump(dir_list, open(dfp, "w"))
+        pickle.dump(dir_list, open(dfp, "w"))
 
     cnt = 0
     procs = []
@@ -57,7 +64,7 @@ def main():
             output, se = p.communicate()
 
             if "Your branch is ahead" in output:
-                print "\033[35mpush "+os.path.basename(folder)+"\033[0m"
+                print("\033[35mpush "+os.path.basename(folder)+"\033[0m")
                 p2 = subprocess.Popen(["/usr/local/bin/git", "push"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
                 procs.append((folder, p2))
 
@@ -72,11 +79,11 @@ def main():
         output, se = p[1].communicate()
 
         if 0 != p[1].returncode:
-            print "\033[31mError in: " + p[0] + "\033[0m"
-            print "\033[37m" + se.strip() + output.strip() + "\033[0m"
+            print("\033[31mError in: " + p[0] + "\033[0m")
+            print("\033[37m" + se.strip() + output.strip() + "\033[0m")
         else:
             output = se.strip()
-            print "\033[37m" + os.path.basename(p[0]) + " pushed *\n" + output.strip() + "\033[0m"
+            print("\033[37m" + os.path.basename(p[0]) + " pushed *\n" + output.strip() + "\033[0m")
 
 
 if __name__ == "__main__":

@@ -2,10 +2,17 @@
 
 # -*- coding: utf-8 -*-
 """ git checking script """
+from __future__ import print_function
+from __future__ import unicode_literals
+from __future__ import division
+from __future__ import absolute_import
+from builtins import open
+from future import standard_library
+standard_library.install_aliases()
 
 import os
 # noinspection PyPep8Naming
-import cPickle as pickle
+import pickle as pickle
 
 
 def find_git_repos(arg, directory, files):
@@ -58,20 +65,20 @@ def main():
 
                     if "master" not in branch:
                         if fl.strip() not in excludes and os.path.join(os.path.expanduser("~") + "/workspace", fl.strip()) not in excludes:
-                            print fl + "\t" + branch.replace("*", "").strip()
+                            print(fl + "\t" + branch.replace("*", "").strip())
 
             status = os.popen("git status").read()
 
             if "modified" in status or "Untracked" in status or "new file" in status or "deleted" in status:
-                print "\033[36mstatus:", folder, "\033[0m"
+                print("\033[36mstatus:", folder, "\033[0m")
 
                 if "new file" in status:
-                    print "\033[32m" + status.strip() + "\033[0m\n"
+                    print("\033[32m" + status.strip() + "\033[0m\n")
 
                 if "deleted" in status:
-                    print "\033[91m" + status.strip() + "\033[0m\n"
+                    print("\033[91m" + status.strip() + "\033[0m\n")
                 else:
-                    print "\033[37m" + status.strip() + "\033[0m\n"
+                    print("\033[37m" + status.strip() + "\033[0m\n")
 
             os.chdir(currdir)
 

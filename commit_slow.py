@@ -2,11 +2,18 @@
 
 # -*- coding: utf-8 -*-
 """ git checking script """
+from __future__ import print_function
+from __future__ import unicode_literals
+from __future__ import division
+from __future__ import absolute_import
+from builtins import open
+from future import standard_library
+standard_library.install_aliases()
 
 import os
 import sys
 # noinspection PyPep8Naming
-import cPickle as pickle
+import pickle as pickle
 import subprocess
 
 
@@ -51,7 +58,7 @@ def main():
 
     for folder in dir_list:
         if len([x for x in [x in folder for x in excludes] if x]) == 0:
-            print folder
+            print(folder)
             p = subprocess.Popen(["/usr/local/bin/git", "commit", "-am",  msg], stdout=subprocess.PIPE, cwd=folder)
             output, stderrout = p.communicate()
 
@@ -60,9 +67,9 @@ def main():
                 sys.stdout.flush()
             else:
                 sys.stdout.write("\n")
-                print output
+                print(output)
 
-    print
+    print()
 
 
 if __name__ == "__main__":
