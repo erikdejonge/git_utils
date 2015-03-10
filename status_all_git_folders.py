@@ -1,5 +1,4 @@
 # coding=utf-8
-
 # -*- coding: utf-8 -*-
 """ git checking script """
 from __future__ import print_function
@@ -11,6 +10,7 @@ from future import standard_library
 standard_library.install_aliases()
 
 import os
+
 # noinspection PyPep8Naming
 import pickle as pickle
 
@@ -30,8 +30,13 @@ def find_git_repos(arg, directory, files):
 
 
 def print_status(status, prstatus):
+    """
+    @type status: str, unicode
+    @type prstatus: str, unicode
+    @return: None
+    """
     for line in status.strip().split("\n"):
-        if "deleted:" in line or prstatus[0]=="red" and not "git add <file>" in line:
+        if "deleted:" in line or prstatus[0] == "red" and not "git add <file>" in line:
             print("\033[31m" + line + "\033[0m")
         elif "Untracked files:" in line:
             prstatus[0] = "red"
@@ -41,10 +46,14 @@ def print_status(status, prstatus):
         else:
             print("\033[37m" + line + "\033[0m")
 
+    print()
+
+
 def main():
     """ check all folders and pull all from the server """
     excludes = []
     prstatus = [""]
+
     if os.path.exists(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs"):
         excludes = [x.strip() for x in open(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs").read().split("\n") if x.strip()]
 
@@ -58,6 +67,7 @@ def main():
         currdir = os.popen("pwd").read().strip()
     else:
         dir_list = []
+
         for root, dirlist, file in os.walk("."):
             find_git_repos(dir_list, root, dirlist)
 
