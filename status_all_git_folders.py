@@ -51,7 +51,7 @@ def print_status(status, prstatus):
         else:
             print("\033[90m" + line + "\033[0m")
 
-    print()
+
 
 
 def main():
@@ -100,7 +100,7 @@ def main():
 
             if "modified" in status or "Untracked" in status or "new file" in status or "deleted" in status:
                 prstatus[0] = ""
-                print("\n\033[36mstatus:", folder, "\033[0m")
+                print("\033[36mstatus:", folder, "\033[0m")
 
                 if "new file" in status:
                     print_status(status, prstatus)
