@@ -23,8 +23,10 @@ def check_result(folder, p):
     @return: None
     """
     out, err = p.communicate()
-    out = out.decode("utf-8")
-    err = err.decode("utf-8")
+    if out:
+        out = out.decode("utf-8")
+    if err:
+        err = err.decode("utf-8")
 
     if 0 == p.returncode:
         if "Already up-to-date." != out.strip():
@@ -65,8 +67,10 @@ def main():
             print("\033[37mReset:", folder, "\033[0m")
             p = subprocess.Popen(["/usr/local/bin/git", "reset", "--hard", "origin/master"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder)
             out, err = p.communicate()
-            out = out.decode("utf-8")
-            err = err.decode("utf-8")
+            if out:
+                out = out.decode("utf-8")
+            if err:
+                err = err.decode("utf-8")
 
             out += err
             if 0 != p.returncode:

@@ -62,8 +62,10 @@ def main():
             sys.stdout.flush()
             p = subprocess.Popen(["/usr/local/bin/git", "status"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
             output, se = p.communicate()
-            out = out.decode("utf-8")
-            se = se.decode("utf-8")
+            if output:
+                output = output.decode("utf-8")
+            if se:
+                se = se.decode("utf-8")
 
             if "Your branch is ahead" in output:
                 print("\033[35mpush "+os.path.basename(folder)+"\033[0m")

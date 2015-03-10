@@ -50,8 +50,10 @@ def main():
         if os.path.basename(folder) not in excludes:
             p = subprocess.Popen(["/usr/local/bin/git", "commit", "-am",  msg], stdout=subprocess.PIPE, cwd=folder)
             output, se = p.communicate()
-            output = output.decode("utf-8")
-            se = se.decode("utf-8")
+            if output:
+                output = output.decode("utf-8")
+            if se:
+                se = se.decode("utf-8")
             if "nothing to commit" in str(output):
                 sys.stdout.write(".")
                 sys.stdout.flush()

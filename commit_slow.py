@@ -62,8 +62,10 @@ def main():
             print(folder)
             p = subprocess.Popen(["/usr/local/bin/git", "commit", "-am", msg], stdout=subprocess.PIPE, cwd=folder)
             output, stderrout = p.communicate()
-            output = output.decode("utf-8")
-            stderrout = stderrout.decode("utf-8")
+            if output:
+                output = output.decode("utf-8")
+            if stderrout:
+                stderrout = stderrout.decode("utf-8")
 
             if "nothing to commit" in output:
                 sys.stdout.write(".")
