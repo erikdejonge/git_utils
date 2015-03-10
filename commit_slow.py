@@ -44,7 +44,7 @@ def main():
     dfp = os.path.expanduser(os.path.expanduser("~") + "/workspace/git_utils/gitdirlist.pickle")
 
     if os.path.exists(dfp):
-        dir_list = pickle.load(open(dfp))
+        dir_list = pickle.load(open(dfp, "rb"))
     else:
         dir_list = []
         os.path.walk(".", find_git_repos, dir_list)

@@ -42,7 +42,7 @@ def main():
     dfp = os.path.expanduser(os.path.expanduser("~") + "/workspace/git_utils/gitdirlist.pickle")
 
     if os.path.exists(dfp):
-        dir_list = pickle.load(open(dfp))
+        dir_list = pickle.load(open(dfp, "rb"))
         currdir = os.popen("pwd").read().strip()
     else:
         dir_list = []
