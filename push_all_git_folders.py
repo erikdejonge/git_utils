@@ -49,7 +49,8 @@ def main():
         dir_list = pickle.load(open(dfp, "rb"))
     else:
         dir_list = []
-        os.path.walk(".", find_git_repos, dir_list)
+        for root, dirlist, file in os.walk("."):
+            find_git_repos(dir_list, root, dirlist)
         currdir = os.popen("pwd").read().strip()
         dir_list = [os.path.join(currdir, x.lstrip("./")) for x in dir_list]
         pickle.dump(dir_list, open(dfp, "wb"))
@@ -81,7 +82,10 @@ def main():
     for p in procs:
 
         output, se = p[1].communicate()
-
+        if output:
+            output = output.decode("utf-8")
+        if se:
+            se = se.decode("utf-8")
         if 0 != p[1].returncode:
             print("\033[31mError in: " + p[0] + "\033[0m")
             print("\033[37m" + se.strip() + output.strip() + "\033[0m")

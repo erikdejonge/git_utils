@@ -29,10 +29,22 @@ def find_git_repos(arg, directory, files):
         arg.append(directory)
 
 
+def print_status(status, prstatus):
+    for line in status.strip().split("\n"):
+        if "deleted:" in line or prstatus[0]=="red" and not "git add <file>" in line:
+            print("\033[31m" + line + "\033[0m")
+        elif "Untracked files:" in line:
+            prstatus[0] = "red"
+            print("\033[37m" + line + "\033[0m")
+        elif "modified:" in line:
+            print("\033[32m" + line + "\033[0m")
+        else:
+            print("\033[37m" + line + "\033[0m")
+
 def main():
     """ check all folders and pull all from the server """
     excludes = []
-
+    prstatus = [""]
     if os.path.exists(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs"):
         excludes = [x.strip() for x in open(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs").read().split("\n") if x.strip()]
 
@@ -46,7 +58,9 @@ def main():
         currdir = os.popen("pwd").read().strip()
     else:
         dir_list = []
-        os.path.walk(".", find_git_repos, dir_list)
+        for root, dirlist, file in os.walk("."):
+            find_git_repos(dir_list, root, dirlist)
+
         currdir = os.popen("pwd").read().strip()
         dir_list = [os.path.join(currdir, x.lstrip("./")) for x in dir_list]
         pickle.dump(dir_list, open(dfp, "wb"))
@@ -70,15 +84,16 @@ def main():
             status = os.popen("git status").read()
 
             if "modified" in status or "Untracked" in status or "new file" in status or "deleted" in status:
-                print("\033[36mstatus:", folder, "\033[0m")
+                prstatus[0] = ""
+                print("\n\033[36mstatus:", folder, "\033[0m")
 
                 if "new file" in status:
-                    print("\033[32m" + status.strip() + "\033[0m\n")
+                    print_status(status, prstatus)
 
                 if "deleted" in status:
-                    print("\033[91m" + status.strip() + "\033[0m\n")
+                    print_status(status, prstatus)
                 else:
-                    print("\033[37m" + status.strip() + "\033[0m\n")
+                    print_status(status, prstatus)
 
             os.chdir(currdir)
 
