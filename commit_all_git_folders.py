@@ -29,6 +29,7 @@ def find_git_repos(arg, directory, files):
     @type files: str, unicode
     @return: None
     """
+
     global findcnt
     findcnt += 1
 
@@ -87,7 +88,8 @@ def main():
         os.remove(dfp)
 
     dir_list = []
-    os.path.walk(os.path.expanduser("~") + "/workspace", find_git_repos, dir_list)
+    for root, dirlist, file in os.walk(os.path.expanduser("~") + "/workspace"):
+        find_git_repos(dir_list, root, dirlist)
     print("committing")
     pickle.dump(dir_list, open(dfp, "wb"))
 

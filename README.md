@@ -8,9 +8,9 @@ alias for .bash_profile
 =======================
 ```bash
 alias com='~/workspace/git_utils/commitfast.sh;'
-alias comm='cd ~/workspace/git_utils; python make_exclude_dirs.py;~/workspace/git_utils/commit.sh; ~/workspace/git_utils/push.sh'
-alias pull='python ~/workspace/git_utils/pull_all_git_folders.py -i'
-alias pullall='python ~/workspace/git_utils/pull_all_git_folders.py'
+alias comm='python3 ~/workspace/git_utils/make_exclude_dirs.py&&/Users/rabshakeh/workspace/git_utils/commit.sh&&/Users/rabshakeh/workspace/git_utils/push.sh'
+alias pull='python3 ~/workspace/git_utils/pull_all_git_folders.py -i'
+alias pullall='python3 ~/workspace/git_utils/pull_all_git_folders.py'
 alias push='~/workspace/git_utils/push.sh;'
 alias compush='~/workspace/git_utils/commitfast.sh; ~/workspace/git_utils/push.sh; wait'
 alias stats='~/workspace/git_utils/status.sh;'
