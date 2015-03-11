@@ -81,9 +81,12 @@ def main():
         else:
             if os.path.exists(folder):
                 print("\033[36mPull:", folder.replace(ws, ""), "\033[0m")
-
-                p = subprocess.Popen(["/usr/local/bin/git", "pull"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder)
-                procs.append((folder, p))
+                if os.path.exists(os.path.join(folder, "merge.sh")):
+                    p = subprocess.Popen(["merge.sh"], cwd=folder)
+                    p.wait()
+                else:
+                    p = subprocess.Popen(["/usr/local/bin/git", "pull"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder)
+                    procs.append((folder, p))
             else:
                 print("\033[35mmissing:", os.path.basename(folder), "\033[0m")
 
