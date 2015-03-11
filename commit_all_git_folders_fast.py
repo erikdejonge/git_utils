@@ -49,7 +49,7 @@ def main():
     for folder in dir_list:
         if os.path.basename(folder) not in excludes:
             if os.path.exists(os.path.join(folder, ".git")):
-
+                print(folder)
                 p = subprocess.Popen(["/usr/local/bin/git", "commit", "-am",  msg], stdout=subprocess.PIPE, cwd=folder)
                 output, se = p.communicate()
                 if output:
