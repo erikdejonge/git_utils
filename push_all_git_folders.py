@@ -60,24 +60,25 @@ def main():
 
     for folder in dir_list:
         if os.path.basename(folder) not in excludes:
-            sys.stdout.flush()
-            p = subprocess.Popen(["/usr/local/bin/git", "status"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
-            output, se = p.communicate()
-            if output:
-                output = output.decode("utf-8")
-            if se:
-                se = se.decode("utf-8")
+            if os.path.exists(os.path.join(folder, ".git")):
+                sys.stdout.flush()
+                p = subprocess.Popen(["/usr/local/bin/git", "status"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
+                output, se = p.communicate()
+                if output:
+                    output = output.decode("utf-8")
+                if se:
+                    se = se.decode("utf-8")
 
-            if "Your branch is ahead" in output:
-                print("\033[35mpush "+os.path.basename(folder)+"\033[0m")
-                p2 = subprocess.Popen(["/usr/local/bin/git", "push"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
-                procs.append((folder, p2))
+                if "Your branch is ahead" in output:
+                    print("\033[35mpush "+os.path.basename(folder)+"\033[0m")
+                    p2 = subprocess.Popen(["/usr/local/bin/git", "push"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
+                    procs.append((folder, p2))
 
-                if cnt > 8:
-                    p2.communicate()
-                    cnt = 0
-                else:
-                    cnt += 1
+                    if cnt > 8:
+                        p2.communicate()
+                        cnt = 0
+                    else:
+                        cnt += 1
 
     for p in procs:
 
