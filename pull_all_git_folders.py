@@ -27,11 +27,12 @@ def check_result(folder, p):
         out = out.decode("utf-8")
     if err:
         err = err.decode("utf-8")
-
+    else:
+        err = ""
     if 0 == p.returncode:
-        if "Already up-to-date." != out.strip():
+        if "Already up-to-date." not in out.strip():
             print("\033[32m", out, "\033[0m")
-    out += err
+    out += str(err)
     if 0 != p.returncode:
         print("\033[31mError in: " + folder + "\033[0m")
         print("\033[37m" + out + "\033[0m")
@@ -69,8 +70,12 @@ def main():
             out, err = p.communicate()
             if out:
                 out = out.decode("utf-8")
+            else:
+                out = ""
             if err:
                 err = err.decode("utf-8")
+            else:
+                err = ""
 
             out += err
             if 0 != p.returncode:
@@ -80,17 +85,20 @@ def main():
             pass
         else:
             if os.path.exists(folder):
-                print("\033[36mPull:", folder.replace(ws, ""), "\033[0m")
+
                 if os.path.exists(os.path.join(folder, "merge.sh")):
-                    p = subprocess.Popen(["merge.sh"], cwd=folder)
+                    print("\033[97mMerge: " + folder.replace(ws, "") + "\033[0m")
+                    p = subprocess.Popen(["./merge.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder)
                     p.wait()
+                    check_result(folder, p)
                 else:
+                    print("\033[93mPull:", folder.replace(ws, ""), "\033[0m")
                     p = subprocess.Popen(["/usr/local/bin/git", "pull"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder)
                     procs.append((folder, p))
             else:
                 print("\033[35mmissing:", os.path.basename(folder), "\033[0m")
 
-        if len(procs) > 1:
+        if len(procs) > 8:
             for folder, p in procs:
                 check_result(folder, p)
 
