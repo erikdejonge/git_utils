@@ -122,22 +122,24 @@ def main():
     l = []
 
     for folder in dir_list:
-        p = subprocess.Popen(["/usr/local/bin/git", "fsck"], cwd=folder)
-        l.append(p)
+        if os.path.exists(os.path.join(folder, ".git")):
+            p = subprocess.Popen(["/usr/local/bin/git", "fsck"], cwd=folder)
+            l.append(p)
 
-        if len(l) > 8:
-            [p.communicate() for p in l]
-            l = []
+            if len(l) > 8:
+                [p.communicate() for p in l]
+                l = []
     [p.communicate() for p in l]
     l = []
 
     for folder in dir_list:
-        p = subprocess.Popen(["/usr/local/bin/git", "gc"], cwd=folder)
-        l.append(p)
+        if os.path.exists(os.path.join(folder, ".git")):
+            p = subprocess.Popen(["/usr/local/bin/git", "gc"], cwd=folder)
+            l.append(p)
 
-        if len(l) > 8:
-            [p.communicate() for p in l]
-            l = []
+            if len(l) > 8:
+                [p.communicate() for p in l]
+                l = []
     [p.communicate() for p in l]
     print("\033[37mDone", len(dir_list), "items found\033[0m")
 

@@ -81,34 +81,36 @@ def main():
         pickle.dump(dir_list, open(dfp, "wb"))
 
     for folder in dir_list:
+
         if os.path.basename(folder) not in excludes:
-            os.chdir(folder)
+            if os.path.exists(os.path.join(folder, ".git")):
+                os.chdir(folder)
 
-            # os.system("git rm --cached -r .idea/")
-            for branch in os.popen("git branch").read().split("\n"):
-                if "*" in branch:
-                    fl = os.path.basename(folder)
+                # os.system("git rm --cached -r .idea/")
+                for branch in os.popen("git branch").read().split("\n"):
+                    if "*" in branch:
+                        fl = os.path.basename(folder)
 
-                    if len(fl) < 25:
-                        fl += (" " * (25 - len(fl)))
+                        if len(fl) < 25:
+                            fl += (" " * (25 - len(fl)))
 
-                    if "master" not in branch:
-                        if fl.strip() not in excludes and os.path.join(os.path.expanduser("~") + "/workspace", fl.strip()) not in excludes:
-                            print(fl + "\t" + branch.replace("*", "").strip())
+                        if "master" not in branch:
+                            if fl.strip() not in excludes and os.path.join(os.path.expanduser("~") + "/workspace", fl.strip()) not in excludes:
+                                print(fl + "\t" + branch.replace("*", "").strip())
 
-            status = os.popen("git status").read()
+                status = os.popen("git status").read()
 
-            if "modified" in status or "Untracked" in status or "new file" in status or "deleted" in status:
-                prstatus[0] = ""
-                print("\033[36mstatus:", folder, "\033[0m")
+                if "modified" in status or "Untracked" in status or "new file" in status or "deleted" in status:
+                    prstatus[0] = ""
+                    print("\033[36mstatus:", folder, "\033[0m")
 
-                if "new file" in status:
-                    print_status(status, prstatus)
+                    if "new file" in status:
+                        print_status(status, prstatus)
 
-                if "deleted" in status:
-                    print_status(status, prstatus)
-                else:
-                    print_status(status, prstatus)
+                    if "deleted" in status:
+                        print_status(status, prstatus)
+                    else:
+                        print_status(status, prstatus)
 
             os.chdir(currdir)
 
