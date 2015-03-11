@@ -48,18 +48,19 @@ def main():
 
     for folder in dir_list:
         if os.path.basename(folder) not in excludes:
-            p = subprocess.Popen(["/usr/local/bin/git", "commit", "-am",  msg], stdout=subprocess.PIPE, cwd=folder)
-            output, se = p.communicate()
-            if output:
-                output = output.decode("utf-8")
-            if se:
-                se = se.decode("utf-8")
-            if "nothing to commit" in str(output):
-                sys.stdout.write(".")
-                sys.stdout.flush()
-            else:
-                print()
-                print("\033[32mcommit "+os.path.basename(folder)+"\033[0m\n\033[37m"+output.strip()+"\033[0m")
+            if os.path.exists(os.path.join(folder, ".git")):
+                p = subprocess.Popen(["/usr/local/bin/git", "commit", "-am",  msg], stdout=subprocess.PIPE, cwd=folder)
+                output, se = p.communicate()
+                if output:
+                    output = output.decode("utf-8")
+                if se:
+                    se = se.decode("utf-8")
+                if "nothing to commit" in str(output):
+                    sys.stdout.write(".")
+                    sys.stdout.flush()
+                else:
+                    print()
+                    print("\033[32mcommit "+os.path.basename(folder)+"\033[0m\n\033[37m"+output.strip()+"\033[0m")
 
     print()   
 
