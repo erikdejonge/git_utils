@@ -15,11 +15,9 @@ import subprocess
 import pickle
 import datetime
 from argparse import ArgumentParser
+from consoleprinter import console
 
 findcnt = 0
-
-
-# noinspection PyUnusedLocal
 
 
 def find_git_repos(arg, directory, files):
@@ -29,7 +27,6 @@ def find_git_repos(arg, directory, files):
     @type files: str, unicode
     @return: None
     """
-
     global findcnt
     findcnt += 1
 
@@ -38,6 +35,7 @@ def find_git_repos(arg, directory, files):
         sys.stdout.flush()
 
     git_dir = os.path.join(directory, ".git")
+    hg_dir = os.path.join(directory, ".hg")
 
     if os.path.exists(git_dir):
         try:
@@ -51,6 +49,17 @@ def find_git_repos(arg, directory, files):
         sys.stdout.write("*")
         sys.stdout.flush()
         arg.append(directory)
+    elif os.path.exists(hg_dir):
+        try:
+            config = open(hg_dir + "/hgrc").read().split("default =")[1].split("\n")[0].strip().split("//")[1].split("/")[0]
+        except Exception as ex:
+            config = str(ex)
+
+        #console("gitdir:", directory, "("+config+")", color="magenta")
+        sys.stdout.write("*")
+        sys.stdout.flush()
+        arg.append(directory)
+
 
 
 def main():
@@ -88,8 +97,10 @@ def main():
         os.remove(dfp)
 
     dir_list = []
+
     for root, dirlist, file in os.walk(os.path.expanduser("~") + "/workspace"):
         find_git_repos(dir_list, root, dirlist)
+
     print("committing")
     pickle.dump(dir_list, open(dfp, "wb"))
 
@@ -97,6 +108,7 @@ def main():
         if os.path.basename(folder) not in excludes:
             sys.stdout.write(".")
             sys.stdout.flush()
+            print(folder)
             p = subprocess.Popen(["/usr/local/bin/git", "commit", "-am", msg], stdout=subprocess.PIPE, cwd=folder)
             p.communicate()
 
