@@ -108,9 +108,9 @@ def main():
         if os.path.basename(folder) not in excludes:
             sys.stdout.write(".")
             sys.stdout.flush()
-            print(folder)
-            p = subprocess.Popen(["/usr/local/bin/git", "commit", "-am", msg], stdout=subprocess.PIPE, cwd=folder)
-            p.communicate()
+            if os.path.exists(os.path.join(folder, ".git")):
+                p = subprocess.Popen(["/usr/local/bin/git", "commit", "-am", msg], stdout=subprocess.PIPE, cwd=folder)
+                p.communicate()
 
     if not fcheck:
         print()
