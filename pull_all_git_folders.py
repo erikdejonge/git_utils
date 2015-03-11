@@ -30,7 +30,7 @@ def check_result(folder, p):
     else:
         err = ""
     if 0 == p.returncode:
-        if "Already up-to-date." not in out.strip():
+        if "Already up-to-date." not in out.strip() and "no changes found" not in out.strip():
             print("\033[32m", out, "\033[0m")
     out += str(err)
     if 0 != p.returncode:
@@ -65,7 +65,7 @@ def main():
     for folder in dir_list:
 
         if folder in resetgits:
-            print("\033[37mReset:", folder, "\033[0m")
+            print("\033[37mReset:", folder.replace(ws, ""), "\033[0m")
             p = subprocess.Popen(["/usr/local/bin/git", "reset", "--hard", "origin/master"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder)
             out, err = p.communicate()
             if out:
@@ -87,7 +87,7 @@ def main():
             if os.path.exists(folder):
 
                 if os.path.exists(os.path.join(folder, "merge.sh")):
-                    print("\033[97mMerge: " + folder.replace(ws, "") + "\033[0m")
+                    print("\033[96mMerge: " + folder.replace(ws, "") + "\033[0m")
                     p = subprocess.Popen(["./merge.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder)
                     p.wait()
                     check_result(folder, p)
@@ -96,7 +96,7 @@ def main():
                     p = subprocess.Popen(["/usr/local/bin/git", "pull"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder)
                     procs.append((folder, p))
                 elif os.path.exists(os.path.join(folder, ".hg")):
-                    print("mercurial", folder)
+                    print("\033[93mMercurial: " + folder.replace(ws, "") + "\033[0m")
                     p = subprocess.Popen(["/usr/local/bin/hg", "pull"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder)
                     p.wait()
                     check_result(folder, p)
