@@ -59,11 +59,11 @@ def main():
 
     if os.path.exists(os.path.expanduser("~") + "/workspace/.gitutilsexclude"):
         resetgits.extend([os.path.join(os.path.expanduser("~") + "/workspace", x.strip()) for x in open(os.path.expanduser("~") + "/workspace/.gitutilsexclude").read().split("\n") if x.strip()])
-
     procs = []
     ws = os.path.expanduser("~") + "/workspace/"
 
     for folder in dir_list:
+
         if folder in resetgits:
             print("\033[37mReset:", folder, "\033[0m")
             p = subprocess.Popen(["/usr/local/bin/git", "reset", "--hard", "origin/master"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder)
