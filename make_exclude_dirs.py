@@ -17,17 +17,17 @@ def main():
     """
     main
     """
-    s = os.popen("ls " + os.path.expanduser("~") + "/workspace/github").read()
-    l = s.strip().split("\n")
-    f = open(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs", "w")
-    ws = os.popen("ls " + os.path.expanduser("~") + "/workspace").read()
-    wl = ws.strip().split("\n")
-
-    for i in l:
-        if i not in wl:
-            f.write(i)
-            f.write("\n")
-
+    
+    f = open(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs", "wt")
+    st = set()
+    for root, dirlist, file in os.walk(os.path.expanduser("~") + "/workspace/github"):
+        if root.count("/") < 7:
+            st.add(root.replace(os.path.expanduser("~") + "/workspace/github/", ""))
+            for d in dirlist:
+                st.add(d.replace(os.path.expanduser("~") + "/workspace/github/", ""))
+    for dn in st:
+        f.write(str(dn)+"\n")
+    f.close()
 
 
 

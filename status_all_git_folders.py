@@ -52,8 +52,6 @@ def print_status(status, prstatus):
             print("\033[90m" + line + "\033[0m")
 
 
-
-
 def main():
     """ check all folders and pull all from the server """
     excludes = []
@@ -79,7 +77,12 @@ def main():
         currdir = os.popen("pwd").read().strip()
         dir_list = [os.path.join(currdir, x.lstrip("./")) for x in dir_list]
         pickle.dump(dir_list, open(dfp, "wb"))
+    for x in excludes:
+        print(x)
+    for folder in dir_list:
+        print(os.path.basename(folder), folder)
 
+    exit(1)
     for folder in dir_list:
 
         if os.path.basename(folder) not in excludes:
