@@ -77,7 +77,7 @@ def main():
         currdir = os.popen("pwd").read().strip()
         dir_list = [os.path.join(currdir, x.lstrip("./")) for x in dir_list]
         pickle.dump(dir_list, open(dfp, "wb"))
-
+    foundsomething = False
     for folder in dir_list:
 
         if os.path.basename(folder) not in excludes:
@@ -99,6 +99,7 @@ def main():
                 status = os.popen("git status").read()
 
                 if "modified" in status or "Untracked" in status or "new file" in status or "deleted" in status:
+                    foundsomething = True
                     prstatus[0] = ""
                     print("\033[36mstatus:", folder, "\033[0m")
 
@@ -111,7 +112,8 @@ def main():
                         print_status(status, prstatus)
 
             os.chdir(currdir)
-
+    if foundsomething is True:
+        print()
 
 if __name__ == "__main__":
     main()
