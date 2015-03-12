@@ -17,7 +17,7 @@ def main():
     """
     main
     """
-    
+
     f = open(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs", "wt")
     st = set()
     for root, dirlist, file in os.walk(os.path.expanduser("~") + "/workspace/github"):
