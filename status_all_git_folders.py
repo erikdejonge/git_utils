@@ -42,12 +42,14 @@ def print_status(status, prstatus):
         elif "deleted:" in line:
             print("\033[31m" + line + "\033[0m")
         elif prstatus[0] == "red" and not "git add <file>" in line:
-            print("\033[35m" + line + "\033[0m")
+            print("\033[95m" + line + "\033[0m")
         elif "Untracked files:" in line:
             prstatus[0] = "red"
             print("\033[37m" + line + "\033[0m")
+        elif "new file:" in line:
+            print("\033[94m" + line + "\033[0m")
         elif "modified:" in line:
-            print("\033[32m" + line + "\033[0m")
+            print("\033[92m" + line + "\033[0m")
         else:
             print("\033[90m" + line + "\033[0m")
 
@@ -78,7 +80,9 @@ def main():
         dir_list = [os.path.join(currdir, x.lstrip("./")) for x in dir_list]
         pickle.dump(dir_list, open(dfp, "wb"))
     foundsomething = False
+    first = True
     for folder in dir_list:
+
 
         if os.path.basename(folder) not in excludes:
             if os.path.exists(os.path.join(folder, ".git")):
@@ -112,8 +116,7 @@ def main():
                         print_status(status, prstatus)
 
             os.chdir(currdir)
-    if foundsomething is True:
-        print()
+
 
 if __name__ == "__main__":
     main()
