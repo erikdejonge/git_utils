@@ -112,7 +112,7 @@ def main():
                 if "modified" in status or "Untracked" in status or "new file" in status or "deleted" in status:
                     foundsomething = True
                     prstatus[0] = ""
-                    print("\033[36mstatus:", folder, "\033[0m")
+                    print("\033[94mstatus:", folder, "\033[0m")
 
                     if "new file" in status:
                         print_status(status, prstatus)
