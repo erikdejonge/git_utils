@@ -87,7 +87,7 @@ def main():
             output = output.decode("utf-8")
         if se:
             se = se.decode("utf-8")
-        print(p[1].returncode)
+        
         if 0 != p[1].returncode:
             print("\033[31mError in: " + p[0] + "\033[0m")
             print("\033[37m" + str(se.strip()) + str(output.strip()) + "\033[0m")
