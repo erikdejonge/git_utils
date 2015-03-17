@@ -69,7 +69,7 @@ def main():
                 if se:
                     se = se.decode("utf-8")
 
-                if "Your branch is ahead" in output:
+                if "Your branch is ahead" in output or "have diverged" in output:
                     print("\033[95mpush "+os.path.basename(folder)+"\033[0m")
                     p2 = subprocess.Popen(["/usr/local/bin/git", "push"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
                     procs.append((folder, p2))
@@ -87,9 +87,10 @@ def main():
             output = output.decode("utf-8")
         if se:
             se = se.decode("utf-8")
+        print(p[1].returncode)
         if 0 != p[1].returncode:
             print("\033[31mError in: " + p[0] + "\033[0m")
-            print("\033[37m" + se.strip() + output.strip() + "\033[0m")
+            print("\033[37m" + str(se.strip()) + str(output.strip()) + "\033[0m")
         else:
             output = se.strip()
             print("\033[37m" + os.path.basename(p[0]) + " pushed *\n" + output.strip() + "\033[0m")
