@@ -10,9 +10,42 @@ from future import standard_library
 standard_library.install_aliases()
 
 import os
-
+import sys
 # noinspection PyPep8Naming
 import pickle as pickle
+
+
+def query_yes_no_quit(question, default="yes"):
+    """
+    @type question: str
+    @type default: str
+    @return: None
+    """
+    valid = {"yes": "yes", "y": "yes", "ye": "yes",
+             "no": "no", "n": "no",
+             "quit": "quit", "qui": "quit", "qu": "quit", "q": "quit"}
+
+    if default is None:
+        prompt = " [y/n/q] "
+    elif default == "yes":
+        prompt = " [Y/n/q] "
+    elif default == "no":
+        prompt = " [y/N/q] "
+    elif default == "quit":
+        prompt = " [y/n/Q] "
+    else:
+        raise ValueError("invalid default answer: '%s'" % default)
+
+    while True:
+        sys.stdout.write(question + prompt)
+        choice = input().lower()
+
+        if default is not None and choice == '':
+            return default
+        elif choice in valid.keys():
+            return valid[choice]
+        else:
+            sys.stdout.write("Please respond with 'yes', 'no' or 'quit'.\n")
 
 
 def find_git_repos(arg, directory, files):
@@ -36,9 +69,9 @@ def print_status(status, prstatus):
     @return: None
     """
     for line in status.strip().split("\n"):
-
-        if len(line.strip())==0:
+        if len(line.strip()) == 0:
             continue
+
         if "untracked files present" in line:
             prstatus[0] = ""
             print("\n\033[90m" + line + "\033[0m")
@@ -49,12 +82,14 @@ def print_status(status, prstatus):
         elif prstatus[0] == "red" and "git add <file>" in line:
             print("\033[37m" + line + "\033[0m\n")
         elif prstatus[0] == "red" and not "git add <file>" in line:
-            print("\033[93m" + line + "\033[0m")
+            print("\033[94m" + line + "\033[0m")
         elif "Untracked files:" in line:
             prstatus[0] = "red"
             print("\033[37m" + line + "\033[0m")
         elif "new file:" in line:
             print("\033[94m" + line + "\033[0m")
+        elif "status:" in line:
+            print("\033[90m" + line + "\033[0m")
         elif "modified:" in line:
             print()
             print("\033[32m" + line + "\033[0m")
@@ -88,11 +123,12 @@ def main():
         currdir = os.popen("pwd").read().strip()
         dir_list = [os.path.join(currdir, x.lstrip("./")) for x in dir_list]
         pickle.dump(dir_list, open(dfp, "wb"))
+
     foundsomething = False
     first = True
+    untrackedaction = set()
+
     for folder in dir_list:
-
-
         if os.path.basename(folder) not in excludes:
             if os.path.exists(os.path.join(folder, ".git")):
                 os.chdir(folder)
@@ -114,7 +150,16 @@ def main():
                 if "modified" in status or "Untracked" in status or "new file" in status or "deleted" in status:
                     foundsomething = True
                     prstatus[0] = ""
-                    print("\033[90mstatus:", folder, "\033[0m")
+
+                    if "Untracked" in status:
+                        print("\033[95m---\033[0m")
+                        print("\033[33mstatus:", folder, "\033[0m")
+
+
+                    else:
+                        print("\033[90mstatus:", folder, "\033[0m")
+                    if "Untracked files" in status:
+                        untrackedaction.add(folder)
 
                     if "new file" in status:
                         print_status(status, prstatus)
@@ -125,6 +170,16 @@ def main():
                         print_status(status, prstatus)
 
             os.chdir(currdir)
+
+    untrackedaction = list(untrackedaction)
+    untrackedaction.sort(key=lambda x: len(str(x).split("\n")))
+
+    if len(untrackedaction) > 0:
+        if "yes" is query_yes_no_quit("execute add files commands?"):
+            for fp in untrackedaction:
+                cmd = "cd "+fp+"; git add *"
+                print(cmd)
+                os.system(cmd)
 
 
 if __name__ == "__main__":
