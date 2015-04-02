@@ -30,6 +30,40 @@ def find_git_repos(arg, directory, files):
             arg.append(directory)
 
 
+def print_status(status, prstatus):
+    """
+    @type status: str, unicode
+    @type prstatus: str, unicode
+    @return: None
+    """
+    for line in status.strip().split("\n"):
+        if len(line.strip()) == 0:
+            continue
+
+        if "untracked files present" in line:
+            prstatus[0] = ""
+            print("\n\033[90m" + line + "\033[0m")
+        elif "deleted:" in line:
+            print()
+            print("\033[31m" + line + "\033[0m")
+            print()
+        elif prstatus[0] == "red" and "git add <file>" in line:
+            print("\033[37m" + line + "\033[0m\n")
+        elif prstatus[0] == "red" and not "git add <file>" in line:
+            print("\033[94m" + line + "\033[0m")
+        elif "Untracked files:" in line:
+            prstatus[0] = "red"
+            print("\033[37m" + line + "\033[0m")
+        elif "new file:" in line:
+            print("\033[94m" + line + "\033[0m")
+        elif "status:" in line:
+            print("\033[90m" + line + "\033[0m")
+        elif "modified:" in line:
+            print("\033[32m" + line + "\033[0m")
+        else:
+            print("\033[90m" + line + "\033[0m")
+
+
 def main():
     """ check all folders and pull all from the server """
     excludes = []
@@ -59,6 +93,8 @@ def main():
 
     cnt = 0
     procs = []
+    prstatus = [""]
+
 
     for folder in dir_list:
         if os.path.basename(folder) not in excludes:
@@ -78,7 +114,7 @@ def main():
                     p2 = subprocess.Popen(["/usr/local/bin/git", "push"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
                     procs.append((folder, p2))
 
-                    if len(procs) > 4:
+                    if len(procs) > 4 or (len(procs) == len(dir_list)):
                         try:
                             p = procs.pop()
                         except IndexError:
@@ -101,6 +137,9 @@ def main():
                                 print("\033[37m" + os.path.basename(p[0]) + " pushed *\n" + output.strip() + "\033[0m")
                     else:
                         cnt += 1
+                else:
+                    if "nothing to commit" not in output:
+                        print_status(output, prstatus)
 
 
 if __name__ == "__main__":
