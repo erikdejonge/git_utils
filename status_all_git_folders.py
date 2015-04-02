@@ -91,9 +91,7 @@ def print_status(status, prstatus):
         elif "status:" in line:
             print("\033[90m" + line + "\033[0m")
         elif "modified:" in line:
-            print()
             print("\033[32m" + line + "\033[0m")
-            print()
         else:
             print("\033[90m" + line + "\033[0m")
 
