@@ -76,9 +76,7 @@ def print_status(status, prstatus):
             prstatus[0] = ""
             print("\n\033[90m" + line + "\033[0m")
         elif "deleted:" in line:
-            print()
             print("\033[31m" + line + "\033[0m")
-            print()
         elif prstatus[0] == "red" and "git add <file>" in line:
             print("\033[37m" + line + "\033[0m\n")
         elif prstatus[0] == "red" and not "git add <file>" in line:

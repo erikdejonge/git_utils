@@ -44,9 +44,9 @@ def print_status(status, prstatus):
             prstatus[0] = ""
             print("\n\033[90m" + line + "\033[0m")
         elif "deleted:" in line:
-            print()
+
             print("\033[31m" + line + "\033[0m")
-            print()
+
         elif prstatus[0] == "red" and "git add <file>" in line:
             print("\033[37m" + line + "\033[0m\n")
         elif prstatus[0] == "red" and not "git add <file>" in line:
@@ -113,7 +113,7 @@ def main():
                     print("\033[95mpush " + os.path.basename(folder) + "\033[0m")
                     p2 = subprocess.Popen(["/usr/local/bin/git", "push"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
                     procs.append((folder, p2))
-
+                    print(len(procs) == len(dir_list))
                     if len(procs) > 4 or (len(procs) == len(dir_list)):
                         try:
                             p = procs.pop()
