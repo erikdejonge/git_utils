@@ -36,6 +36,7 @@ def print_status(status, prstatus):
     @type prstatus: str, unicode
     @return: None
     """
+
     for line in status.strip().split("\n"):
         if len(line.strip()) == 0:
             continue
@@ -44,9 +45,11 @@ def print_status(status, prstatus):
             prstatus[0] = ""
             print("\n\033[90m" + line + "\033[0m")
         elif "deleted:" in line:
-
             print("\033[31m" + line + "\033[0m")
-
+        elif "rejected]" in line:
+            print("\033[31m" + line + "\033[0m")
+        elif "error: failed to push some refs" in line:
+            print("\033[33m" + line + "\033[0m")
         elif prstatus[0] == "red" and "git add <file>" in line:
             print("\033[37m" + line + "\033[0m\n")
         elif prstatus[0] == "red" and not "git add <file>" in line:
@@ -62,6 +65,35 @@ def print_status(status, prstatus):
             print("\033[32m" + line + "\033[0m")
         else:
             print("\033[90m" + line + "\033[0m")
+
+
+def communicate_with(procs):
+    """
+    """
+
+    try:
+        p = procs.pop()
+    except IndexError:
+        p = None
+
+    if p is not None:
+        output, se = p[1].communicate()
+
+
+        output = output.decode("utf-8")
+
+        if se:
+            se = se.decode("utf-8")
+
+        if 0 != p[1].returncode:
+            prstatus = [""]
+
+            #
+            print_status(se, prstatus)
+            #print("\033[37m" + str(se.strip()) + str(output.strip()) + "\033[0m")
+        else:
+            output = se.strip()
+            print("\033[37m" + os.path.basename(p[0]) + " pushed *\n" + output.strip() + "\033[0m")
 
 
 def main():
@@ -95,7 +127,6 @@ def main():
     procs = []
     prstatus = [""]
 
-
     for folder in dir_list:
         if os.path.basename(folder) not in excludes:
             if os.path.exists(os.path.join(folder, ".git")):
@@ -113,33 +144,16 @@ def main():
                     print("\033[95mpush " + os.path.basename(folder) + "\033[0m")
                     p2 = subprocess.Popen(["/usr/local/bin/git", "push"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
                     procs.append((folder, p2))
-                    print(len(procs) == len(dir_list))
+
                     if len(procs) > 4 or (len(procs) == len(dir_list)):
-                        try:
-                            p = procs.pop()
-                        except IndexError:
-                            p = None
-
-                        if p is not None:
-                            output, se = p[1].communicate()
-
-                            if output:
-                                output = output.decode("utf-8")
-
-                            if se:
-                                se = se.decode("utf-8")
-
-                            if 0 != p[1].returncode:
-                                print("\033[31mError in: " + p[0] + "\033[0m")
-                                print("\033[37m" + str(se.strip()) + str(output.strip()) + "\033[0m")
-                            else:
-                                output = se.strip()
-                                print("\033[37m" + os.path.basename(p[0]) + " pushed *\n" + output.strip() + "\033[0m")
+                        communicate_with(procs)
                     else:
                         cnt += 1
                 else:
                     if "nothing to commit" not in output:
                         print_status(output, prstatus)
+
+    communicate_with(procs)
 
 
 if __name__ == "__main__":
