@@ -1,22 +1,21 @@
+#!/usr/bin/env python3
 # coding=utf-8
-""" git checking script """
-from __future__ import print_function
-from __future__ import unicode_literals
-from __future__ import division
-from __future__ import absolute_import
-from builtins import open
-from future import standard_library
-standard_library.install_aliases()
-from builtins import str
+"""
+git checking script
+"""
 
-import sys
-import os
-import subprocess
-import pickle
+from __future__ import absolute_import, division, print_function, unicode_literals
+
+from future import standard_library
+
 import datetime
+import os
+import pickle
+import subprocess
+import sys
+
 from argparse import ArgumentParser
 from consoleprinter import console
-
 findcnt = 0
 
 
@@ -59,7 +58,6 @@ def find_git_repos(arg, directory, files):
         sys.stdout.write("*")
         sys.stdout.flush()
         arg.append(directory)
-
 
 
 def main():
@@ -143,6 +141,9 @@ def main():
     [p.communicate() for p in l]
     print("\033[37mDone", len(dir_list), "items found\033[0m")
 
+
+
+standard_library.install_aliases()
 
 if __name__ == "__main__":
     main()
