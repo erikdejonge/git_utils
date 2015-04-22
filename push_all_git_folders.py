@@ -130,10 +130,7 @@ def main():
     cnt = 0
     procs = []
     prstatus = [""]
-    print(excludes)
     for folder in dir_list:
-        print(folder)
-
         if os.path.basename(folder) not in excludes:
             if os.path.exists(os.path.join(folder, ".git")):
                 sys.stdout.flush()
