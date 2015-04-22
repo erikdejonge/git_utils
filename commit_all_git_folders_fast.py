@@ -32,8 +32,15 @@ def main():
     if os.path.exists(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs"):
         excludes = [x.strip() for x in open(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs").read().split("\n") if x.strip()]
 
-    if os.path.exists(os.path.expanduser("~") + "/workspace/.gitutilsexclude"):
-        excludes.extend([os.path.join(os.path.expanduser("~") + "/workspace", x.strip()) for x in open(os.path.expanduser("~") + "/workspace/.gitutilsexclude").read().split("\n") if x.strip()])
+        if os.path.exists(os.path.expanduser("~") + "/workspace/.gitutilsexclude"):
+            for item in open(os.path.expanduser("~") + "/workspace/.gitutilsexclude").read().split("\n"):
+                item = item.strip()
+
+                if item:
+                    for si in item.split("/"):
+                        excludes.append(si)
+
+                    excludes.append(os.path.join(os.path.expanduser("~") + "/workspace", item.strip()))
 
     dfp = os.path.expanduser(os.path.expanduser("~") + "/workspace/git_utils/gitdirlist.pickle")
 

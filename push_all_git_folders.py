@@ -33,10 +33,11 @@ def find_git_repos(arg, directory, files):
 def print_status(status, prstatus):
     """
     @type status: str, unicode
+
     @type prstatus: str, unicode
+
     @return: None
     """
-
     for line in status.strip().split("\n"):
         if len(line.strip()) == 0:
             continue
@@ -70,7 +71,6 @@ def print_status(status, prstatus):
 def communicate_with(procs):
     """
     """
-
     try:
         p = procs.pop()
     except IndexError:
@@ -78,8 +78,6 @@ def communicate_with(procs):
 
     if p is not None:
         output, se = p[1].communicate()
-
-
         output = output.decode("utf-8")
 
         if se:
@@ -88,8 +86,8 @@ def communicate_with(procs):
         if 0 != p[1].returncode:
             prstatus = [""]
 
-            #
             print_status(se, prstatus)
+
             #print("\033[37m" + str(se.strip()) + str(output.strip()) + "\033[0m")
         else:
             output = se.strip()
@@ -107,7 +105,14 @@ def main():
         excludes = [x.strip() for x in open(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs").read().split("\n") if x.strip()]
 
     if os.path.exists(os.path.expanduser("~") + "/workspace/.gitutilsexclude"):
-        excludes.extend([os.path.join(os.path.expanduser("~") + "/workspace", x.strip()) for x in open(os.path.expanduser("~") + "/workspace/.gitutilsexclude").read().split("\n") if x.strip()])
+        for item in open(os.path.expanduser("~") + "/workspace/.gitutilsexclude").read().split("\n"):
+            item = item.strip()
+
+            if item:
+                for si in item.split("/"):
+                    excludes.append(si)
+
+                excludes.append(os.path.join(os.path.expanduser("~") + "/workspace", item.strip()))
 
     dfp = os.path.expanduser(os.path.expanduser("~") + "/workspace/git_utils/gitdirlist.pickle")
 
@@ -115,7 +120,6 @@ def main():
         dir_list = pickle.load(open(dfp, "rb"))
     else:
         dir_list = []
-
         for root, dirlist, file in os.walk("."):
             find_git_repos(dir_list, root, dirlist)
 
@@ -126,8 +130,10 @@ def main():
     cnt = 0
     procs = []
     prstatus = [""]
-
+    print(excludes)
     for folder in dir_list:
+        print(folder)
+
         if os.path.basename(folder) not in excludes:
             if os.path.exists(os.path.join(folder, ".git")):
                 sys.stdout.flush()
@@ -154,7 +160,5 @@ def main():
                         print_status(output, prstatus)
 
     communicate_with(procs)
-
-
 if __name__ == "__main__":
     main()
