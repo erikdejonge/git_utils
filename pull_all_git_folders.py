@@ -11,6 +11,7 @@ standard_library.install_aliases()
 import os
 import subprocess
 import pickle
+
 from optparse import OptionParser
 
 findcnt = 0
@@ -23,15 +24,19 @@ def check_result(folder, p):
     @return: None
     """
     out, err = p.communicate()
+
     if out:
         out = out.decode("utf-8")
+
     if err:
         err = err.decode("utf-8")
     else:
         err = ""
+
     if 0 == p.returncode:
         if "Already up-to-date." not in out.strip() and "no changes found" not in out.strip():
             print("\033[32m", out, "\033[0m")
+
     out += str(err)
     if 0 != p.returncode:
         print("\033[31mError in: " + folder + "\033[0m")
@@ -43,6 +48,7 @@ def main():
     main
     """
     parser = OptionParser()
+
     parser.add_option("-i", "--ignoregithub", help="Ignore paths with github in it", action="store_true")
     (options, args) = parser.parse_args()
     dfp = os.path.expanduser(os.path.expanduser("~") + "/workspace/git_utils/gitdirlist.pickle")
@@ -59,19 +65,21 @@ def main():
 
     if os.path.exists(os.path.expanduser("~") + "/workspace/.gitutilsexclude"):
         resetgits.extend([os.path.join(os.path.expanduser("~") + "/workspace", x.strip()) for x in open(os.path.expanduser("~") + "/workspace/.gitutilsexclude").read().split("\n") if x.strip()])
+
     procs = []
     ws = os.path.expanduser("~") + "/workspace/"
 
     for folder in dir_list:
-
         if folder in resetgits:
             print("\033[37mReset:", folder.replace(ws, ""), "\033[0m")
             p = subprocess.Popen(["/usr/local/bin/git", "reset", "--hard", "origin/master"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder)
             out, err = p.communicate()
+
             if out:
                 out = out.decode("utf-8")
             else:
                 out = ""
+
             if err:
                 err = err.decode("utf-8")
             else:
@@ -85,12 +93,12 @@ def main():
             pass
         else:
             if os.path.exists(folder):
-
                 if os.path.exists(os.path.join(folder, "merge.sh")):
                     print("\033[96mMerge: " + folder.replace(ws, "") + "\033[0m")
-                    p = subprocess.Popen(["./merge.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder)
-                    p.wait()
-                    check_result(folder, p)
+                    pwd = os.getcwd()
+                    os.chdir(folder)
+                    os.system("./merge.sh")
+                    os.chdir(pwd)
                 elif os.path.exists(os.path.join(folder, ".git")):
                     print("\033[93mPull:", folder.replace(ws, ""), "\033[0m")
                     p = subprocess.Popen(["/usr/local/bin/git", "pull"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder)
