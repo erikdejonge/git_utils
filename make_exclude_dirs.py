@@ -25,7 +25,11 @@ def main():
             st.add(root.replace(os.path.expanduser("~") + "/workspace/github/", ""))
             for d in dirlist:
                 st.add(d.replace(os.path.expanduser("~") + "/workspace/github/", ""))
-    for dn in st:
+    st2 = set()
+    for i in st:
+        if "documentation" not in i.lower():
+            st2.add(i)
+    for dn in st2:
         f.write(str(dn)+"\n")
     f.close()
 
