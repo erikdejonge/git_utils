@@ -171,11 +171,11 @@ def main():
     untrackedaction.sort(key=lambda x: len(str(x).split("\n")))
 
     if len(untrackedaction) > 0:
-        if "yes" is query_yes_no_quit("execute add files commands?"):
-            for fp in untrackedaction:
-                cmd = "cd "+fp+"; git add *"
-                print(cmd)
-                os.system(cmd)
+        #if "yes" is query_yes_no_quit("execute add files commands?"):
+        for fp in untrackedaction:
+            cmd = "cd "+fp+"; git add *"
+            print("\033[32maddming:", fp, "\033[0m")
+            os.system(cmd)
 
 
 if __name__ == "__main__":
