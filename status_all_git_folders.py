@@ -173,8 +173,8 @@ def main():
     if len(untrackedaction) > 0:
         #if "yes" is query_yes_no_quit("execute add files commands?"):
         for fp in untrackedaction:
-            cmd = "cd "+fp+"; git add *"
-            print("\033[32maddming:", fp, "\033[0m")
+            cmd = "cd "+fp+"; git add * 2> /dev/null"
+            print("\033[91madding:", fp, "\033[0m")
             os.system(cmd)
 
 
