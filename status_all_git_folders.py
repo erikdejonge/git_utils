@@ -11,6 +11,7 @@ standard_library.install_aliases()
 
 import os
 import sys
+
 # noinspection PyPep8Naming
 import pickle as pickle
 
@@ -80,16 +81,16 @@ def print_status(status, prstatus):
         elif prstatus[0] == "red" and "git add <file>" in line:
             print("\033[37m" + line + "\033[0m\n")
         elif prstatus[0] == "red" and not "git add <file>" in line:
-            print("\033[94m" + line + "\033[0m")
+            print("\033[31m" + line + "\033[0m")
         elif "Untracked files:" in line:
             prstatus[0] = "red"
             print("\033[37m" + line + "\033[0m")
         elif "new file:" in line:
-            print("\033[94m" + line + "\033[0m")
+            print("\033[32m" + line + "\033[0m")
         elif "status:" in line:
             print("\033[90m" + line + "\033[0m")
         elif "modified:" in line:
-            print("\033[32m" + line + "\033[0m")
+            print("\033[91m" + line + "\033[0m")
         else:
             print("\033[90m" + line + "\033[0m")
 
@@ -149,18 +150,16 @@ def main():
 
                     if "Untracked" in status:
                         print("\033[95m---\033[0m")
-                        print("\033[33mstatus:", folder, "\033[0m")
+                    print("\033[33mstatus:", folder, "\033[0m")
 
 
-                    else:
-                        print("\033[90mstatus:", folder, "\033[0m")
                     if "Untracked files" in status:
+                        print_status(status, prstatus)
                         untrackedaction.add(folder)
 
-                    if "new file" in status:
+                    elif "new file" in status:
                         print_status(status, prstatus)
-
-                    if "deleted" in status:
+                    elif "deleted" in status:
                         print_status(status, prstatus)
                     else:
                         print_status(status, prstatus)
@@ -171,11 +170,11 @@ def main():
     untrackedaction.sort(key=lambda x: len(str(x).split("\n")))
 
     if len(untrackedaction) > 0:
-        #if "yes" is query_yes_no_quit("execute add files commands?"):
-        for fp in untrackedaction:
-            cmd = "cd "+fp+"; git add * 2> /dev/null"
-            print("\033[91madding:", fp, "\033[0m")
-            os.system(cmd)
+        if "yes" is query_yes_no_quit("execute add files commands?"):
+            for fp in untrackedaction:
+                cmd = "cd " + fp + "; git add * 2> /dev/null"
+                print("\033[91madding:", fp, "\033[0m")
+                os.system(cmd)
 
 
 if __name__ == "__main__":
