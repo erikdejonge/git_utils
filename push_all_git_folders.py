@@ -143,19 +143,23 @@ def main():
                 if se:
                     se = se.decode("utf-8")
 
-                
-                if "Your branch is ahead" in output or "have diverged" in output:
-                    print("\033[35mpush " + os.path.basename(folder) + "\033[0m")
-                    p2 = subprocess.Popen(["/usr/local/bin/git", "push"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
-                    procs.append((folder, p2))
+                try:
+                    if "Your branch is ahead" in output or "have diverged" in output:
+                        print("\033[35mpush " + os.path.basename(folder) + "\033[0m")
+                        p2 = subprocess.Popen(["/usr/local/bin/git", "push"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
+                        procs.append((folder, p2))
 
-                    if len(procs) > 4 or (len(procs) == len(dir_list)):
-                        communicate_with(procs)
+                        if len(procs) > 4 or (len(procs) == len(dir_list)):
+                            communicate_with(procs)
+                        else:
+                            cnt += 1
                     else:
-                        cnt += 1
-                else:
-                    if "nothing to commit" not in output:
-                        print_status(output, prstatus)
+                        if "nothing to commit" not in output:
+                            print_status(output, prstatus)
+                except BaseException as e:
+                    print("\033[33m",e,"\033[0m")
+                    print("\033[33m",folder,"\033[0m")
+
 
     communicate_with(procs)
 if __name__ == "__main__":
