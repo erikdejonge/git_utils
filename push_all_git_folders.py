@@ -143,6 +143,7 @@ def main():
                 if se:
                     se = se.decode("utf-8")
 
+                
                 if "Your branch is ahead" in output or "have diverged" in output:
                     print("\033[35mpush " + os.path.basename(folder) + "\033[0m")
                     p2 = subprocess.Popen(["/usr/local/bin/git", "push"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
