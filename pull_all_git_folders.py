@@ -109,7 +109,7 @@ def main():
                     p.wait()
                     check_result(folder, p)
             else:
-                print("\033[35mmissing:", os.path.basename(folder), "\033[0m")
+                print("\033[95mmissing:", os.path.basename(folder), "\033[0m")
 
         if len(procs) > 8:
             for folder, p in procs:
