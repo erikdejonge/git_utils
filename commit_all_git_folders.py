@@ -112,7 +112,7 @@ def main():
 
     if not fcheck:
         print()
-        print("\033[37mDone indexing, skipping check", len(dir_list), "items found\033[0m")
+        print("\033[93mDone indexing, skipping check", len(dir_list), "items found\033[0m")
         print()
         return
 
@@ -139,7 +139,7 @@ def main():
                 [p.communicate() for p in l]
                 l = []
     [p.communicate() for p in l]
-    print("\033[37mDone", len(dir_list), "items found\033[0m")
+    print("\033[93mDone", len(dir_list), "items found\033[0m")
 
 
 

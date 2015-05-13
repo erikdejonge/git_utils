@@ -68,7 +68,7 @@ def main():
                     sys.stdout.flush()
                 else:
                     print()
-                    print("\033[32mcommit "+os.path.basename(folder)+"\033[0m\n\033[37m"+str(output).strip()+"\033[0m")
+                    print("\033[32mcommit "+os.path.basename(folder)+"\033[0m\n\033[93m"+str(output).strip()+"\033[0m")
 
     print()   
 
