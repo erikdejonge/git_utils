@@ -79,12 +79,12 @@ def print_status(status, prstatus):
         elif "deleted:" in line:
             print("\033[31m" + line + "\033[0m")
         elif prstatus[0] == "red" and "git add <file>" in line:
-            print("\033[93m" + line + "\033[0m\n")
+            print("\033[33m" + line + "\033[0m\n")
         elif prstatus[0] == "red" and not "git add <file>" in line:
             print("\033[31m" + line + "\033[0m")
         elif "Untracked files:" in line:
             prstatus[0] = "red"
-            print("\033[93m" + line + "\033[0m")
+            print("\033[33m" + line + "\033[0m")
         elif "new file:" in line:
             print("\033[92m" + line + "\033[0m")
         elif "status:" in line:

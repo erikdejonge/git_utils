@@ -40,7 +40,7 @@ def check_result(folder, p):
     out += str(err)
     if 0 != p.returncode:
         print("\033[31mError in: " + folder + "\033[0m")
-        print("\033[93m" + out + "\033[0m")
+        print("\033[33m" + out + "\033[0m")
 
 
 def main():
@@ -71,7 +71,7 @@ def main():
 
     for folder in dir_list:
         if folder in resetgits:
-            print("\033[93mReset:", folder.replace(ws, ""), "\033[0m")
+            print("\033[33mReset:", folder.replace(ws, ""), "\033[0m")
             p = subprocess.Popen(["/usr/local/bin/git", "reset", "--hard", "origin/master"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder)
             out, err = p.communicate()
 
@@ -100,11 +100,11 @@ def main():
                     os.system("./merge.sh")
                     os.chdir(pwd)
                 elif os.path.exists(os.path.join(folder, ".git")):
-                    print("\033[93mPull:", folder.replace(ws, ""), "\033[0m")
+                    print("\033[33mPull:", folder.replace(ws, ""), "\033[0m")
                     p = subprocess.Popen(["/usr/local/bin/git", "pull"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder)
                     procs.append((folder, p))
                 elif os.path.exists(os.path.join(folder, ".hg")):
-                    print("\033[93mMercurial: " + folder.replace(ws, "") + "\033[0m")
+                    print("\033[33mMercurial: " + folder.replace(ws, "") + "\033[0m")
                     p = subprocess.Popen(["/usr/local/bin/hg", "pull"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder)
                     p.wait()
                     check_result(folder, p)
