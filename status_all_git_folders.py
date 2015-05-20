@@ -86,7 +86,7 @@ def print_status(status, prstatus):
             prstatus[0] = "red"
             print("\033[33m" + line + "\033[0m")
         elif "new file:" in line:
-            print("\033[92m" + line + "\033[0m")
+            print("\033[32m" + line + "\033[0m")
         elif "status:" in line:
             print("\033[90m" + line + "\033[0m")
         elif "modified:" in line:

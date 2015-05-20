@@ -35,7 +35,7 @@ def check_result(folder, p):
 
     if 0 == p.returncode:
         if "Already up-to-date." not in out.strip() and "no changes found" not in out.strip():
-            print("\033[92m", out, "\033[0m")
+            print("\033[32m", out, "\033[0m")
 
     out += str(err)
     if 0 != p.returncode:
@@ -120,7 +120,7 @@ def main():
     for folder, p in procs:
         check_result(folder, p)
 
-    print("\033[92mok\033[0m")
+    print("\033[32mok\033[0m")
 
 
 if __name__ == "__main__":
