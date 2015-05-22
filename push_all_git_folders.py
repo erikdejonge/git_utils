@@ -50,14 +50,14 @@ def print_status(status, prstatus):
         elif "rejected]" in line:
             print("\033[31m" + line + "\033[0m")
         elif "error: failed to push some refs" in line:
-            print("\033[33m" + line + "\033[0m")
+            print("\033[37m" + line + "\033[0m")
         elif prstatus[0] == "red" and "git add <file>" in line:
-            print("\033[33m" + line + "\033[0m\n")
+            print("\033[37m" + line + "\033[0m\n")
         elif prstatus[0] == "red" and not "git add <file>" in line:
             print("\033[34m" + line + "\033[0m")
         elif "Untracked files:" in line:
             prstatus[0] = "red"
-            print("\033[33m" + line + "\033[0m")
+            print("\033[37m" + line + "\033[0m")
         elif "new file:" in line:
             print("\033[34m" + line + "\033[0m")
         elif "status:" in line:
@@ -88,10 +88,10 @@ def communicate_with(procs):
 
             print_status(se, prstatus)
 
-            #print("\033[33m" + str(se.strip()) + str(output.strip()) + "\033[0m")
+            #print("\033[37m" + str(se.strip()) + str(output.strip()) + "\033[0m")
         else:
             output = se.strip()
-            print("\033[33m" + os.path.basename(p[0]) + " pushed *\n" + output.strip() + "\033[0m")
+            print("\033[37m" + os.path.basename(p[0]) + " pushed *\n" + output.strip() + "\033[0m")
 
 
 def main():
@@ -157,8 +157,8 @@ def main():
                         if "nothing to commit" not in output:
                             print_status(output, prstatus)
                 except BaseException as e:
-                    print("\033[33m",e,"\033[0m")
-                    print("\033[33m",folder,"\033[0m")
+                    print("\033[37m",e,"\033[0m")
+                    print("\033[37m",folder,"\033[0m")
 
 
     communicate_with(procs)

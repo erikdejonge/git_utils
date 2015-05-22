@@ -40,7 +40,7 @@ def check_result(folder, p):
     out += str(err)
     if 0 != p.returncode:
         print("\033[31mError in: " + folder + "\033[0m")
-        print("\033[33m" + out + "\033[0m")
+        print("\033[37m" + out + "\033[0m")
 
 
 def main():
