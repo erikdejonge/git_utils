@@ -136,11 +136,12 @@ def main():
     for folder in dir_list:
         if os.path.basename(folder) not in excludes:
             if os.path.exists(os.path.join(folder, ".git")):
-                debug = True
+                debug = False
 
                 if debug:
                     print(folder)
                 else:
+    
                     sys.stdout.flush()
                     p = subprocess.Popen(["/usr/local/bin/git", "status"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
                     output, se = p.communicate()
