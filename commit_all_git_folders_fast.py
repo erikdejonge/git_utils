@@ -25,7 +25,7 @@ def main():
     args, unknown = parser.parse_known_args()
 
     if args.message is None:
-        args.message = str(os.path.basename(os.getcwd())) + "\n" + str(timestamp)
+        args.message = str(os.popen("python3 ~/workspace/brainyquote/printbrainyquote.py -c -l 30 -r -d ~/workspace/brainyquote/quotes;").read()) + "\n" + str(timestamp)
 
     excludes = []
 
