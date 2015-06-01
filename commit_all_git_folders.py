@@ -99,6 +99,7 @@ def main():
     for root, dirlist, file in os.walk(os.path.expanduser("~") + "/workspace"):
         find_git_repos(dir_list, root, dirlist)
 
+    dir_list = [project_name for project_name in dir_list if "workspace/github" not in project_name]
     print("committing")
     pickle.dump(dir_list, open(dfp, "wb"))
 

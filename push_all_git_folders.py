@@ -1,18 +1,40 @@
+#!/usr/bin/env python3
 # coding=utf-8
-# -*- coding: utf-8 -*-
 """ git checking script """
-from __future__ import print_function
-from __future__ import unicode_literals
-from __future__ import division
-from __future__ import absolute_import
-from builtins import open
+from __future__ import division, print_function, absolute_import, unicode_literals
 from future import standard_library
-standard_library.install_aliases()
 
 import os
 import sys
 import pickle
 import subprocess
+
+
+def communicate_with(procs):
+    """
+    @type procs: list
+    @return: None
+    """
+    try:
+        p = procs.pop()
+    except IndexError:
+        p = None
+
+    if p is not None:
+        output, se = p[1].communicate()
+        output = output.decode("utf-8")
+
+        if se:
+            se = se.decode("utf-8")
+
+        if 0 != p[1].returncode:
+            prstatus = [""]
+            print_status(se, prstatus)
+
+            # print("\033[37m" + str(se.strip()) + str(output.strip()) + "\033[0m")
+        else:
+            output = se.strip()
+            print("\033[37m" + os.path.basename(p[0]) + " pushed *\n" + output.strip() + "\033[0m")
 
 
 def find_git_repos(arg, directory, files):
@@ -33,9 +55,7 @@ def find_git_repos(arg, directory, files):
 def print_status(status, prstatus):
     """
     @type status: str, unicode
-
     @type prstatus: str, unicode
-
     @return: None
     """
     for line in status.strip().split("\n"):
@@ -68,41 +88,21 @@ def print_status(status, prstatus):
             print("\033[90m" + line + "\033[0m")
 
 
-def communicate_with(procs):
+def read_excludes():
     """
+    read_excludes
     """
-    try:
-        p = procs.pop()
-    except IndexError:
-        p = None
+    excludes = []
 
-    if p is not None:
-        output, se = p[1].communicate()
-        output = output.decode("utf-8")
+    if os.path.exists(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs"):
+        excludes = [project_name.strip() for project_name in open(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs").read().split("\n") if project_name.strip()]
 
-        if se:
-            se = se.decode("utf-8")
-
-        if 0 != p[1].returncode:
-            prstatus = [""]
-
-            print_status(se, prstatus)
-
-            #print("\033[37m" + str(se.strip()) + str(output.strip()) + "\033[0m")
-        else:
-            output = se.strip()
-            print("\033[37m" + os.path.basename(p[0]) + " pushed *\n" + output.strip() + "\033[0m")
+    return excludes
 
 
 def main():
     """ check all folders and pull all from the server """
-    excludes = []
-
-    if os.path.exists(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs"):
-        excludes = [x.strip() for x in open(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs").read().split("\n") if x.strip()]
-
-    if os.path.exists(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs"):
-        excludes = [x.strip() for x in open(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs").read().split("\n") if x.strip()]
+    excludes = read_excludes()
 
     if os.path.exists(os.path.expanduser("~") + "/workspace/.gitutilsexclude"):
         for item in open(os.path.expanduser("~") + "/workspace/.gitutilsexclude").read().split("\n"):
@@ -120,47 +120,58 @@ def main():
         dir_list = pickle.load(open(dfp, "rb"))
     else:
         dir_list = []
+
         for root, dirlist, file in os.walk("."):
             find_git_repos(dir_list, root, dirlist)
 
         currdir = os.popen("pwd").read().strip()
-        dir_list = [os.path.join(currdir, x.lstrip("./")) for x in dir_list]
+        dir_list = [os.path.join(currdir, project_name.lstrip("./")) for project_name in dir_list]
         pickle.dump(dir_list, open(dfp, "wb"))
 
+    dir_list = [project_name for project_name in dir_list if "workspace/github" not in project_name]
     cnt = 0
     procs = []
     prstatus = [""]
+
     for folder in dir_list:
         if os.path.basename(folder) not in excludes:
             if os.path.exists(os.path.join(folder, ".git")):
-                sys.stdout.flush()
-                p = subprocess.Popen(["/usr/local/bin/git", "status"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
-                output, se = p.communicate()
+                debug = True
 
-                if output:
-                    output = output.decode("utf-8")
+                if debug:
+                    print(folder)
+                else:
+                    sys.stdout.flush()
+                    p = subprocess.Popen(["/usr/local/bin/git", "status"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
+                    output, se = p.communicate()
 
-                if se:
-                    se = se.decode("utf-8")
+                    if output:
+                        output = output.decode("utf-8")
 
-                try:
-                    if "Your branch is ahead" in output or "have diverged" in output:
-                        print("\033[95mpush " + os.path.basename(folder) + "\033[0m")
-                        p2 = subprocess.Popen(["/usr/local/bin/git", "push"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
-                        procs.append((folder, p2))
+                    if se:
+                        se = se.decode("utf-8")
+                    try:
+                        if "Your branch is ahead" in output or "have diverged" in output:
+                            print("\033[95mpush " + os.path.basename(folder) + "\033[0m")
+                            p2 = subprocess.Popen(["/usr/local/bin/git", "push"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
+                            procs.append((folder, p2))
 
-                        if len(procs) > 4 or (len(procs) == len(dir_list)):
-                            communicate_with(procs)
+                            if len(procs) > 4 or (len(procs) == len(dir_list)):
+                                communicate_with(procs)
+                            else:
+                                cnt += 1
                         else:
-                            cnt += 1
-                    else:
-                        if "nothing to commit" not in output:
-                            print_status(output, prstatus)
-                except BaseException as e:
-                    print("\033[37m",e,"\033[0m")
-                    print("\033[37m",folder,"\033[0m")
+                            if "nothing to commit" not in output:
+                                print_status(output, prstatus)
 
+                    except BaseException as e:
+                        print("\033[37m", e, "\033[0m")
+                        print("\033[37m", folder, "\033[0m")
 
     communicate_with(procs)
+
+standard_library.install_aliases()
+
+
 if __name__ == "__main__":
     main()

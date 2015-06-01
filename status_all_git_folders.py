@@ -125,6 +125,7 @@ def main():
     first = True
     untrackedaction = set()
 
+    dir_list = [project_name for project_name in dir_list if "workspace/github" not in project_name]
     for folder in dir_list:
         if os.path.basename(folder) not in excludes:
             if os.path.exists(os.path.join(folder, ".git")):

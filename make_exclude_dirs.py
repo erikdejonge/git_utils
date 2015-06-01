@@ -17,22 +17,43 @@ def main():
     """
     main
     """
+    gen_list = write_file = True
 
-    f = open(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs", "wt")
-    st = set()
-    for root, dirlist, file in os.walk(os.path.expanduser("~") + "/workspace/github"):
-        if root.count("/") < 7:
-            st.add(root.replace(os.path.expanduser("~") + "/workspace/github/", ""))
-            for d in dirlist:
-                st.add(d.replace(os.path.expanduser("~") + "/workspace/github/", ""))
-    st2 = set()
-    for i in st:
-        if "documentation" not in i.lower():
-            st2.add(i)
-    for dn in st2:
-        f.write(str(dn)+"\n")
-    f.close()
+    githubfolder = os.path.expanduser("~") + "/workspace/github"
 
+    set_projects = set()
+    if gen_list:
+        for root, dirlist, file in os.walk(githubfolder):
+            if root.count("/") < 7:
+                set_projects.add(root.replace(os.path.expanduser("~") + "/workspace/github/", ""))
+
+                for d in dirlist:
+                    set_projects.add(d.replace(os.path.expanduser("~") + "/workspace/github/", ""))
+    else:
+        set_projects = [projectname.strip() for projectname in open(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs").read().split("\n") if projectname.strip()]
+
+    forks = set()
+    for root, dirlist, files in os.walk(os.path.expanduser("~") + "/workspace"):
+        if not root.startswith(githubfolder) and root.endswith(".git"):
+            # for afile in files:
+            #    print(afile)
+            project_dir = root.strip("/.git/")
+            project_base_folder = os.path.basename(os.path.dirname(project_dir))
+            if project_base_folder=="forks":
+                project_name = os.path.basename(project_dir)
+
+                for project_name_iter in set_projects:
+                    if project_name in project_name_iter:
+                        forks.add(project_name_iter)
+    for fork in forks:
+        set_projects.remove(fork)
+
+    if write_file:
+        afile = open(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs", "wt")
+        for projectname in set_projects:
+            afile.write(str(projectname) + "\n")
+
+        afile.close()
 
 
 if __name__ == "__main__":
