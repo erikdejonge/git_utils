@@ -100,12 +100,10 @@ def main():
     excludes = []
     prstatus = [""]
 
-    if os.path.exists(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs"):
-        excludes = [x.strip() for x in open(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs").read().split("\n") if x.strip()]
-
-    if os.path.exists(os.path.expanduser("~") + "/workspace/.gitutilsexclude"):
-        excludes.extend([os.path.join(os.path.expanduser("~") + "/workspace", x.strip()) for x in open(os.path.expanduser("~") + "/workspace/.gitutilsexclude").read().split("\n") if x.strip()])
-
+    # if os.path.exists(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs"):
+    #     excludes = [x.strip() for x in open(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs").read().split("\n") if x.strip()]
+    # if os.path.exists(os.path.expanduser("~") + "/workspace/.gitutilsexclude"):
+    #     excludes.extend([os.path.join(os.path.expanduser("~") + "/workspace", x.strip()) for x in open(os.path.expanduser("~") + "/workspace/.gitutilsexclude").read().split("\n") if x.strip()])
     dfp = os.path.expanduser(os.path.expanduser("~") + "/workspace/git_utils/gitdirlist.pickle")
 
     if os.path.exists(dfp):
@@ -124,7 +122,6 @@ def main():
     foundsomething = False
     first = True
     untrackedaction = set()
-
     dir_list = [project_name for project_name in dir_list if "workspace/github" not in project_name]
     for folder in dir_list:
         if os.path.basename(folder) not in excludes:
@@ -140,9 +137,8 @@ def main():
                             fl += (" " * (25 - len(fl)))
 
                         if "master" not in branch:
-
                             if fl.strip() not in excludes and os.path.join(os.path.expanduser("~") + "/workspace", fl.strip()) not in excludes:
-                                print("\033[31m--- attention: repos not checked out as master\n** "+fl + " \033[34m" + branch.replace("*", "").strip()+"\033[31m**\n---\033[0m")
+                                print("\033[31m--- attention: repos not checked out as master\n** " + fl + " \033[34m" + branch.replace("*", "").strip() + "\033[31m**\n---\033[0m")
 
                 status = os.popen("git status").read()
 
@@ -152,13 +148,12 @@ def main():
 
                     if "Untracked" in status:
                         print("\033[95m---\033[0m")
-                    print("\033[33mstatus:", folder, "\033[0m")
 
+                    print("\033[33mstatus:", folder, "\033[0m")
 
                     if "Untracked files" in status:
                         print_status(status, prstatus)
                         untrackedaction.add(folder)
-
                     elif "new file" in status:
                         print_status(status, prstatus)
                     elif "deleted" in status:
@@ -167,6 +162,11 @@ def main():
                         print_status(status, prstatus)
 
             os.chdir(currdir)
+        else:
+            print("--", folder)
+            print(excludes)
+
+            exit(1)
 
     untrackedaction = list(untrackedaction)
     untrackedaction.sort(key=lambda x: len(str(x).split("\n")))

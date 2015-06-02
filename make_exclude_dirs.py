@@ -51,11 +51,12 @@ def main():
 
     for fork in forks:
         set_projects.remove(fork)
-
+    set_projects.remove("documentation")
     if write_file:
         afile = open(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs", "wt")
 
         for projectname in set_projects:
+
             afile.write(str(projectname) + "\n")
 
         afile.close()
