@@ -1,6 +1,7 @@
 #!/bin/sh
-stats=$(python3 ~/workspace/git_utils/status_all_git_folders.py -n) &
+$(python3 ~/workspace/git_utils/status_all_git_folders.py -n > ~/.stats.txt) &
 ~/workspace/git_utils/commitfast.sh;
 ~/workspace/git_utils/push.sh;
 wait
-echo $stats
+cat ~/.stats.txt
+rm  ~/.stats.txt
