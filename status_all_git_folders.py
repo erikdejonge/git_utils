@@ -112,9 +112,9 @@ def handle_new_items(arg, untrackedaction):
                     os.system(cmd)
 
         else:
-            print("\033[31mNew files in folders:\n----\033[0m")
+            print("\033[34mNew files in folders:\n\033[0m")
             for filepointer in untrackedaction:
-                print("\033[95m" + filepointer + "\033[0m")
+                print("\033[31m" + filepointer + "\033[0m")
 
 
 def print_line(line, prstatus):
