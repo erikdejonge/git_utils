@@ -104,7 +104,7 @@ def handle_new_items(arg, untrackedaction):
     untrackedaction.sort(key=lambda x: len(str(x).split("\n")))
 
     if len(untrackedaction) > 0:
-        if not arg.newonly and arg.list is True:
+        if not arg.newonly and arg.list is False:
             if query_yes_no("execute add files commands?", force=arg.force):
                 for filepointer in untrackedaction:
                     cmd = "cd " + filepointer + "; git add * 2> /dev/null"
@@ -112,7 +112,7 @@ def handle_new_items(arg, untrackedaction):
                     os.system(cmd)
 
         else:
-            print("\033[34mNew files in folders:\n\033[0m")
+            print("\n\033[34mNew files in folders:\033[0m")
             for filepointer in untrackedaction:
                 print("\033[31m" + filepointer + "\033[0m")
 
