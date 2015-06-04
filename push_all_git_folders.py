@@ -64,7 +64,7 @@ def print_status(status, prstatus):
 
         if "untracked files present" in line:
             prstatus[0] = ""
-            print("\n\033[90m" + line + "\033[0m")
+            print("\n\033[37m" + line + "\033[0m")
         elif "deleted:" in line:
             print("\033[31m" + line + "\033[0m")
         elif "rejected]" in line:
@@ -81,11 +81,11 @@ def print_status(status, prstatus):
         elif "new file:" in line:
             print("\033[34m" + line + "\033[0m")
         elif "status:" in line:
-            print("\033[90m" + line + "\033[0m")
+            print("\033[37m" + line + "\033[0m")
         elif "modified:" in line:
             print("\033[32m" + line + "\033[0m")
         else:
-            print("\033[90m" + line + "\033[0m")
+            print("\033[37m" + line + "\033[0m")
 
 
 def read_excludes():

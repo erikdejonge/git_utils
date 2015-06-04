@@ -1,52 +1,83 @@
+#!/usr/bin/env python3
 # coding=utf-8
-# -*- coding: utf-8 -*-
-""" git checking script """
-from __future__ import print_function
-from __future__ import unicode_literals
-from __future__ import division
-from __future__ import absolute_import
-from builtins import open
+"""
+Checks all gitfolders and optionally add new items
+
+Usage:
+  status_all_git_folders.py [options]
+
+Options:
+  -h --help     Show this screen.
+  -n --newonly  Print only new items
+  -l --list     Only list, no add actions
+  -f --force    Do not ask for addition of files
+
+author  : rabshakeh (erik@a8.nl)
+project : git_utils
+created : 04-06-15 / 14:32
+"""
+from __future__ import division, print_function, absolute_import, unicode_literals
 from future import standard_library
-standard_library.install_aliases()
 
 import os
-import sys
+import pickle
 
-# noinspection PyPep8Naming
-import pickle as pickle
+from arguments import Arguments
+from consoleprinter import query_yes_no
 
 
-def query_yes_no_quit(question, default="yes"):
+class IArguments(Arguments):
     """
-    @type question: str
-    @type default: str
-    @return: None
+    IArguments
     """
-    valid = {"yes": "yes", "y": "yes", "ye": "yes",
-             "no": "no", "n": "no",
-             "quit": "quit", "qui": "quit", "qu": "quit", "q": "quit"}
+    def __init__(self, doc):
+        """
+        __init__
+        """
+        self.force = False
+        self.newonly = False
+        self.help = False
+        self.list = False
+        super().__init__(doc)
 
-    if default is None:
-        prompt = " [y/n/q] "
-    elif default == "yes":
-        prompt = " [Y/n/q] "
-    elif default == "no":
-        prompt = " [y/N/q] "
-    elif default == "quit":
-        prompt = " [y/n/Q] "
-    else:
-        raise ValueError("invalid default answer: '%s'" % default)
 
-    while True:
-        sys.stdout.write(question + prompt)
-        choice = input().lower()
+def check_branches(arg, currdir, dir_list, excludes, prstatus):
+    """
+    @type arg: IArguments
+    @type currdir: str
+    @type dir_list: list
+    @type excludes: list
+    @type prstatus: str
+    @return: set
+    """
+    untrackedaction = set()
 
-        if default is not None and choice == '':
-            return default
-        elif choice in valid.keys():
-            return valid[choice]
+    for folder in dir_list:
+        if os.path.basename(folder) not in excludes:
+            if os.path.exists(os.path.join(folder, ".git")):
+                os.chdir(folder)
+
+                # os.system("git rm --cached -r .idea/")
+                for branch in os.popen("git branch").read().split("\n"):
+                    if "*" in branch:
+                        foldername = os.path.basename(folder)
+
+                        if len(foldername) < 25:
+                            foldername += (" " * (25 - len(foldername)))
+
+                        if "master" not in branch:
+                            if foldername.strip() not in excludes and os.path.join(os.path.expanduser("~") + "/workspace", foldername.strip()) not in excludes:
+                                print("\033[31m--- attention: repos not checked out as master\n** " + foldername + " \033[34m" + branch.replace("*", "").strip() + "\033[31m**\n---\033[0m")
+
+                status = os.popen("git status").read()
+                report(arg, folder, prstatus, status, untrackedaction)
+
+            os.chdir(currdir)
         else:
-            sys.stdout.write("Please respond with 'yes', 'no' or 'quit'.\n")
+            print("--", folder)
+            print(excludes)
+
+    return untrackedaction
 
 
 def find_git_repos(arg, directory, files):
@@ -63,8 +94,56 @@ def find_git_repos(arg, directory, files):
         arg.append(directory)
 
 
-def print_status(status, prstatus):
+def handle_new_items(arg, untrackedaction):
     """
+    @type arg: IArguments
+    @type untrackedaction: str
+    @return: None
+    """
+    untrackedaction = list(untrackedaction)
+    untrackedaction.sort(key=lambda x: len(str(x).split("\n")))
+
+    if len(untrackedaction) > 0:
+        if not arg.newonly and arg.list is True:
+            if query_yes_no("execute add files commands?", force=arg.force):
+                for filepointer in untrackedaction:
+                    cmd = "cd " + filepointer + "; git add * 2> /dev/null"
+                    print("\033[91madding:", filepointer, "\033[0m")
+                    os.system(cmd)
+
+        else:
+            print("\033[31mNew files in folders:\n----\033[0m")
+            for filepointer in untrackedaction:
+                print("\033[95m" + filepointer + "\033[0m")
+
+
+def print_line(line, prstatus):
+    """
+    @type line: str
+    @type prstatus: list
+    @return: None
+    """
+    if "untracked files present" in line:
+        prstatus[0] = ""
+        print("\n\033[37m" + line + "\033[0m")
+    elif "deleted:" in line or (prstatus[0] == "red" and not "git add <file>" in line):
+        print("\033[31m" + line + "\033[0m")
+    elif prstatus[0] == "red" and "git add <file>" in line:
+        print("\033[37m" + line + "\033[0m\n")
+    elif "Untracked files:" in line:
+        prstatus[0] = "red"
+        print("\033[37m" + line + "\033[0m")
+    elif "new file:" in line:
+        print("\033[32m" + line + "\033[0m")
+    elif "modified:" in line:
+        print("\033[91m" + line + "\033[0m")
+    else:
+        print("\033[37m" + line + "\033[0m")
+
+
+def print_status(arg, status, prstatus):
+    """
+    @type arg: IArguments
     @type status: str, unicode
     @type prstatus: str, unicode
     @return: None
@@ -73,30 +152,45 @@ def print_status(status, prstatus):
         if len(line.strip()) == 0:
             continue
 
-        if "untracked files present" in line:
-            prstatus[0] = ""
-            print("\n\033[90m" + line + "\033[0m")
-        elif "deleted:" in line:
-            print("\033[31m" + line + "\033[0m")
-        elif prstatus[0] == "red" and "git add <file>" in line:
-            print("\033[37m" + line + "\033[0m\n")
-        elif prstatus[0] == "red" and not "git add <file>" in line:
-            print("\033[31m" + line + "\033[0m")
-        elif "Untracked files:" in line:
-            prstatus[0] = "red"
-            print("\033[37m" + line + "\033[0m")
-        elif "new file:" in line:
-            print("\033[32m" + line + "\033[0m")
-        elif "status:" in line:
-            print("\033[90m" + line + "\033[0m")
-        elif "modified:" in line:
-            print("\033[91m" + line + "\033[0m")
+        if arg.newonly is False:
+            print_line(line, prstatus)
+
+
+def report(arg, folder, prstatus, status, untrackedaction):
+    """
+    @type arg: IArguments
+    @type folder: str
+    @type prstatus: list
+    @type status: list
+    @type untrackedaction: str
+    @return: None
+    """
+    if not arg.newonly and "modified" in status or "Untracked" in status or "new file" in status or "deleted" in status:
+        prstatus[0] = ""
+
+        if "Untracked" in status:
+            if arg.newonly is False:
+                print("\033[95m---\033[0m")
+
+        if arg.newonly is False:
+            print("\033[33mstatus:", folder, "\033[0m")
+
+        if "Untracked files" in status:
+            print_status(arg, status, prstatus)
+            untrackedaction.add(folder)
+        elif "new file" in status:
+            print_status(arg, status, prstatus)
+        elif "deleted" in status:
+            print_status(arg, status, prstatus)
         else:
-            print("\033[90m" + line + "\033[0m")
+            print_status(arg, status, prstatus)
 
 
 def main():
-    """ check all folders and pull all from the server """
+    """
+    main
+    """
+    arg = IArguments(__doc__)
     excludes = []
     prstatus = [""]
 
@@ -112,71 +206,19 @@ def main():
     else:
         dir_list = []
 
-        for root, dirlist, file in os.walk("."):
+        for root, dirlist, _ in os.walk("."):
             find_git_repos(dir_list, root, dirlist)
 
         currdir = os.popen("pwd").read().strip()
         dir_list = [os.path.join(currdir, x.lstrip("./")) for x in dir_list]
         pickle.dump(dir_list, open(dfp, "wb"))
 
-    foundsomething = False
-    first = True
-    untrackedaction = set()
     dir_list = [project_name for project_name in dir_list if "workspace/github" not in project_name]
-    for folder in dir_list:
-        if os.path.basename(folder) not in excludes:
-            if os.path.exists(os.path.join(folder, ".git")):
-                os.chdir(folder)
 
-                # os.system("git rm --cached -r .idea/")
-                for branch in os.popen("git branch").read().split("\n"):
-                    if "*" in branch:
-                        fl = os.path.basename(folder)
+    untrackedaction = check_branches(arg, currdir, dir_list, excludes, prstatus)
+    handle_new_items(arg, untrackedaction)
 
-                        if len(fl) < 25:
-                            fl += (" " * (25 - len(fl)))
-
-                        if "master" not in branch:
-                            if fl.strip() not in excludes and os.path.join(os.path.expanduser("~") + "/workspace", fl.strip()) not in excludes:
-                                print("\033[31m--- attention: repos not checked out as master\n** " + fl + " \033[34m" + branch.replace("*", "").strip() + "\033[31m**\n---\033[0m")
-
-                status = os.popen("git status").read()
-
-                if "modified" in status or "Untracked" in status or "new file" in status or "deleted" in status:
-                    foundsomething = True
-                    prstatus[0] = ""
-
-                    if "Untracked" in status:
-                        print("\033[95m---\033[0m")
-
-                    print("\033[33mstatus:", folder, "\033[0m")
-
-                    if "Untracked files" in status:
-                        print_status(status, prstatus)
-                        untrackedaction.add(folder)
-                    elif "new file" in status:
-                        print_status(status, prstatus)
-                    elif "deleted" in status:
-                        print_status(status, prstatus)
-                    else:
-                        print_status(status, prstatus)
-
-            os.chdir(currdir)
-        else:
-            print("--", folder)
-            print(excludes)
-
-            exit(1)
-
-    untrackedaction = list(untrackedaction)
-    untrackedaction.sort(key=lambda x: len(str(x).split("\n")))
-
-    if len(untrackedaction) > 0:
-        if "yes" is query_yes_no_quit("execute add files commands?"):
-            for fp in untrackedaction:
-                cmd = "cd " + fp + "; git add * 2> /dev/null"
-                print("\033[91madding:", fp, "\033[0m")
-                os.system(cmd)
+standard_library.install_aliases()
 
 
 if __name__ == "__main__":
