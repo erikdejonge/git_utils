@@ -21,6 +21,10 @@ def main():
     gen_list = write_file = True
     githubfolder = os.path.expanduser("~") + "/workspace/github"
     set_projects = set()
+    excludes = []
+    if os.path.exists(os.path.expanduser("~") + "/workspace/.gitutilsexclude"):
+        excludes.extend([os.path.join(os.path.expanduser("~") + "/workspace", x.strip()) for x in open(os.path.expanduser("~") + "/workspace/.gitutilsexclude").read().split("\n") if x.strip()])
+
 
     if gen_list:
         lastroot = ""
@@ -37,26 +41,28 @@ def main():
     forks = set()
 
     for root, dirlist, files in os.walk(os.path.expanduser("~") + "/workspace"):
-        if not root.startswith(githubfolder) and root.endswith(".git"):
+        if not root.startswith(githubfolder) and root.endswith(".git") and not root in excludes:
             # for afile in files:
             #    print(afile)
             project_dir = root.strip("/.git/")
             project_base_folder = os.path.basename(os.path.dirname(project_dir))
-            if project_base_folder=="forks":
+            if project_base_folder == "forks":
                 project_name = os.path.basename(project_dir)
 
                 for project_name_iter in set_projects:
                     if project_name in project_name_iter:
                         forks.add(project_name_iter)
-
+        else:
+            print(root)
     for fork in forks:
         set_projects.remove(fork)
+
     set_projects.remove("documentation")
+
     if write_file:
         afile = open(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs", "wt")
 
         for projectname in set_projects:
-
             afile.write(str(projectname) + "\n")
 
         afile.close()
