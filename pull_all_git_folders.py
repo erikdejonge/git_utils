@@ -99,15 +99,15 @@ def main():
                     os.chdir(folder)
                     os.system("./merge.sh")
                     os.chdir(pwd)
-                # elif os.path.exists(os.path.join(folder, ".git")):
-                #     print("\033[33mPull:", folder.replace(ws, ""), "\033[0m")
-                #     p = subprocess.Popen(["/usr/local/bin/git", "pull"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder)
-                #     procs.append((folder, p))
-                # elif os.path.exists(os.path.join(folder, ".hg")):
-                #     print("\033[33mMercurial: " + folder.replace(ws, "") + "\033[0m")
-                #     p = subprocess.Popen(["/usr/local/bin/hg", "pull"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder)
-                #     p.wait()
-                #     check_result(folder, p)
+                elif os.path.exists(os.path.join(folder, ".git")):
+                    print("\033[33mPull:", folder.replace(ws, ""), "\033[0m")
+                    p = subprocess.Popen(["/usr/local/bin/git", "pull"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder)
+                    procs.append((folder, p))
+                elif os.path.exists(os.path.join(folder, ".hg")):
+                    print("\033[33mMercurial: " + folder.replace(ws, "") + "\033[0m")
+                    p = subprocess.Popen(["/usr/local/bin/hg", "pull"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder)
+                    p.wait()
+                    check_result(folder, p)
             else:
                 print("\033[95mmissing:", os.path.basename(folder), "\033[0m")
 
