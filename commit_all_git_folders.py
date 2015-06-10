@@ -95,9 +95,16 @@ def main():
         os.remove(dfp)
 
     dir_list = []
+    excludes = []
+    workspacefolder = os.path.join(os.path.expanduser("~"), "workspace")
 
-    for root, dirlist, file in os.walk(os.path.expanduser("~") + "/workspace"):
-        find_git_repos(dir_list, root, dirlist)
+    if os.path.exists(os.path.join(workspacefolder, ".gitutilsexclude")):
+        excludes.extend([os.path.join(workspacefolder, x.strip()) for x in open(os.path.join(workspacefolder, ".gitutilsexclude")).read().split("\n") if x.strip()])
+
+    wsfolders = [os.path.join(workspacefolder, folder) for folder in os.listdir(workspacefolder) if os.path.join(workspacefolder, folder) not in excludes]
+    for wsfolder in wsfolders:
+        for root, dirlist, file in os.walk(wsfolder):
+            find_git_repos(dir_list, root, dirlist)
 
     dir_list = [project_name for project_name in dir_list if "workspace/github" not in project_name]
     print("committing")
