@@ -96,7 +96,7 @@ def main():
 
     dir_list = []
     excludes = []
-    workspacefolder = os.path.join(os.path.expanduser("~"), "workspace")
+    workspacefolder = os.path.join(os.path.expanduser("~"), "workspace")    
 
     if os.path.exists(os.path.join(workspacefolder, ".gitutilsexclude")):
         excludes.extend([os.path.join(workspacefolder, x.strip()) for x in open(os.path.join(workspacefolder, ".gitutilsexclude")).read().split("\n") if x.strip()])
