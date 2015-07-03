@@ -23,7 +23,7 @@ def check_result(folder, p):
     @type p: str, unicode
     @return: None
     """
-    out, err = p.communicate(timeout=1)
+    out, err = p.communicate(timeout=30)
 
     if out:
         out = out.decode("utf-8")
@@ -37,12 +37,15 @@ def check_result(folder, p):
         if "Already up-to-date." not in out.strip() and "no changes found" not in out.strip():
             print("\033[32m", out, "\033[0m")
 
-    out += str(err)
-    if 0 != p.returncode:
-        print("\033[31mError in: " + folder + "\033[0m")
-        print("\033[37m" + out + "\033[0m")
+    try:
+        out += err
+        #raise
+        if 0 != p.returncode:
+            print("\033[31mError in: " + folder + "\033[0m")
+            print("\033[37m" + out + "\033[0m")
 
-
+    except TypeError:
+        print(err)
 def main():
     """
     main
