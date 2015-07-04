@@ -23,7 +23,7 @@ def check_result(folder, p):
     @type p: str, unicode
     @return: None
     """
-    out, err = p.communicate(timeout=1)
+    out, err = p.communicate(timeout=30 )
 
     if out:
         out = out.decode("utf-8")
