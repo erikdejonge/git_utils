@@ -9,10 +9,41 @@ from future import standard_library
 import os
 import sys
 
+from consoleprinter import console
+g_checkout = """
+
+# coding=utf-8
+\"\"\"
+recreate workspace
+\"\"\"
+import os
+from git import Repo
+def checkout_project(project):
+    \"\"\"
+    @type project: tuple
+    @return: None
+    \"\"\"
+    projdir, giturl = project
+    if not os.path.exists(os.path.join(projdir, ".git")):
+        os.makedirs(projdir)
+        print(Repo.clone_from(giturl, projdir).active_branch, "cloned")
+    else:
+        print(os.path.dirname(projdir), "ok")
+"""
+
+g_drive_main = """
+    for project in project_list:
+        checkout_project(project)
+if __name__ == "__main__":
+    main()
+"""
+
 
 def print_stdout(chara, cnt=0, moddiv=1):
     """
     @type chara: str
+    @type cnt: int
+    @type moddiv: int
     @return: None
     """
     cnt += 1
@@ -35,13 +66,25 @@ def main():
     workspacefolder = os.path.join(os.path.expanduser("~"), "workspace")
 
     if os.path.exists(os.path.join(workspacefolder, ".gitutilsexclude")):
-        excludes.extend([os.path.join(workspacefolder, x.strip()) for x in open(os.path.join(workspacefolder, ".gitutilsexclude")).read().split("\n") if x.strip()])
+        excludes.extend([os.path.join(workspacefolder, x.strip()) for x in
+                         open(os.path.join(workspacefolder, ".gitutilsexclude")).read().split("\n")
 
-    wsfolders = [os.path.join(workspacefolder, folder) for folder in os.listdir(workspacefolder) if os.path.join(workspacefolder, folder) not in excludes]
+                         if x.strip()])
+
+    wsfolders = [os.path.join(workspacefolder, folder) for folder in os.listdir(workspacefolder) if
+                 os.path.join(workspacefolder, folder) not in excludes]
+
+    new_projects = []
+
     for wsfolder in wsfolders:
         for root, dirlist, files in os.walk(wsfolder):
             if root.endswith(".git"):
                 print_stdout(".")
+
+                if os.path.exists(root + "/config"):
+                    config = open(root + "/config").read().split("url =")[1].split("\n")[0].strip()
+                    new_projects.append('("' + os.path.dirname(root) + '", "' + config + '")')
+
                 project_dir = root.strip("/.git/")
                 project_base_folder = os.path.basename(os.path.dirname(project_dir))
                 if project_base_folder == "forks":
@@ -61,7 +104,35 @@ def main():
             afile.write(str(projectname) + "\n")
 
         afile.close()
+
     print()
+    console(len(new_projects), "projects", color='blue', fileref=False)
+
+    if len(new_projects) > 0:
+        proj_list_imports = g_checkout + "\n\n"
+        proj_list_imports += "def main():\n    \"\"\"\n    main\n    \"\"\"\n"
+        proj_list_header = "    project_list = ["
+        numspaces = len(proj_list_header)
+        proj_list = ""
+        first = True
+        spaces = ""
+
+        for new_project in new_projects:
+            if first:
+                spaces = " " * numspaces
+
+            project = spaces + str(new_project) + ",\n"
+            project = project.replace("\", \"", "\",\n" + spaces + " \"")
+            proj_list += project
+            first = False
+
+        proj_list = proj_list.strip().strip(",")
+        proj_list += "]"
+        proj_list_imports = proj_list_imports.replace("import Repo", "import Repo\n\n")
+        proj_list_imports = proj_list_imports.replace("from git", "\nfrom git")
+        g_driver = g_drive_main.replace("if __name__", "\n\nif __name__")
+        output = proj_list_imports + proj_list_header + proj_list + "\n" + g_driver
+        open("current_workspace.py", "wt").write(output.strip()+"\n")
 
 standard_library.install_aliases()
 
