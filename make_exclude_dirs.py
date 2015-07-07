@@ -3,8 +3,10 @@
 """
 do not include the projects from the github directory for push
 """
-from __future__ import division, print_function, absolute_import, unicode_literals
-from future import standard_library
+import sys
+if (sys.version_info < (3, 0)):
+     print("python2 not supported")
+     exit(1)
 
 import os
 import sys
@@ -17,6 +19,7 @@ g_checkout = """
 recreate workspace
 \"\"\"
 import os
+from consoleprinter import console
 from git import Repo
 def checkout_project(project):
     \"\"\"
@@ -25,10 +28,11 @@ def checkout_project(project):
     \"\"\"
     projdir, giturl = project
     if not os.path.exists(os.path.join(projdir, ".git")):
+        console('pulling', giturl, color='orange', fileref=False)
         os.makedirs(projdir)
         print(Repo.clone_from(giturl, projdir).active_branch, "cloned")
     else:
-        print(os.path.dirname(projdir), "ok")
+        print(os.path.dirname(projdir)+"/"+os.path.basename(projdir), "ok")
 """
 
 g_drive_main = """
@@ -134,7 +138,6 @@ def main():
         output = proj_list_imports + proj_list_header + proj_list + "\n" + g_driver
         open("current_workspace.py", "wt").write(output.strip()+"\n")
 
-standard_library.install_aliases()
 
 
 if __name__ == "__main__":

@@ -3,6 +3,7 @@
 recreate workspace
 """
 import os
+from consoleprinter import console
 
 from git import Repo
 
@@ -14,10 +15,11 @@ def checkout_project(project):
     """
     projdir, giturl = project
     if not os.path.exists(os.path.join(projdir, ".git")):
+        console('pulling', giturl, color='orange', fileref=False)
         os.makedirs(projdir)
         print(Repo.clone_from(giturl, projdir).active_branch, "cloned")
     else:
-        print(os.path.dirname(projdir), "ok")
+        print(os.path.dirname(projdir)+"/"+os.path.basename(projdir), "ok")
 
 
 def main():
@@ -41,7 +43,7 @@ def main():
                     ("/Users/rabshakeh/workspace/cryptobox/crypto_data",
                      "ssh://faith.active8.nl/git/cryptobox/crypto_data.git"),
                     ("/Users/rabshakeh/workspace/cryptobox/crypto_tree",
-                     "ssh://faith.active8.nl/git/cryptobox/crypto_tree.git"),
+                     "faith.active8.nl:/git/cryptobox/crypto_tree.git"),
                     ("/Users/rabshakeh/workspace/cryptobox/cryptobox_app",
                      "git@github.com:erikdejonge/cryptobox_app.git"),
                     ("/Users/rabshakeh/workspace/cryptobox/cryptobox_containers",
