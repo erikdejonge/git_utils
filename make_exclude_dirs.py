@@ -37,7 +37,11 @@ def checkout_project(project):
 
 g_drive_main = """
     for project in project_list:
-        checkout_project(project)
+        try:
+            checkout_project(project)
+        except:
+            console("error",*project, color='red')
+
 if __name__ == "__main__":
     main()
 """
