@@ -115,7 +115,7 @@ def main():
             else:
                 print("\033[95mmissing:", os.path.basename(folder), "\033[0m")
 
-        if len(procs) > 16:
+        if len(procs) > 1:
             for folder, p in procs:
                 check_result(folder, p)
 
