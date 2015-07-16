@@ -25,8 +25,8 @@ def main():
     args, unknown = parser.parse_known_args()
 
     if args.message is None:
-        args.message = open(os.path.expanduser("~/cquote.txt")).read().strip() + "\n" + str(timestamp)
-
+        #args.message = open(os.path.expanduser("~/cquote.txt")).read().strip() + "\n" + str(timestamp)
+        args.message = timestamp
     excludes = []
 
     if os.path.exists(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs"):
