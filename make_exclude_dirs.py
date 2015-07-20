@@ -3,15 +3,15 @@
 """
 do not include the projects from the github directory for push
 """
-import sys
-if (sys.version_info < (3, 0)):
-     print("python2 not supported")
-     exit(1)
 
 import os
 import sys
 
-from consoleprinter import console
+from consoleprinter import console, require_python3
+
+
+
+
 g_checkout = """
 
 # coding=utf-8
@@ -67,6 +67,7 @@ def main():
     """
     main
     """
+    require_python3()
     forks = set()
     write_file = True
     projects_set = set()
