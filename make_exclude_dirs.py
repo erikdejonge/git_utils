@@ -141,7 +141,7 @@ def main():
         proj_list_imports = proj_list_imports.replace("from git", "\nfrom git")
         g_driver = g_drive_main.replace("if __name__", "\n\nif __name__")
         output = proj_list_imports + proj_list_header + proj_list + "\n" + g_driver
-        open("current_workspace.py", "wt").write(output.strip()+"\n")
+        open(os.path.expanduser("~/workspace/devenv_private/current_workspace.py"), "wt").write(output.strip()+"\n")
 
 
 
