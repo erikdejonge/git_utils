@@ -46,7 +46,8 @@ def main():
     """
     arguments = IArguments(__doc__)
     print(str(arguments))
-    #timestamp = datetime.datetime.now().strftime("%A %d %B %Y (week;%W day;%j), %H:%M:%S").replace(";0", ":").replace(";", ":")
+    timestamp = datetime.datetime.now().strftime("%A %d %B %Y (week;%W day;%j), %H:%M:%S").replace(";0", ":").replace(";", ":")
+    print(timestamp)
 
 if __name__ == "__main__":
     main()
