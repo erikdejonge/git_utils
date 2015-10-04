@@ -22,7 +22,7 @@ import sys
 import datetime
 
 from arguments import Arguments
-from consoleprinter import console
+from consoleprinter import console, query_yes_no
 
 if sys.version_info.major < 3:
     console("\033[31mpython3 is required\033[0m")
@@ -44,7 +44,7 @@ class IArguments(Arguments):
 
 def print_line(lines):
     """
-    @type line: str
+    @type lines: str
     @return: None
     """
     for line in lines.split("\n"):
@@ -70,37 +70,44 @@ def main():
     """
     arguments = IArguments(__doc__)
     timestamp = datetime.datetime.now().strftime("%A %d %B %Y (week;%W day;%j), %H:%M:%S").replace(";0", ":").replace(";", ":")
+
+    if not os.path.isdir(arguments.rootpath):
+        console(arguments.rootpath, " is not a folder", color="red")
+        return
+
     ld = os.listdir(arguments.rootpath)
     ld.append(os.path.basename(arguments.rootpath))
+    gitdirs = []
 
-    if arguments.gitcommand == "status":
-        not_git = []
+    for i in ld:
+        if i != os.path.basename(arguments.rootpath):
+            td = os.path.join(arguments.rootpath, i)
+        else:
+            td = os.path.join(os.path.dirname(arguments.rootpath), i)
 
-        for i in ld:
-            if i != os.path.basename(arguments.rootpath):
-                td = os.path.join(arguments.rootpath, i)
+        if os.path.isdir(td):
+            if td.lower().endswith(".git"):
+                gp = td
             else:
-                td = os.path.join(os.path.dirname(arguments.rootpath), i)
-
-            if os.path.isdir(td):
                 gp = os.path.join(td, os.path.join(".git"))
 
-                if not os.path.exists(os.path.join(gp)):
-                    not_git.append(os.path.dirname(gp))
-                else:
-                    result = os.popen("cd " + td + "&&git status ").read()
+            if os.path.exists(gp):
+                gitdirs.append(gp)
 
-                    if "modified" in result or "new file" in result or "untracked" in result:
-                        print("\n\033[91mchanged: " + os.path.dirname(gp), "\033[0m")
-                        print_line(result.strip())
+    if arguments.gitcommand == "status":
+        for gd in gitdirs:
+            result = os.popen("cd " + os.path.dirname(gd) + "&&git status ").read()
 
-        print("\033[33m{}\033[0m".format(timestamp))
+            if "modified" in result or "new file" in result or "untracked" in result:
+                print("\n\033[91mchanged: " + os.path.dirname(gd), "\033[0m")
+                print_line(str(result).strip())
+    elif arguments.gitcommand == "gitreset":
+        if query_yes_no("are you sure?"):
+            for gd in gitdirs:
+                os.system("cd " + os.path.dirname(gd) + "&&git reset --hard origin/master; git clean -f")
 
-        if len(not_git) > 0:
-            print("\n\033[31mNot git:\033[0m")
 
-        for p in not_git:
-            print("\033[31m", p, "\033[0m")
+    print("\033[33m{}\033[0m".format(timestamp))
 
 
 if __name__ == "__main__":
