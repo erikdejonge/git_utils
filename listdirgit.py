@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # coding=utf-8
 """
 Print git status for folder <input> and all it's subfolders
@@ -101,11 +102,15 @@ def main():
             if "modified" in result or "new file" in result or "untracked" in result:
                 print("\n\033[91mchanged: " + os.path.dirname(gd), "\033[0m")
                 print_line(str(result).strip())
+
     elif arguments.gitcommand == "gitreset":
         if query_yes_no("are you sure?"):
             for gd in gitdirs:
                 os.system("cd " + os.path.dirname(gd) + "&&git reset --hard origin/master; git clean -f")
+    elif arguments.gitcommand == "gconf":
 
+            for gd in gitdirs:
+                os.system("cd " + os.path.dirname(gd) + "&&git reset --hard origin/master; git clean -f")
 
     print("\033[33m{}\033[0m".format(timestamp))
 
