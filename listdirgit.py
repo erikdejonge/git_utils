@@ -76,24 +76,12 @@ def main():
         console(arguments.rootpath, " is not a folder", color="red")
         return
 
-    ld = os.listdir(arguments.rootpath)
-    ld.append(os.path.basename(arguments.rootpath))
     gitdirs = []
+    lg = os.walk(arguments.rootpath)
+    for i in lg:
 
-    for i in ld:
-        if i != os.path.basename(arguments.rootpath):
-            td = os.path.join(arguments.rootpath, i)
-        else:
-            td = os.path.join(os.path.dirname(arguments.rootpath), i)
-
-        if os.path.isdir(td):
-            if td.lower().endswith(".git"):
-                gp = td
-            else:
-                gp = os.path.join(td, os.path.join(".git"))
-
-            if os.path.exists(gp):
-                gitdirs.append(gp)
+        if i[0].lower().endswith(".git"):
+            gitdirs.append(i[0])
 
     if arguments.gitcommand == "status":
         for gd in gitdirs:
@@ -106,11 +94,16 @@ def main():
     elif arguments.gitcommand == "gitreset":
         if query_yes_no("are you sure?"):
             for gd in gitdirs:
+                print(gd)
                 os.system("cd " + os.path.dirname(gd) + "&&git reset --hard origin/master; git clean -f")
     elif arguments.gitcommand == "gconf":
 
             for gd in gitdirs:
-                os.system("cd " + os.path.dirname(gd) + "&&git reset --hard origin/master; git clean -f")
+                os.system("cd " + os.path.dirname(gd) + "&&git status")
+    elif arguments.gitcommand == "pull":
+
+            for gd in gitdirs:
+                os.system("cd " + os.path.dirname(gd) + "&&git pull")
 
     print("\033[33m{}\033[0m".format(timestamp))
 
