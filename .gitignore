@@ -1,3 +1,4 @@
+.DS_Store
 current_workspace.py
 exclude_dirs
 gitdirlist.pickle
