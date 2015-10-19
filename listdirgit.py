@@ -9,10 +9,12 @@ Usage:
 Options:
   -h --help     Show this screen.
   -r --recurse  Recurse the subfolders
+  -f --force    Force default answers
 
 Commands: status -> git status
-
+          gitreset -> git reset --hard origin/master; git clean -f
           commit -> git commit -m [timestamp]
+          gconf -> show git addres
 
 author  : rabshakeh (erik@a8.nl)
 project : git_utils
@@ -78,9 +80,10 @@ def main():
 
     gitdirs = []
     lg = os.walk(arguments.rootpath)
-    for i in lg:
 
+    for i in lg:
         if i[0].lower().endswith(".git"):
+            print(len(gitdirs), "items")
             gitdirs.append(i[0])
 
     if arguments.gitcommand == "status":
@@ -92,18 +95,18 @@ def main():
                 print_line(str(result).strip())
 
     elif arguments.gitcommand == "gitreset":
-        if query_yes_no("are you sure?"):
+        if query_yes_no("are you sure?", force=arguments.force):
             for gd in gitdirs:
                 print(gd)
                 os.system("cd " + os.path.dirname(gd) + "&&git reset --hard origin/master; git clean -f")
+
     elif arguments.gitcommand == "gconf":
+        for gd in gitdirs:
+            os.system("cd " + os.path.dirname(gd) + "&&gconf")
 
-            for gd in gitdirs:
-                os.system("cd " + os.path.dirname(gd) + "&&git status")
     elif arguments.gitcommand == "pull":
-
-            for gd in gitdirs:
-                os.system("cd " + os.path.dirname(gd) + "&&git pull")
+        for gd in gitdirs:
+            os.system("cd " + os.path.dirname(gd) + "&&git pull")
 
     print("\033[33m{}\033[0m".format(timestamp))
 
