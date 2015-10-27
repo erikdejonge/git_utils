@@ -12,8 +12,11 @@ Options:
   -f --force    Force default answers
 
 Commands: status -> git status
+
           gitreset -> git reset --hard origin/master; git clean -f
+
           commit -> git commit -m [timestamp]
+
           gconf -> show git addres
 
 author  : rabshakeh (erik@a8.nl)
@@ -88,6 +91,7 @@ def main():
 
     if arguments.gitcommand == "status":
         for gd in gitdirs:
+            print("\033[34m" + gd + "\033[0m")
             result = os.popen("cd " + os.path.dirname(gd) + "&&git status ").read()
 
             if "modified" in result or "new file" in result or "untracked" in result:
@@ -97,15 +101,17 @@ def main():
     elif arguments.gitcommand == "gitreset":
         if query_yes_no("are you sure?", force=arguments.force):
             for gd in gitdirs:
-                print(gd)
+                print("\033[34m" + gd + "\033[0m")
                 os.system("cd " + os.path.dirname(gd) + "&&git reset --hard origin/master; git clean -f")
 
     elif arguments.gitcommand == "gconf":
         for gd in gitdirs:
+            print("\033[34m" + gd + "\033[0m")
             os.system("cd " + os.path.dirname(gd) + "&&gconf")
 
     elif arguments.gitcommand == "pull":
         for gd in gitdirs:
+            print("\033[34m" + gd + "\033[0m")
             os.system("cd " + os.path.dirname(gd) + "&&git pull")
 
     print("\033[33m{}\033[0m".format(timestamp))
