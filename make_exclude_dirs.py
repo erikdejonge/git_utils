@@ -91,8 +91,12 @@ def main():
                 print_stdout(".")
 
                 if os.path.exists(root + "/config"):
-                    config = open(root + "/config").read().split("url =")[1].split("\n")[0].strip()
-                    new_projects.append('("' + os.path.dirname(root) + '", "' + config + '")')
+                    config = open(root + "/config").read()
+                    if len(config.split("url ="))==1:
+                        print("\nno url found", root)
+                    else:
+                        config = config.split("url =")[1].split("\n")[0].strip()
+                        new_projects.append('("' + os.path.dirname(root) + '", "' + config + '")')
 
                 project_dir = root.strip("/.git/")
                 project_base_folder = os.path.basename(os.path.dirname(project_dir))
