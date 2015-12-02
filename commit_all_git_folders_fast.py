@@ -24,12 +24,12 @@ def main():
     parser.add_argument("-m", "--message", dest="message", help="commit message", nargs='?')
     args, unknown = parser.parse_known_args()
 
-    if args.message is None:
-        #args.message = open(os.path.expanduser("~/cquote.txt")).read().strip() + "\n" + str(timestamp)
-        print("commit message: ")
-        args.message = input()
+    # if args.message is None:
+    #     #args.message = open(os.path.expanduser("~/cquote.txt")).read().strip() + "\n" + str(timestamp)
+    #     print("commit message: ")
+    #     args.message = input()
 
-    if args.message is '':
+    if args.message is '' or args.message is None:
         args.message = timestamp
 
     excludes = []
