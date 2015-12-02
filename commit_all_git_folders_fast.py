@@ -26,7 +26,12 @@ def main():
 
     if args.message is None:
         #args.message = open(os.path.expanduser("~/cquote.txt")).read().strip() + "\n" + str(timestamp)
+        print("commit message: ")
+        args.message = input()
+
+    if args.message is '':
         args.message = timestamp
+
     excludes = []
 
     if os.path.exists(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs"):
@@ -70,7 +75,7 @@ def main():
                     print()
                     print("\033[34mcommit "+os.path.basename(folder)+"\033[0m\n\033[37m"+str(output).strip()+"\033[0m")
 
-    print()   
+    print()
 
 
 if __name__ == "__main__":
