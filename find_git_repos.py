@@ -1,4 +1,4 @@
-:q# coding=utf-8
+# coding=utf-8
 # -*- coding: utf-8 -*-
 """ git checking script """
 from __future__ import print_function
