@@ -27,7 +27,7 @@ def main():
 
     for folder in dir_list:
         os.chdir(folder)
-        status = os.popen("git gc").read()
+        status = os.popen("git gc --aggressive --prune").read()
         print(status)
         os.chdir(currdir)
 
