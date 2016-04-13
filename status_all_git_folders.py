@@ -67,7 +67,7 @@ def check_branches(arg, currdir, dir_list, excludes, prstatus):
 
                         if "master" not in branch:
                             if foldername.strip() not in excludes and os.path.join(os.path.expanduser("~") + "/workspace", foldername.strip()) not in excludes:
-                                print("\033[31m--- attention: repos not checked out as master\n** " + foldername + " \033[34m" + branch.replace("*", "").strip() + "\033[31m**\n---\033[0m")
+                                print("\033[31m--- attention: repos not checked out as master\n** " + folder + " \033[34m" + branch.replace("*", "").strip() + "\033[31m**\n---\033[0m")
 
                 status = os.popen("git status").read()
                 report(arg, folder, prstatus, status, untrackedaction)
