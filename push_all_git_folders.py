@@ -157,7 +157,7 @@ def main():
                             p2 = subprocess.Popen(["/usr/local/bin/git", "push"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
                             procs.append((folder, p2))
 
-                            if len(procs) > 4 or (len(procs) == len(dir_list)):
+                            if len(procs) > 0 or (len(procs) == len(dir_list)):
                                 communicate_with(procs)
                             else:
                                 cnt += 1
