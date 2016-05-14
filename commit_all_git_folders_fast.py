@@ -60,6 +60,11 @@ def main():
     dir_list = [project_name for project_name in dir_list if "workspace/github" not in project_name]
     for folder in dir_list:
         if os.path.basename(folder) not in excludes:
+            if not os.path.exists(os.path.join(folder, ".git")):
+                print(".git folder removed?", os.path.join(folder, ".git"))
+                for x in excludes:
+                    print("\t", x)
+                raise SystemError()
             if os.path.exists(os.path.join(folder, ".git")):
 
                 p = subprocess.Popen(["/usr/local/bin/git", "commit", "-am",  msg], stdout=subprocess.PIPE, cwd=folder)
