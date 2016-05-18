@@ -26,8 +26,16 @@ def main():
     currdir = os.getcwd()
 
     for folder in dir_list:
+        if not os.path.exists(os.path.join(folder, ".git")):
+            print(".git folder removed?", os.path.join(folder, ".git"))
+            for folder in dir_list:
+                print(folder)
+            raise SystemError()
+
         os.chdir(folder)
-        status = os.popen("git gc --aggressive --prune").read()
+        status = os.popen("git repack -a -d").read()
+        #status = os.popen("git gc --aggressive --prune").read()
+
         print(status)
         os.chdir(currdir)
 
