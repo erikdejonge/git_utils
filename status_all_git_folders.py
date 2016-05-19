@@ -56,7 +56,7 @@ def check_branches(arg, currdir, dir_list, excludes, prstatus):
         if os.path.basename(folder) not in excludes:
             if os.path.exists(os.path.join(folder, ".git")):
                 os.chdir(folder)
-
+                print("folder", folder)
                 # os.system("git rm --cached -r .idea/")
                 for branch in os.popen("git branch").read().split("\n"):
                     if "*" in branch:
@@ -213,7 +213,7 @@ def main():
         currdir = os.popen("pwd").read().strip()
         dir_list = [os.path.join(currdir, x.lstrip("./")) for x in dir_list]
         pickle.dump(dir_list, open(dfp, "wb"))
-    print('currdir',currdir)
+
     dir_list = [project_name for project_name in dir_list if "workspace/github" not in project_name]
 
     untrackedaction = check_branches(arg, currdir, dir_list, excludes, prstatus)
