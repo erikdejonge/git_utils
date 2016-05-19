@@ -213,7 +213,7 @@ def main():
         currdir = os.popen("pwd").read().strip()
         dir_list = [os.path.join(currdir, x.lstrip("./")) for x in dir_list]
         pickle.dump(dir_list, open(dfp, "wb"))
-
+    print('currdir',currdir)
     dir_list = [project_name for project_name in dir_list if "workspace/github" not in project_name]
 
     untrackedaction = check_branches(arg, currdir, dir_list, excludes, prstatus)
