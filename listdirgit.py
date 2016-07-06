@@ -18,6 +18,7 @@ Commands: status -> git status
           commit -> git commit -m [timestamp]
 
           gconf -> show git addres
+          pull -> pull folder
 
 author  : rabshakeh (erik@a8.nl)
 project : git_utils
@@ -86,7 +87,9 @@ def main():
 
     for i in lg:
         if i[0].lower().endswith(".git"):
-            print(len(gitdirs), "items")
+            if len(gitdirs) % 20 == 0:
+                print(len(gitdirs), "items")
+
             gitdirs.append(i[0])
 
     if arguments.gitcommand == "status":
@@ -95,8 +98,13 @@ def main():
             result = os.popen("cd " + os.path.dirname(gd) + "&&git status ").read()
 
             if "modified" in result or "new file" in result or "untracked" in result:
-                print("\n\033[91mchanged: " + os.path.dirname(gd), "\033[0m")
+                print("\n\033[93mchanged: " + os.path.dirname(gd), "\033[0m")
                 print_line(str(result).strip())
+
+                if query_yes_no("Continue(y) or exit(n)?", force=arguments.force):
+                    pass
+                else:
+                    exit(1)
 
     elif arguments.gitcommand == "gitreset":
         if query_yes_no("are you sure?", force=arguments.force):
@@ -109,10 +117,25 @@ def main():
             print("\033[34m" + gd + "\033[0m")
             os.system("cd " + os.path.dirname(gd) + "&&gconf")
 
+    elif arguments.gitcommand == "commit":
+        for gd in gitdirs:
+            print("\033[34m" + gd + "\033[0m")
+            os.system("cd " + os.path.dirname(gd) + "&&git commit -am '-';")
+
     elif arguments.gitcommand == "pull":
         for gd in gitdirs:
             print("\033[34m" + gd + "\033[0m")
             os.system("cd " + os.path.dirname(gd) + "&&git pull")
+
+    elif arguments.gitcommand == "push":
+        for gd in gitdirs:
+            print("\033[34m" + gd + "\033[0m")
+            os.system("cd " + os.path.dirname(gd) + "&&git push")
+
+    elif arguments.gitcommand:
+        for gd in gitdirs:
+            print("\033[34m" + gd + "\033[0m")
+            os.system("cd " + os.path.dirname(gd) + "&&" + arguments.gitcommand)
 
     print("\033[33m{}\033[0m".format(timestamp))
 
