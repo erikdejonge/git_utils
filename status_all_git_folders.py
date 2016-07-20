@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#/Users/rabshakeh/.pyenv/versions/3.5.2/bin/python
 # coding=utf-8
 """
 Checks all gitfolders and optionally add new items
