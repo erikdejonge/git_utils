@@ -7,7 +7,8 @@ do not include the projects from the github directory for push
 import os
 import sys
 
-from consoleprinter import console, require_python3
+from consoleprinter import console
+from consoleprinter import require_python3
 
 
 
@@ -19,6 +20,7 @@ g_checkout = """
 recreate workspace
 \"\"\"
 import os
+
 from consoleprinter import console
 from git import Repo
 def checkout_project(project):
@@ -75,13 +77,9 @@ def main():
     workspacefolder = os.path.join(os.path.expanduser("~"), "workspace")
 
     if os.path.exists(os.path.join(workspacefolder, ".gitutilsexclude")):
-        excludes.extend([os.path.join(workspacefolder, x.strip()) for x in
-                         open(os.path.join(workspacefolder, ".gitutilsexclude")).read().split("\n")
+        excludes.extend([os.path.join(workspacefolder, x.strip()) for x in open(os.path.join(workspacefolder, ".gitutilsexclude")).read().split("\n") if x.strip()])
 
-                         if x.strip()])
-
-    wsfolders = [os.path.join(workspacefolder, folder) for folder in os.listdir(workspacefolder) if
-                 os.path.join(workspacefolder, folder) not in excludes]
+    wsfolders = [os.path.join(workspacefolder, folder) for folder in os.listdir(workspacefolder) if os.path.join(workspacefolder, folder) not in excludes]
 
     new_projects = []
 
@@ -109,7 +107,6 @@ def main():
 
     for fork in forks:
         projects_set.remove(fork)
-
     if write_file:
         afile = open(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs", "wt")
 
