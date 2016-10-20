@@ -116,11 +116,17 @@ def main():
         afile = open(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs", "wt")
 
         for projectname in projects_set:
-            print(projectname)
+
             afile.write(str(projectname) + "\n")
 
         afile.close()
-
+    new_projects = [project_name for project_name in new_projects if "workspace/github" not in project_name]
+    new_projects2 = []
+    for d in new_projects:
+        if eval(d)[0] not in excludes:
+            new_projects2.append(d)
+    print
+    new_projects=new_projects2
     print()
     console(len(new_projects), "projects", color='blue', fileref=False)
 

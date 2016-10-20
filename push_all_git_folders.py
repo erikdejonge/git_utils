@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
 # coding=utf-8
 """ git checking script """
-from __future__ import division, print_function, absolute_import, unicode_literals
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+from __future__ import unicode_literals
 from future import standard_library
 
 import os
-import sys
 import pickle
 import subprocess
+import sys
 
 
 def communicate_with(procs):
@@ -30,7 +33,8 @@ def communicate_with(procs):
         if 0 != p[1].returncode:
             prstatus = [""]
             print_status(se, prstatus)
-
+            if "failed to push some refs to" in se:
+                os.system("cd "+p[0]+"&&git pull")
             # print("\033[37m" + str(se.strip()) + str(output.strip()) + "\033[0m")
         else:
             output = se.strip()
@@ -164,6 +168,7 @@ def main():
                         else:
                             if "nothing to commit" not in output:
                                 print_status(output, prstatus)
+
 
                     except BaseException as e:
                         print("\033[37m", e, "\033[0m")
