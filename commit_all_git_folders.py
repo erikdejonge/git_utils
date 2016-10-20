@@ -4,7 +4,10 @@
 git checking script
 """
 
-from __future__ import absolute_import, division, print_function, unicode_literals
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+from __future__ import unicode_literals
 
 from future import standard_library
 
@@ -109,7 +112,14 @@ def main():
             find_git_repos(dir_list, root, dirlist)
 
     dir_list = [project_name for project_name in dir_list if "workspace/github" not in project_name]
+    dir_list2 = []
+    for d in dir_list:
+        if d not in excludes:
+            dir_list2.append(d)
+    print
+    dir_list=dir_list2
     print("committing")
+
     pickle.dump(dir_list, open(dfp, "wb"))
 
     for folder in dir_list:

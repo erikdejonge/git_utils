@@ -81,36 +81,42 @@ def main():
 
     wsfolders = [os.path.join(workspacefolder, folder) for folder in os.listdir(workspacefolder) if os.path.join(workspacefolder, folder) not in excludes]
 
+    print(len(wsfolders))
+
     new_projects = []
 
     for wsfolder in wsfolders:
         for root, dirlist, files in os.walk(wsfolder):
-            if root.endswith(".git"):
-                print_stdout(".")
 
-                if os.path.exists(root + "/config"):
-                    config = open(root + "/config").read()
-                    if len(config.split("url ="))==1:
-                        print("\nno url found", root)
-                    else:
-                        config = config.split("url =")[1].split("\n")[0].strip()
-                        new_projects.append('("' + os.path.dirname(root) + '", "' + config + '")')
+                if root.endswith(".git"):
+                    print_stdout(".")
 
-                project_dir = root.strip("/.git/")
-                project_base_folder = os.path.basename(os.path.dirname(project_dir))
-                if project_base_folder == "forks":
-                    project_name = os.path.basename(project_dir)
+                    if os.path.exists(root + "/config"):
+                        config = open(root + "/config").read()
+                        if len(config.split("url ="))==1:
+                            print("\nno url found", root)
+                        else:
+                            config = config.split("url =")[1].split("\n")[0].strip()
+                            if root.strip("/.git") not in excludes:
+                                new_projects.append('("' + os.path.dirname(root) + '", "' + config + '")')
 
-                    for project_name_iter in projects_set:
-                        if project_name in project_name_iter:
-                            forks.add(project_name_iter)
+                    project_dir = root.strip("/.git/")
+                    project_base_folder = os.path.basename(os.path.dirname(project_dir))
+                    if project_base_folder == "forks":
+                        project_name = os.path.basename(project_dir)
+
+                        for project_name_iter in projects_set:
+                            if project_name in project_name_iter:
+                                forks.add(project_name_iter)
 
     for fork in forks:
         projects_set.remove(fork)
+
     if write_file:
         afile = open(os.path.expanduser("~") + "/workspace/git_utils/exclude_dirs", "wt")
 
         for projectname in projects_set:
+            print(projectname)
             afile.write(str(projectname) + "\n")
 
         afile.close()
