@@ -129,6 +129,7 @@ def main():
             if os.path.exists(os.path.join(folder, ".git")):
                 p = subprocess.Popen(["/usr/local/bin/git", "commit", "-am", msg], stdout=subprocess.PIPE, cwd=folder)
                 p.communicate()
+                p.wait()
 
     if not fcheck:
         print()
