@@ -67,7 +67,7 @@ def main():
                 raise SystemError()
             if os.path.exists(os.path.join(folder, ".git")):
 
-                p = subprocess.Popen(["/usr/local/bin/git", "commit", "-am",  msg], stdout=subprocess.PIPE, cwd=folder)
+                p = subprocess.Popen(["/usr/bin/git", "commit", "-am",  msg], stdout=subprocess.PIPE, cwd=folder)
                 output, se = p.communicate()
                 if output:
                     output = output.decode("utf-8")
