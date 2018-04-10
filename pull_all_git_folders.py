@@ -14,7 +14,7 @@ import pickle
 
 from optparse import OptionParser
 findcnt = 0
-
+from sh import which
 
 def check_result(folder, p):
     """
@@ -50,6 +50,9 @@ def main():
     """
     main
     """
+    gitcmd = which('git')
+
+
     parser = OptionParser()
     parser.add_option("-i", "--ignoregithub", help="Ignore paths with github in it", action="store_true")
     parser.add_option("-f", "--folder", help="Startfolder", default='-')
@@ -86,7 +89,7 @@ def main():
     for folder in dir_list:
         if folder in resetgits:
             print("\033[33mReset:", folder.replace(ws, ""), "\033[0m")
-            p = subprocess.Popen(["/usr/local/bin/git", "reset", "--hard", "origin/master"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder)
+            p = subprocess.Popen([gitcmd, "reset", "--hard", "origin/master"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder)
             out, err = p.communicate()
 
             if out:
@@ -115,7 +118,7 @@ def main():
                     os.chdir(pwd)
                 elif os.path.exists(os.path.join(folder, ".git")):
                     print("\033[33mPull:", folder.replace(ws, ""), "\033[0m")
-                    p = subprocess.Popen(["/usr/local/bin/git", "pull"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder)
+                    p = subprocess.Popen([gitcmd, "pull"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=folder)
                     procs.append((folder, p))
                 elif os.path.exists(os.path.join(folder, ".hg")):
                     print("\033[33mMercurial: " + folder.replace(ws, "") + "\033[0m")
