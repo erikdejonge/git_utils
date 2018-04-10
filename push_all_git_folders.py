@@ -11,7 +11,7 @@ import os
 import pickle
 import subprocess
 import sys
-
+from sh import which
 
 def communicate_with(procs):
 	"""
@@ -106,10 +106,8 @@ def read_excludes():
 
 def main():
 	""" check all folders and pull all from the server """
-	p = subprocess.Popen("which git", stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
-	gitcmd, se = p.communicate()
-	print(gitcmd)
-	return	
+	gitcmd = which('git')
+
 	excludes = read_excludes()
 
 	if os.path.exists(os.path.expanduser("~") + "/workspace/.gitutilsexclude"):
