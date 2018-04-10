@@ -163,6 +163,7 @@ def main():
 							p2 = subprocess.Popen([gitcmd, "push"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
 							procs.append((folder, p2))
 
+<<<<<<< HEAD
 							if len(procs) > 0 or (len(procs) == len(dir_list)):
 								communicate_with(procs)
 							else:
@@ -170,6 +171,15 @@ def main():
 						else:
 							if "nothing to commit" not in output:
 								print_status(output, prstatus)
+=======
+                            if len(procs) > 8 or (len(procs) == len(dir_list)):
+                                communicate_with(procs)
+                            else:
+                                cnt += 1
+                        else:
+                            if "nothing to commit" not in output:
+                                print_status(output, prstatus)
+>>>>>>> f8bedc3ac71e87fef1560209d66b91c21e0df2f7
 
 
 					except BaseException as e:
