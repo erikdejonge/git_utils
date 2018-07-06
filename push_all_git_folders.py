@@ -160,7 +160,7 @@ def main():
 					try:
 						if "Your branch is ahead" in output or "have diverged" in output:
 							print("\033[33mpush " + folder + "\033[0m")
-							p2 = subprocess.Popen([gitcmd, "push"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
+							p2 = subprocess.Popen([gitcmd, "push -v"], stderr=subprocess.PIPE, stdout=subprocess.PIPE, cwd=folder)
 							procs.append((folder, p2))
 							if len(procs) > 0 or (len(procs) == len(dir_list)):
 								communicate_with(procs)
