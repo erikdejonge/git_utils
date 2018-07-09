@@ -107,7 +107,7 @@ def handle_new_items(arg, untrackedaction):
         if not arg.newonly and arg.list is False:
             if query_yes_no("execute add files commands?", force=arg.force):
                 for filepointer in untrackedaction:
-                    cmd = "cd " + filepointer + "; git add * 2> /dev/null"
+                    cmd = "cd " + filepointer + "; git add -v *"
                     print("\033[91madding:", filepointer, "\033[0m")
                     os.system(cmd)
 
