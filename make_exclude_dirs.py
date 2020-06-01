@@ -65,6 +65,34 @@ def print_stdout(chara, cnt=0, moddiv=1):
     return cnt
 
 
+def handle_new_projects(new_projects):
+    if len(new_projects) > 0:
+        proj_list_imports = g_checkout + "\n\n"
+        proj_list_imports += "def main():\n    \"\"\"\n    main\n    \"\"\"\n"
+        proj_list_header = "    project_list = ["
+        numspaces = len(proj_list_header)
+        proj_list = ""
+        first = True
+        spaces = ""
+
+        for new_project in new_projects:
+            if first:
+                spaces = " " * numspaces
+
+            project = spaces + str(new_project) + ",\n"
+            project = project.replace("\", \"", "\",\n" + spaces + " \"")
+            proj_list += project
+            first = False
+
+        proj_list = proj_list.strip().strip(",")
+        proj_list += "]"
+        proj_list_imports = proj_list_imports.replace("import Repo", "import Repo\n\n")
+        proj_list_imports = proj_list_imports.replace("from git", "\nfrom git")
+        g_driver = g_drive_main.replace("if __name__", "\n\nif __name__")
+        output = proj_list_imports + proj_list_header + proj_list + "\n" + g_driver
+        open(os.path.expanduser("~/workspace/devenv_private/current_workspace.py"), "wt").write(output.strip() + "\n")
+
+
 def main():
     """
     main
@@ -130,31 +158,7 @@ def main():
     print()
     console(len(new_projects), "projects", color='blue', fileref=False)
 
-    if len(new_projects) > 0:
-        proj_list_imports = g_checkout + "\n\n"
-        proj_list_imports += "def main():\n    \"\"\"\n    main\n    \"\"\"\n"
-        proj_list_header = "    project_list = ["
-        numspaces = len(proj_list_header)
-        proj_list = ""
-        first = True
-        spaces = ""
-
-        for new_project in new_projects:
-            if first:
-                spaces = " " * numspaces
-
-            project = spaces + str(new_project) + ",\n"
-            project = project.replace("\", \"", "\",\n" + spaces + " \"")
-            proj_list += project
-            first = False
-
-        proj_list = proj_list.strip().strip(",")
-        proj_list += "]"
-        proj_list_imports = proj_list_imports.replace("import Repo", "import Repo\n\n")
-        proj_list_imports = proj_list_imports.replace("from git", "\nfrom git")
-        g_driver = g_drive_main.replace("if __name__", "\n\nif __name__")
-        output = proj_list_imports + proj_list_header + proj_list + "\n" + g_driver
-        open(os.path.expanduser("~/workspace/devenv_private/current_workspace.py"), "wt").write(output.strip()+"\n")
+    handle_new_projects(new_projects)
 
 
 
