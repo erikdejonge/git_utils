@@ -29,7 +29,7 @@ def main():
     #     print("commit message: ")
     #     args.message = input()
 
-    if args.message is '' or args.message is None:
+    if args.message == '' or args.message == None:
         args.message = timestamp
 
     excludes = []
