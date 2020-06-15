@@ -107,6 +107,7 @@ def main():
     if os.path.exists(os.path.join(workspacefolder, ".gitutilsexclude")):
         excludes.extend([os.path.join(workspacefolder, x.strip()) for x in open(os.path.join(workspacefolder, ".gitutilsexclude")).read().split("\n") if x.strip()])
 
+
     wsfolders = [os.path.join(workspacefolder, folder) for folder in os.listdir(workspacefolder) if os.path.join(workspacefolder, folder) not in excludes]
 
     print(len(wsfolders))
